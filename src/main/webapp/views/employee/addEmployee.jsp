@@ -41,7 +41,7 @@
 </div>
 
 <div class="container-button">
-    <input class="button" type=button onClick="location.href='/DB_Supermarket_war_exploded/'" value='Повернутися на головну сторінку'>
+    <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну сторінку'>
 </div>
 
 </body>

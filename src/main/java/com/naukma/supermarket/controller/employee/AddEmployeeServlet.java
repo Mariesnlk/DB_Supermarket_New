@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 @WebServlet(name = "AddEmployeeServlet", urlPatterns = {"/add-employee"})
 public class AddEmployeeServlet extends HttpServlet {
@@ -33,15 +35,30 @@ public class AddEmployeeServlet extends HttpServlet {
         String patronymicName = request.getParameter("patronymicName");
         String role = request.getParameter("role");
         double salary = Double.parseDouble(request.getParameter("salary"));
-        Date birthDate = Date.valueOf(request.getParameter("birthDate"));
+
+
+        // Date birthDate = Date.valueOf(request.getParameter("birthDate"));
+        String availableBirthDate = request.getParameter("birthDate");
+
+        SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd");
+        java.util.Date d = null; //converted String to date in the desired format
+        try {
+            d = new SimpleDateFormat("yyyy-MM-dd").parse(availableBirthDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        java.sql.Date d1 = new java.sql.Date(d.getTime());//formatted to java.sql.date format to store in database
+
         Date startDate = Date.valueOf(request.getParameter("startDate"));
+
         String phoneNum = request.getParameter("phoneNum");
         String city = request.getParameter("city");
         String street = request.getParameter("street");
         String zipCode = request.getParameter("zipCode");
 
 
-        Employee employee = new Employee(id, lastName, firstName, patronymicName, role, salary, birthDate, startDate,
+        Employee employee = new Employee(id, lastName, firstName, patronymicName, role, salary, d1, startDate,
                 phoneNum, city, street, zipCode);
 
 //        if (firstName.length() > 0 && lastName.length() > 0 ) {

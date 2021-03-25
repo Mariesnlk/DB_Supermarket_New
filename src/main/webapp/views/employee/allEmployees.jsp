@@ -13,9 +13,9 @@
 </div>
 <br>
 <div>
-    <input class="button" type=button onClick="location.href='/DB_Supermarket_war_exploded/'" value='Повернутися на головну'>
+    <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
 
-    <input class="button" type=button onClick="location.href='/DB_Supermarket_war_exploded/add-employee'" value='Додати Працівника'>
+    <input class="button" type=button onClick="location.href='/add-employee'" value='Додати Працівника'>
 </div>
 <br>
 <br>
@@ -86,9 +86,9 @@
 <br>
 
 <div>
-    <input class="button" type=button onClick="location.href='/DB_Supermarket_war_exploded/'" value='Повернутися на головну'>
+    <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
 
-    <input class="button" type=button onClick="location.href='/DB_Supermarket_war_exploded/add-employee'" value='Додати Працівника'>
+    <input class="button" type=button onClick="location.href='/add-employee'" value='Додати Працівника'>
 </div>
 
 </body>
