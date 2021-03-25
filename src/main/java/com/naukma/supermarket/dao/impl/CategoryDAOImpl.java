@@ -21,7 +21,6 @@ public class CategoryDAOImpl implements CategoryDAO {
         PreparedStatement ps = null;
 
         try {
-           // Integer idCategory = category.getCategory_number();
             String categoryName = category.getCategory_name();
 
             String query = "INSERT INTO db_supermarket.category(category_name) VALUES(?)";
@@ -30,7 +29,6 @@ public class CategoryDAOImpl implements CategoryDAO {
 
             LOG.debug("Executed query" + query);
 
-           // ps.setInt(1, idCategory);
             ps.setString(1, categoryName);
 
             ps.executeUpdate();
@@ -62,7 +60,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
         try {
 
-            String query = "SELECT * FROM category WHERE category_number = ?";
+            String query = "SELECT * FROM db_supermarket.category WHERE category_number = ?";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
@@ -75,7 +73,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
                 String categoryName = rs.getString("category_name");
 
-                category = new Category(categoryName);
+                category = new Category(id, categoryName);
             }
 
         } catch (Exception e) {
@@ -104,7 +102,7 @@ public class CategoryDAOImpl implements CategoryDAO {
         ResultSet rs = null;
         try {
 
-            String query = "SELECT * FROM category";
+            String query = "SELECT * FROM db_supermarket.category";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
@@ -147,7 +145,7 @@ public class CategoryDAOImpl implements CategoryDAO {
             ;
 
             String query =
-                    "UPDATE category SET category_name  = '" + newCategoryName +
+                    "UPDATE db_supermarket.category SET category_name  = '" + newCategoryName +
                             "' WHERE category_number = ?";
 
             ps = connection.prepareStatement(query);
@@ -185,7 +183,7 @@ public class CategoryDAOImpl implements CategoryDAO {
         try {
             Integer id = category.getCategory_number();
 
-            String query = "DELETE FROM category WHERE category_number = ?";
+            String query = "DELETE FROM db_supermarket.category WHERE category_number = ?";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);

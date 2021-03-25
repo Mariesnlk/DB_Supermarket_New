@@ -12,7 +12,7 @@
 <%--%>--%>
 
 <div>
-    <input class="button" type=button onClick="location.href='/DB_Supermarket_New_war_exploded/add-employee'"
+    <input class="button" type=button onClick="location.href='/add-employee'"
            value='Додати працівника'>
 </div>
 

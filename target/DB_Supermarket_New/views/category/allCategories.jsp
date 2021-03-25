@@ -12,9 +12,9 @@
 </div>
 <br>
 <div>
-    <input class="button" type=button onClick="location.href='/DB_Supermarket_war_exploded/'" value='Повернутися на головну'>
+    <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
 
-    <input class="button" type=button onClick="location.href='/DB_Supermarket_war_exploded/add-category'" value='Додати Категорію'>
+    <input class="button" type=button onClick="location.href='/add-category'" value='Додати Категорію'>
 </div>
 <br>
 <br>
@@ -38,13 +38,13 @@
             <%
                 for (Category category : categories) {
                     out.println("<tr>");
-                    out.println("<td><a href=\"/DB_Supermarket_war_exploded/category?id=" + category.getCategory_number() + "\">"
+                    out.println("<td><a href=\"/category?id=" + category.getCategory_number() + "\">"
                             + category.getCategory_number() + "</a></td>");
                     out.println("<td>" + category.getCategory_name() + "</td>");
 
-                    out.println("<td><a href=\"/DB_Supermarket_war_exploded/update-category?id=" + category.getCategory_number()
+                    out.println("<td><a href=\"/update-category?id=" + category.getCategory_number()
                             + "\">Обновити</a></td>");
-                    out.println("<td><a href=\"/DB_Supermarket_war_exploded/delete-category?id=" + category.getCategory_number()
+                    out.println("<td><a href=\"/delete-category?id=" + category.getCategory_number()
                             + "\">Видалити</a></td>");
                     out.println("</tr>");
                 }

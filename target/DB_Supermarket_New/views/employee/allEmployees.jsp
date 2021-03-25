@@ -13,9 +13,9 @@
 </div>
 <br>
 <div>
-    <input class="button" type=button onClick="location.href='/DB_Supermarket_war_exploded/'" value='Повернутися на головну'>
+    <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
 
-    <input class="button" type=button onClick="location.href='/DB_Supermarket_war_exploded/add-employee'" value='Додати Працівника'>
+    <input class="button" type=button onClick="location.href='/add-employee'" value='Додати Працівника'>
 </div>
 <br>
 <br>
@@ -49,7 +49,7 @@
             <%
                 for (Employee employee : employees) {
                     out.println("<tr>");
-                    out.println("<td><a href=\"/DB_Supermarket_war_exploded/employee?id=" + employee.getId_employee() + "\">"
+                    out.println("<td><a href=\"/employee?id=" + employee.getId_employee() + "\">"
                             + employee.getId_employee() + "</a></td>");
                     out.println("<td>" + employee.getEmpl_surname() + "</td>");
                     out.println("<td>" + employee.getEmpl_name() + "</td>");
@@ -63,9 +63,9 @@
                     out.println("<td>" + employee.getStreet() + "</td>");
                     out.println("<td>" + employee.getZip_code()+ "</td>");
 
-                    out.println("<td><a href=\"/DB_Supermarket_war_exploded/update-employee?id=" + employee.getId_employee()
+                    out.println("<td><a href=\"/update-employee?id=" + employee.getId_employee()
                             + "\">Обновити</a></td>");
-                    out.println("<td><a href=\"/DB_Supermarket_war_exploded/delete-employee?id=" + employee.getId_employee()
+                    out.println("<td><a href=\"/delete-employee?id=" + employee.getId_employee()
                             + "\">Видалити</a></td>");
                     out.println("</tr>");
                 }
@@ -86,9 +86,9 @@
 <br>
 
 <div>
-    <input class="button" type=button onClick="location.href='/DB_Supermarket_war_exploded/'" value='Повернутися на головну'>
+    <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
 
-    <input class="button" type=button onClick="location.href='/DB_Supermarket_war_exploded/add-employee'" value='Додати Працівника'>
+    <input class="button" type=button onClick="location.href='/add-employee'" value='Додати Працівника'>
 </div>
 
 </body>

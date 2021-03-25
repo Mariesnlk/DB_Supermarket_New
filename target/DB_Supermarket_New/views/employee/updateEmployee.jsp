@@ -1,5 +1,4 @@
-<%@ page
-        import="com.naukma.supermarket.model.Employee" %><%--<%@ page import="com.mariia.syne.taxi_service.model.User" %>--%>
+<%@ page import="com.naukma.supermarket.model.Employee" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -121,7 +120,8 @@
     </div>
 </div>
 
-<input class="button" type=button onClick="location.href='/DB_Supermarket_war_exploded/employees'" value='Всі працівники'>
+<input class="button" type=button onClick="location.href='/employees'"
+       value='Всі працівники'>
 
 </body>
 </html>

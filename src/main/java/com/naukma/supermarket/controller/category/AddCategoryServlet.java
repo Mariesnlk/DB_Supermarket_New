@@ -27,9 +27,7 @@ public class AddCategoryServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //id is needed??
-        String name = request.getParameter("category_name");
-
+        String name = request.getParameter("categoryName");
 
         Category category = new Category(name);
 

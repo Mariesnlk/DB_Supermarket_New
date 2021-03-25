@@ -38,7 +38,7 @@
 </div>
 <br>
 
-<input class="button" type=button onClick="location.href='/DB_Supermarket_war_exploded/categories'" value='Всі категорії'>
+<input class="button" type=button onClick="location.href='/categories'" value='Всі категорії'>
 
 </body>
 </html>
