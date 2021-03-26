@@ -5,8 +5,7 @@ public class Category {
     private Integer category_number;
     private String category_name;
 
-    public Category() {
-    }
+    public Category() { }
 
     public Category(String category_name) {
         this.category_name = category_name;
@@ -16,7 +15,6 @@ public class Category {
         this.category_name = category_name;
         this.category_name = category_name;
     }
-
 
     public Integer getCategory_number() {
         return category_number;

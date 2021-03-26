@@ -127,7 +127,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public List<Employee> findAll() {
-
         List<Employee> employeeList = new ArrayList<>();
 
         DBHelper objectDBHelper = new DBHelper();
@@ -180,7 +179,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public void update(Employee employee) {
-
         DBHelper objectDBHelper = new DBHelper();
         Connection connection = objectDBHelper.getConnection();
 

@@ -17,8 +17,7 @@ public class Employee {
     private String street;
     private String zip_code;
 
-    public Employee() {
-    }
+    public Employee() { }
 
     public Employee(String empl_surname, String empl_name, String empl_patronymic, String role, double salary,
                     Date date_of_birth, Date date_of_start, String phone_number, String city, String street, String zip_code) {
