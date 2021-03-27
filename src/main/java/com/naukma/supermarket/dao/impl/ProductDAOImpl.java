@@ -24,6 +24,7 @@ public class ProductDAOImpl implements ProductDAO {
         PreparedStatement ps = null;
 
         try {
+//            Integer idProduct = product.getId_product();
             Integer categoryNum = product.getCategory_number();
             String productName = product.getProduct_name();
             String characterstcs = product.getCharacteristics();
@@ -34,6 +35,7 @@ public class ProductDAOImpl implements ProductDAO {
 
             LOG.debug("Executed query" + query);
 
+//            ps.setInt(1, idProduct);
             ps.setInt(1, categoryNum);
             ps.setString(2, productName);
             ps.setString(3, characterstcs);

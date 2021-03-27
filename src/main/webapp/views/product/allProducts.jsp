@@ -32,7 +32,6 @@
                 <th>Номер Категорії</th>
                 <th>Назва Продукту</th>
                 <th>Характеристика</th>
-
             </tr>
             </thead>
             <tbody>
@@ -48,7 +47,7 @@
                     out.println("<td>" + product.getCharacteristics() + "</td>");
 
                     out.println("<td><a href=\"/update-product?id=" + product.getId_product()
-                            + "\">Оновити</a></td>");
+                            + "\">Обновити</a></td>");
                     out.println("<td><a href=\"/delete-product?id=" + product.getId_product()
                             + "\">Видалити</a></td>");
                     out.println("</tr>");
