@@ -22,7 +22,7 @@
                     <td>Номер:</td>
                     <td>
                         <%
-                            out.println("<input type=\"text\" name=\"category_number\" value=\"" + categoryToUpdate.getCategory_number() + "\">");
+                            out.println("<input type=\"text\" name=\"category_number\" value=\"" + categoryToUpdate.getCategory_number() + "\" hidden>");
                         %>
                     </td>
                 </tr>

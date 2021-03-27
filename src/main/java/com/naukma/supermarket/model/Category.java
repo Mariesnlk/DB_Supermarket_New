@@ -12,7 +12,7 @@ public class Category {
     }
 
     public Category(Integer category_number, String category_name) {
-        this.category_name = category_name;
+        this.category_number = category_number;
         this.category_name = category_name;
     }
 
