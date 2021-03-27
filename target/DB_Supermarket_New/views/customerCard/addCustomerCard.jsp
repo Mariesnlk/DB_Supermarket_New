@@ -16,7 +16,7 @@
 
     <div>
         <form action="/add-customerCard" method="post">
-            <label>Номер картки: </label> <input type="text" name="cardNum" placeholder="Введіть номер картки клієнта.."><br/>
+            <label>Номер картки: </label> <input type="text" name="cardNum" placeholder="Номер картки клієнта.."><br/>
             <label>Прізвище: </label> <input type="text" name="custSurname" placeholder="Введіть ваше прізвище.."><br/>
             <label>Ім`я: </label><input type="text" name="custName" placeholder="Введіть ваше ім`я.."><br/>
             <label>По-батькові: </label><input type="text" name="custPatronymic" placeholder="Введіть ваше по-батькові.."><br/>

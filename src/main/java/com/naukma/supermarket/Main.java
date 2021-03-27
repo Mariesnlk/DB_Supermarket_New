@@ -2,10 +2,13 @@ package com.naukma.supermarket;
 
 
 import com.naukma.supermarket.dao.impl.CategoryDAOImpl;
+import com.naukma.supermarket.dao.impl.CustomerCardDAOImpl;
 import com.naukma.supermarket.dao.impl.EmployeeDAOImpl;
 import com.naukma.supermarket.dao.interf.CategoryDAO;
+import com.naukma.supermarket.dao.interf.CustomerCardDAO;
 import com.naukma.supermarket.dao.interf.EmployeeDAO;
 import com.naukma.supermarket.model.Category;
+import com.naukma.supermarket.model.CustomerCard;
 import com.naukma.supermarket.model.Employee;
 
 import java.util.List;
@@ -20,15 +23,13 @@ public class Main {
 //        employeeDAO.create(employee);
 
         CategoryDAO categoryDAO = new CategoryDAOImpl();
-//        Category category = new Category("fruits");
-//        categoryDAO.create(category);
-
         List<Category> allCategories = categoryDAO.findAll();
         System.out.println("categories: " + allCategories);
 
-//        UserDAO employeeDAO = new UserDAOImpl();
-//        List<User> allUsers = employeeDAO.findAll();
-//        System.out.println("users" + allUsers);
+//        CustomerCardDAO customerCardDAO = new CustomerCardDAOImpl();
+//        CustomerCard customerCard = new CustomerCard("3", "fghjk", "dfghjk", "dfghjk",
+//                "066-440-48-06", "DFGHGFDF", "DFGFG", "02002", 10);
+//        customerCardDAO.create(customerCard);
 
 
     }
