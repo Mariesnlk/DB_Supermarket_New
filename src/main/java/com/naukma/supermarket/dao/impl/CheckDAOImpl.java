@@ -33,8 +33,8 @@ public class CheckDAOImpl implements CheckDAO {
             Double sumTotal = check.getSum_total();
             Double vat = check.getVat();
 
-            //
-            String query = "INSERT INTO db_supermarket.product(product_name) VALUES(?)";
+            String query = "INSERT INTO db_supermarket.check(check_number, id_employee, card_number, print_date, " +
+                    "sum_total, vat ) VALUES(?, ?, ?, ?, ?, ?)";
 
             ps = connection.prepareStatement(query);
 
@@ -44,8 +44,8 @@ public class CheckDAOImpl implements CheckDAO {
             ps.setString(2, idEmployee);
             ps.setString(3, cardNumber);
             ps.setDate(4, printDate);
-            ps.setDouble(3, sumTotal);
-            ps.setDouble(4, vat);
+            ps.setDouble(5, sumTotal);
+            ps.setDouble(6, vat);
 
             ps.executeUpdate();
 
@@ -76,8 +76,7 @@ public class CheckDAOImpl implements CheckDAO {
 
         try {
 
-            //
-            String query = "SELECT * FROM db_supermarket.product WHERE id_product = ?";
+            String query = "SELECT * FROM db_supermarket.check WHERE id= ?";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
@@ -124,7 +123,7 @@ public class CheckDAOImpl implements CheckDAO {
         try {
 
             //
-            String query = "SELECT * FROM db_supermarket.product";
+            String query = "SELECT * FROM db_supermarket.check";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
@@ -174,10 +173,11 @@ public class CheckDAOImpl implements CheckDAO {
             Double newSumTotal = check.getSum_total();
             Double newVat = check.getVat();
 
-            //
             String query =
-                    "UPDATE db_supermarket.product SET product_name  = '" + //newProductName +
-                            "' WHERE id_product = ?";
+                    "UPDATE db_supermarket.check SET check_number  = '" + newCheckNumber + "', id_employee = '" + newIdEmployee + "', " +
+                            "card_number = '" + newCardNumber + "', " + "print_date = '" + newPrintDate +
+                            "'," + "sum_total = '" + newSumTotal + "', " + "vat = '" + newVat +
+                            "' WHERE id = ?";
 
             ps = connection.prepareStatement(query);
 
@@ -214,8 +214,7 @@ public class CheckDAOImpl implements CheckDAO {
         try {
             String checkNum = check.getCheck_number();
 
-            //
-            String query = "DELETE FROM db_supermarket.product WHERE id_product = ?";
+            String query = "DELETE FROM db_supermarket.check WHERE id = ?";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);

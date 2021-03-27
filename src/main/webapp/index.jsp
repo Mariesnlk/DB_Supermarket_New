@@ -52,6 +52,17 @@
            value='Всі карти клієнтів'>
 </div>
 
+<br>
+<div>
+    <input class="button" type=button onClick="location.href='/add-check'"
+           value='Додати карту клієнта'>
+</div>
+
+<div>
+    <input class="button" type=button onClick="location.href='/checks'"
+           value='Всі карти клієнтів'>
+</div>
+
 <%--<div>--%>
 <%--  <input class="button" type=button onClick="location.href='/add-user'" value='Реєстрація'>--%>
 <%--</div>--%>
