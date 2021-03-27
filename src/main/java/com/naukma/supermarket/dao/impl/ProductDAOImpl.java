@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-// new
 public class ProductDAOImpl implements ProductDAO {
 
     private static final Logger LOG = Logger.getLogger(ProductDAOImpl.class);
@@ -25,21 +24,21 @@ public class ProductDAOImpl implements ProductDAO {
         PreparedStatement ps = null;
 
         try {
-            Integer idProduct = product.getId_product();
+//            Integer idProduct = product.getId_product();
             Integer categoryNum = product.getCategory_number();
             String productName = product.getProduct_name();
             String characterstcs = product.getCharacteristics();
 
-            String query = "INSERT INTO db_supermarket.product(product_name) VALUES(?)";
+            String query = "INSERT INTO db_supermarket.product(category_number, product_name, characteristics) VALUES(?, ?, ?)";
 
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
 
-            ps.setInt(1, idProduct);
-            ps.setInt(2, categoryNum);
-            ps.setString(3, productName);
-            ps.setString(4, characterstcs);
+//            ps.setInt(1, idProduct);
+            ps.setInt(1, categoryNum);
+            ps.setString(2, productName);
+            ps.setString(3, characterstcs);
 
             ps.executeUpdate();
 
@@ -160,7 +159,8 @@ public class ProductDAOImpl implements ProductDAO {
             String newCharacterstcs = product.getCharacteristics();
 
             String query =
-                    "UPDATE db_supermarket.product SET product_name  = '" + newProductName +
+                    "UPDATE db_supermarket.product SET category_number  = '" + newCategoryNum + "', product_name = '" +
+                            newProductName + "', " + "characteristics = '" + newCharacterstcs +
                             "' WHERE id_product = ?";
 
             ps = connection.prepareStatement(query);

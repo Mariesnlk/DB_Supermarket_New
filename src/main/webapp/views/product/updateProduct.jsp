@@ -18,14 +18,14 @@
 
         <form method="post">
             <table id="table">
-                <tr>
-                    <td>ID продукту:</td>
-                    <td>
-                        <%
-                            out.println("<input type=\"text\" name=\"id_product\" value=\"" + productToUpdate.getId_product() + "\">");
-                        %>
-                    </td>
-                </tr>
+<%--                <tr>--%>
+<%--                    <td>ID продукту:</td>--%>
+<%--                    <td>--%>
+<%--                        <%--%>
+<%--                            out.println("<input type=\"text\" name=\"id\" value=\"" + productToUpdate.getId_product() + "\" hidden>");--%>
+<%--                        %>--%>
+<%--                    </td>--%>
+<%--                </tr>--%>
                 <tr>
                     <td>Номер категорії:</td>
                     <td>

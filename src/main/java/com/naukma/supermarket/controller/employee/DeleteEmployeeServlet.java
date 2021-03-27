@@ -23,7 +23,7 @@ public class DeleteEmployeeServlet extends HttpServlet {
     }
 
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String idEmployee = request.getParameter("id_employee");
+        String idEmployee = request.getParameter("id");
 
         EmployeeService employeeService = new EmployeeServiceImpl();
         Employee employeeToDelete = employeeService.findById(idEmployee);

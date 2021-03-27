@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-// new
 @WebServlet(name = "AddProductServlet", urlPatterns = {"/add-product"})
 public class AddProductServlet extends HttpServlet {
 
@@ -27,12 +26,12 @@ public class AddProductServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Integer id_product = Integer.parseInt(request.getParameter("idProd"));
+//        Integer id_product = Integer.parseInt(request.getParameter("idProd"));
         Integer category_number = Integer.parseInt(request.getParameter("categoryProd"));
         String product_name = request.getParameter("nameProd");
         String characteristics = request.getParameter("charsProd");
 
-        Product product = new Product(id_product, category_number, product_name, characteristics);
+        Product product = new Product(category_number, product_name, characteristics);
 
 //        if (firstName.length() > 0 && lastName.length() > 0 ) {
 //        //if (firstName.length() > 0 && lastName.length() > 0 && FieldsValidator.isCorrectWord(firstName) && FieldsValidator.isCorrectWord(firstName)) {

@@ -22,7 +22,7 @@ public class GetEmployeeByIdServlet extends HttpServlet {
 
         EmployeeService employeeService = new EmployeeServiceImpl();
 
-        String idEmployee = request.getParameter("id_employee");
+        String idEmployee = request.getParameter("id");
         Employee employee = employeeService.findById(idEmployee);
         request.setAttribute("employee", employee);
 

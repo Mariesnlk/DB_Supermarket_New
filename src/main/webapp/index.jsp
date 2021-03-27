@@ -33,12 +33,12 @@
 <br>
 <div>
     <input class="button" type=button onClick="location.href='/add-product'"
-           value='Додати категорію'>
+           value='Додати продукт'>
 </div>
 
 <div>
     <input class="button" type=button onClick="location.href='/products'"
-           value='Всі категорії'>
+           value='Всі продукти'>
 </div>
 
 

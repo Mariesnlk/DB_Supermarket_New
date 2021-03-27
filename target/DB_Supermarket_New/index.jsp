@@ -30,6 +30,16 @@
     <input class="button" type=button onClick="location.href='/categories'"
            value='Всі категорії'>
 </div>
+<br>
+<div>
+    <input class="button" type=button onClick="location.href='/add-product'"
+           value='Додати продукт'>
+</div>
+
+<div>
+    <input class="button" type=button onClick="location.href='/products'"
+           value='Всі продукти'>
+</div>
 
 
 <%--<div>--%>

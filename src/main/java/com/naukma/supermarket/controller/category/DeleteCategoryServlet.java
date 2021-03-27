@@ -27,7 +27,7 @@ public class DeleteCategoryServlet extends HttpServlet {
     }
 
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Integer idCategory = Integer.parseInt(request.getParameter("category_number"));
+        Integer idCategory = Integer.parseInt(request.getParameter("id"));
 
         CategoryService categoryService = new CategoryServiceImpl();
         Category categoryToDelete = categoryService.findById(idCategory);

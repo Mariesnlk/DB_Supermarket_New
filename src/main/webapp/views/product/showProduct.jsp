@@ -32,6 +32,8 @@
                         out.println(product.getCategory_number());
                     %>
                 </td>
+            </tr>
+            <tr>
                 <td>Назва продукту:</td>
                 <td>
                     <%
