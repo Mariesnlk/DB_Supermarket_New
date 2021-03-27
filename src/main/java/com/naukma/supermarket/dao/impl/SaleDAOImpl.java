@@ -30,8 +30,8 @@ public class SaleDAOImpl implements SaleDAO {
             Integer productNumber = sale.getProduct_number();
             Double sellingPrice = sale.getSelling_price();
 
-            //
-            String query = "INSERT INTO db_supermarket.product(product_name) VALUES(?)";
+            String query = "INSERT INTO db_supermarket.sale(UPC, check_number, product_number," +
+                    " selling_price) VALUES(?, ?, ?, ?)";
 
             ps = connection.prepareStatement(query);
 
@@ -71,8 +71,7 @@ public class SaleDAOImpl implements SaleDAO {
 
         try {
 
-            //
-            String query = "SELECT * FROM db_supermarket.product WHERE id_product = ?";
+            String query = "SELECT * FROM db_supermarket.sale WHERE UPC = ?";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
@@ -116,8 +115,7 @@ public class SaleDAOImpl implements SaleDAO {
         ResultSet rs = null;
         try {
 
-            //
-            String query = "SELECT * FROM db_supermarket.product";
+            String query = "SELECT * FROM db_supermarket.sale";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
@@ -163,10 +161,12 @@ public class SaleDAOImpl implements SaleDAO {
             Integer newProductNumber = sale.getProduct_number();
             Double newSellingPrice = sale.getSelling_price();
 
-            //
             String query =
-                    "UPDATE db_supermarket.product SET product_name  = '" + //newProductName +
-                            "' WHERE id_product = ?";
+                    "UPDATE db_supermarket.sale SET UPC = '" + newUPC +
+                            "', check_number = '" + newCheckNumber + "', " +
+                            "product_number = '" + newProductNumber + "', " +
+                            "selling_price = '" + newSellingPrice +
+                            "' WHERE UPC = ?";
 
             ps = connection.prepareStatement(query);
 
@@ -203,8 +203,7 @@ public class SaleDAOImpl implements SaleDAO {
         try {
             String upc = sale.getUPC();
 
-            //
-            String query = "DELETE FROM db_supermarket.product WHERE id_product = ?";
+            String query = "DELETE FROM db_supermarket.sale WHERE UPC = ?";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);

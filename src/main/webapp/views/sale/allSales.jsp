@@ -45,9 +45,9 @@
                     out.println("<td>" + sale.getProduct_number() + "</td>");
                     out.println("<td>" + sale.getSelling_price() + "</td>");
 
-                    out.println("<td><a href=\"/update-check?upc=" + sale.getUPC()
+                    out.println("<td><a href=\"/update-sale?upc=" + sale.getUPC()
                             + "\">Оновити</a></td>");
-                    out.println("<td><a href=\"/delete-check?upc=" + sale.getUPC()
+                    out.println("<td><a href=\"/delete-sale?upc=" + sale.getUPC()
                             + "\">Видалити</a></td>");
                     out.println("</tr>");
                 }
