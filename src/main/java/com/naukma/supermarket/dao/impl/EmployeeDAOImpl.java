@@ -240,14 +240,14 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
         PreparedStatement ps = null;
         try {
-            String id_employee = employee.getId_employee();
+            String idEmployee = employee.getId_employee();
 
             String query = "DELETE FROM employee WHERE id_employee = ?";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
 
-            ps.setString(1, id_employee);
+            ps.setString(1, idEmployee);
 
             //System.out.println(ps);
             changedRowsNumber = ps.executeUpdate();

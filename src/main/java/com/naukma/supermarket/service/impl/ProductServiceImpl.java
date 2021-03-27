@@ -39,7 +39,7 @@ public class ProductServiceImpl implements ProductService {
     public boolean delete(Product product) {
         ProductDAO productDAO = new ProductDAOImpl();
         boolean result = productDAO.delete(product);
-        //System.out.println("Delete user: " + result);
+        //System.out.println("Delete product: " + result);
         return result;
     }
 }

@@ -40,7 +40,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public boolean delete(Employee employee) {
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
         boolean result = employeeDAO.delete(employee);
-        //System.out.println("Delete user: " + result);
+        //System.out.println("Delete employee: " + result);
         return result;
     }
 
