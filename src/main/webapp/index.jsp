@@ -18,7 +18,7 @@
 
 <div>
     <input class="button" type=button onClick="location.href='/employees'"
-           value='Всі працівникі'>
+           value='Всі працівники'>
 </div>
 <br>
 <div>

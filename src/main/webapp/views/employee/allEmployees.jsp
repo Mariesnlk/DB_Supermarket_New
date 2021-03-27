@@ -64,7 +64,7 @@
                     out.println("<td>" + employee.getZip_code()+ "</td>");
 
                     out.println("<td><a href=\"/update-employee?id=" + employee.getId_employee()
-                            + "\">Обновити</a></td>");
+                            + "\">Оновити</a></td>");
                     out.println("<td><a href=\"/delete-employee?id=" + employee.getId_employee()
                             + "\">Видалити</a></td>");
                     out.println("</tr>");
