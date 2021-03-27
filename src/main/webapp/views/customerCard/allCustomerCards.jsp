@@ -29,18 +29,15 @@
         <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
             <thead>
             <tr>
-                <th>ID</th>
+                <th>Номер картки</th>
                 <th>Прізвище</th>
-                <th>Ім'я</th>
+                <th>Ім`я</th>
                 <th>По-батькові</th>
-                <th>Роль</th>
-                <th>Зарплата</th>
-                <th>Дата народження</th>
-                <th>Дата початку роботи</th>
                 <th>Номер телефону</th>
                 <th>Місто</th>
                 <th>Вулиця</th>
                 <th>Індекс</th>
+                <th>Відсоток знижки</th>
             </tr>
             </thead>
             <tbody>

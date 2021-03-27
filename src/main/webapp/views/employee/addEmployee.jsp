@@ -36,7 +36,7 @@
             <label>Дата початку роботи: </label><input type="date" name="startDate" value="2021-03-22"><br/>
             <label for="phoneNum">Номер телефону (формат: +xxx-xxx-xx-xx): </label>
             <%--  should start with + and consists not more than 13 symbols --%>
-            <input id="phoneNum" name="phoneNum" type="tel" pattern="^\+?d{3}-\d{3}-\d{2}-\d{2}$" required><br/>
+            <input id="phoneNum" name="phoneNum" type="tel" pattern="^\d{3}-\d{3}-\d{2}-\d{2}$" required><br/>
             <%--  added regex --%>
             <label>Місто: </label><input type="text" name="city" placeholder="Введіть місто.."><br/>
             <%--  added regex --%>

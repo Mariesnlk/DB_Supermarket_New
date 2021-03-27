@@ -41,6 +41,16 @@
            value='Всі продукти'>
 </div>
 
+<br>
+<div>
+    <input class="button" type=button onClick="location.href='/add-customerCard'"
+           value='Додати карту клієнта'>
+</div>
+
+<div>
+    <input class="button" type=button onClick="location.href='/customerCards'"
+           value='Всі карти клієнтів'>
+</div>
 
 <%--<div>--%>
 <%--  <input class="button" type=button onClick="location.href='/add-user'" value='Реєстрація'>--%>
