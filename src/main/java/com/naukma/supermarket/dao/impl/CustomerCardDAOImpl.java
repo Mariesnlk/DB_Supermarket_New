@@ -35,8 +35,8 @@ public class CustomerCardDAOImpl implements CustomerCardDAO {
             String zipCode = customer.getZip_code();
             Integer percent = customer.getPercent();
 
-            //
-            String query = "INSERT INTO db_supermarket.product(product_name) VALUES(?)";
+            String query = "INSERT INTO db_supermarket.customerCard(card_number, cust_surname, cust_name, cust_patronymic," +
+                    "phone_number, city, street, zip_code, percent) VALUES(?,?,?,?,?,?,?,?,?)";
 
             ps = connection.prepareStatement(query);
 
@@ -81,8 +81,7 @@ public class CustomerCardDAOImpl implements CustomerCardDAO {
 
         try {
 
-            //
-            String query = "SELECT * FROM db_supermarket.product WHERE id_product = ?";
+            String query = "SELECT * FROM db_supermarket.customerCard WHERE card_number = ?";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
@@ -118,7 +117,8 @@ public class CustomerCardDAOImpl implements CustomerCardDAO {
                 }
             }
         }
-        return customer;
+        return
+        customer;
     }
 
     @Override
@@ -132,8 +132,7 @@ public class CustomerCardDAOImpl implements CustomerCardDAO {
         ResultSet rs = null;
         try {
 
-            //
-            String query = "SELECT * FROM db_supermarket.product";
+            String query = "SELECT * FROM db_supermarket.customerCard";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
@@ -190,10 +189,11 @@ public class CustomerCardDAOImpl implements CustomerCardDAO {
             String newZipCode = customer.getZip_code();
             Integer newPercent = customer.getPercent();
 
-            //
             String query =
-                    "UPDATE db_supermarket.product SET product_name  = '" + //newProductName +
-                            "' WHERE id_product = ?";
+                    "UPDATE db_supermarket.customerCard SET cust_surname  = '" + newCustSurname + "', cust_name = '" + newCustName +
+                            "', " + "cust_patronymic = '" + newCustPatronymic + "', " + "phone_number = '" + newPhoneNumber +
+                            "', " + "city = '" + newCity + "', " + "street = '" + newStreet + "', " + "zip_code = '" + newZipCode +
+                            "', " + "percent = '" + newPercent + "' WHERE card_number = ?";
 
             ps = connection.prepareStatement(query);
 
@@ -230,8 +230,7 @@ public class CustomerCardDAOImpl implements CustomerCardDAO {
         try {
             String cardNumber = customer.getCard_number();
 
-            //
-            String query = "DELETE FROM db_supermarket.product WHERE id_product = ?";
+            String query = "DELETE FROM db_supermarket.customerCard WHERE card_number = ?";
 
             ps = connection.prepareStatement(query);
 
@@ -262,4 +261,3 @@ public class CustomerCardDAOImpl implements CustomerCardDAO {
         return result;
     }
 }
-
