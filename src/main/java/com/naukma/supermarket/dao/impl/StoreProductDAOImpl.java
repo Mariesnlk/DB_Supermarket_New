@@ -31,8 +31,9 @@ public class StoreProductDAOImpl implements StoreProductDAO {
             Integer productsNumber = product.getProducts_number();
             Boolean promotionalProduct = product.getPromotional_product();
 
-            //
-            String query = "INSERT INTO db_supermarket.product(product_name) VALUES(?)";
+            String query = "INSERT INTO db_supermarket.store_product(UPC, UPC_prom, id_product, selling_price," +
+                    "products_number, promotional_product) VALUES(?,?,?,?,?,?)";
+
 
             ps = connection.prepareStatement(query);
 
@@ -74,8 +75,7 @@ public class StoreProductDAOImpl implements StoreProductDAO {
 
         try {
 
-            //
-            String query = "SELECT * FROM db_supermarket.product WHERE id_product = ?";
+            String query = "SELECT * FROM db_supermarket.store_product WHERE UPC = ?";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
@@ -121,8 +121,7 @@ public class StoreProductDAOImpl implements StoreProductDAO {
         ResultSet rs = null;
         try {
 
-            //
-            String query = "SELECT * FROM db_supermarket.product";
+            String query = "SELECT * FROM db_supermarket.store_product";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
@@ -172,10 +171,11 @@ public class StoreProductDAOImpl implements StoreProductDAO {
             Integer newProductsNumber = product.getProducts_number();
             Boolean newPromotionalProduct = product.getPromotional_product();
 
-            //
             String query =
-                    "UPDATE db_supermarket.product SET product_name  = '" + //newProductName +
-                            "' WHERE id_product = ?";
+                    "UPDATE db_supermarket.store_product SET UPC = '" + newUpc + "', UPC_prom = '" + newUPCprom + "', " +
+                            "id_product = '" + newIdProduct + "', " + "selling_price = '" + newSellingPrice +
+                            "'," + "products_number = '" + newProductsNumber + "', " + "promotional_product = '" + newPromotionalProduct +
+                            "' WHERE UPC = ?";
 
             ps = connection.prepareStatement(query);
 
@@ -212,8 +212,7 @@ public class StoreProductDAOImpl implements StoreProductDAO {
         try {
             String upc = product.getUPC();
 
-            //
-            String query = "DELETE FROM db_supermarket.product WHERE id_product = ?";
+            String query = "DELETE FROM db_supermarket.store_product WHERE UPC = ?";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
