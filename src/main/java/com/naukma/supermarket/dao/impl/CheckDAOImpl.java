@@ -34,7 +34,7 @@ public class CheckDAOImpl implements CheckDAO {
             Double vat = check.getVat();
 
             String query = "INSERT INTO db_supermarket.check(check_number, id_employee, card_number, print_date, " +
-                    "sum_total, vat ) VALUES(?, ?, ?, ?, ?, ?)";
+                    "sum_total, vat) VALUES(?, ?, ?, ?, ?, ?)";
 
             ps = connection.prepareStatement(query);
 
@@ -76,7 +76,7 @@ public class CheckDAOImpl implements CheckDAO {
 
         try {
 
-            String query = "SELECT * FROM db_supermarket.check WHERE id= ?";
+            String query = "SELECT * FROM db_supermarket.check WHERE check_number = ?";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
@@ -122,7 +122,6 @@ public class CheckDAOImpl implements CheckDAO {
         ResultSet rs = null;
         try {
 
-            //
             String query = "SELECT * FROM db_supermarket.check";
             ps = connection.prepareStatement(query);
 
@@ -177,7 +176,7 @@ public class CheckDAOImpl implements CheckDAO {
                     "UPDATE db_supermarket.check SET check_number  = '" + newCheckNumber + "', id_employee = '" + newIdEmployee + "', " +
                             "card_number = '" + newCardNumber + "', " + "print_date = '" + newPrintDate +
                             "'," + "sum_total = '" + newSumTotal + "', " + "vat = '" + newVat +
-                            "' WHERE id = ?";
+                            "' WHERE check_number = ?";
 
             ps = connection.prepareStatement(query);
 
@@ -214,7 +213,7 @@ public class CheckDAOImpl implements CheckDAO {
         try {
             String checkNum = check.getCheck_number();
 
-            String query = "DELETE FROM db_supermarket.check WHERE id = ?";
+            String query = "DELETE FROM db_supermarket.check WHERE check_number = ?";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
