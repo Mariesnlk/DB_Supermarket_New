@@ -74,6 +74,28 @@
            value='Всі акції'>
 </div>
 
+<br>
+<div>
+    <input class="button" type=button onClick="location.href='/add-check'"
+           value='Додати чек'>
+</div>
+
+<div>
+    <input class="button" type=button onClick="location.href='/checks'"
+           value='Всі чеки'>
+</div>
+
+<br>
+<div>
+    <input class="button" type=button onClick="location.href='/add-storeProduct'"
+           value='Додати товар в магазині'>
+</div>
+
+<div>
+    <input class="button" type=button onClick="location.href='/storeProducts'"
+           value='Всі товари в магазині'>
+</div>
+
 <%--<div>--%>
 <%--  <input class="button" type=button onClick="location.href='/add-user'" value='Реєстрація'>--%>
 <%--</div>--%>

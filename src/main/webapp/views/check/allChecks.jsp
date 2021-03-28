@@ -43,7 +43,7 @@
             <%
                 for (Check check : checks) {
                     out.println("<tr>");
-                    out.println("<td><a href=\"/check?id=" + check.getCheck_number() + "\">"
+                    out.println("<td><a href=\"/check?checkNumber=" + check.getCheck_number() + "\">"
                             + check.getId_employee() + "</a></td>");
                     out.println("<td>" + check.getId_employee() + "</td>");
                     out.println("<td>" + check.getCard_number() + "</td>");
@@ -51,9 +51,9 @@
                     out.println("<td>" + check.getSum_total() + "</td>");
                     out.println("<td>" + check.getVat() + "</td>");
 
-                    out.println("<td><a href=\"/update-check?id=" + check.getCheck_number()
+                    out.println("<td><a href=\"/update-check?checkNumber=" + check.getCheck_number()
                             + "\">Оновити</a></td>");
-                    out.println("<td><a href=\"/delete-check?id=" + check.getCheck_number()
+                    out.println("<td><a href=\"/delete-check?checkNumber=" + check.getCheck_number()
                             + "\">Видалити</a></td>");
                     out.println("</tr>");
                 }
@@ -75,7 +75,6 @@
 
 <div>
     <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
-
     <input class="button" type=button onClick="location.href='/add-check'" value='Додати чек'>
 </div>
 
