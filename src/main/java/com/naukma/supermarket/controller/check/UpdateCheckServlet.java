@@ -16,16 +16,24 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-@WebServlet(name = "AddCheckServlet", urlPatterns = {"/add-check"})
-public class AddCheckServlet extends HttpServlet {
+@WebServlet(name = "UpdateCheckServlet", urlPatterns = {"/update-check"})
+public class UpdateCheckServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(com.naukma.supermarket.controller
-            .check.AddCheckServlet.class);
+    private final Logger LOGGER = Logger.getLogger(com.naukma.supermarket
+            .controller.check.UpdateCheckServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/check/addCheck.jsp");
+
+        CheckService saleService = new CheckServiceImpl();
+
+        String checkNumber = request.getParameter("checkNumber");
+        Check check = saleService.findById(checkNumber);
+        request.setAttribute("checkToUpdate", check);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/check/updateCheck.jsp");
         LOGGER.info("doGet process");
         requestDispatcher.forward(request, response);
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,31 +41,16 @@ public class AddCheckServlet extends HttpServlet {
         String checkNumber = request.getParameter("checkNumber");
         String idEmployee = request.getParameter("idEmployee");
         String cardNumber = request.getParameter("cardNumber");
-
-        String availablePrintDate = request.getParameter("printDate");
-        SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd");
-        java.util.Date d = null;
-        try {
-            d = new SimpleDateFormat("yyyy-MM-dd").parse(availablePrintDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        java.sql.Date printDate = new java.sql.Date(d.getTime());
-
+        Date printDate = Date.valueOf(request.getParameter("printDate"));
         Double sumTotal = Double.parseDouble(request.getParameter("sumTotal"));
         Double vat = Double.parseDouble(request.getParameter("vat"));
 
-        Check check = new Check(checkNumber, idEmployee, cardNumber, printDate, sumTotal, vat);
+        Check updateCheck = new Check(checkNumber, idEmployee, cardNumber, printDate, sumTotal, vat);
 
-//        if (firstName.length() > 0 && lastName.length() > 0 ) {
-//        //if (firstName.length() > 0 && lastName.length() > 0 && FieldsValidator.isCorrectWord(firstName) && FieldsValidator.isCorrectWord(firstName)) {
         CheckService checkService = new CheckServiceImpl();
-        checkService.create(check);
 
-//        request.setAttribute("lastName", lastName);
-//        }
-        LOGGER.info("doPost process");
-        doGet(request, response);
+        checkService.update(updateCheck);
+
+        response.sendRedirect("/checks");
     }
-
 }
