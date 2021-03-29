@@ -1,18 +1,9 @@
 package com.naukma.supermarket;
 
 
-import com.naukma.supermarket.dao.impl.CategoryDAOImpl;
-import com.naukma.supermarket.dao.impl.CheckDAOImpl;
-import com.naukma.supermarket.dao.impl.CustomerCardDAOImpl;
-import com.naukma.supermarket.dao.impl.EmployeeDAOImpl;
-import com.naukma.supermarket.dao.interf.CategoryDAO;
-import com.naukma.supermarket.dao.interf.CheckDAO;
-import com.naukma.supermarket.dao.interf.CustomerCardDAO;
-import com.naukma.supermarket.dao.interf.EmployeeDAO;
-import com.naukma.supermarket.model.Category;
-import com.naukma.supermarket.model.Check;
-import com.naukma.supermarket.model.CustomerCard;
-import com.naukma.supermarket.model.Employee;
+import com.naukma.supermarket.dao.impl.*;
+import com.naukma.supermarket.dao.interf.*;
+import com.naukma.supermarket.model.*;
 
 import java.util.List;
 import java.sql.Date;
@@ -29,11 +20,20 @@ public class Main {
 //        CategoryDAO categoryDAO = new CategoryDAOImpl();
 //        List<Category> allCategories = categoryDAO.findAll();
 //        System.out.println("categories: " + allCategories);
+//
+//        CheckDAO customerCardDAO = new CheckDAOImpl();
+//        Check customerCard = new Check("3", "fghjk", "DFGHGFDF",
+//                new Date(2020-10-15), 22.0, 10.0);
+//        customerCardDAO.create(customerCard);
 
-        CheckDAO customerCardDAO = new CheckDAOImpl();
-        Check customerCard = new Check("3", "fghjk", "DFGHGFDF",
-                new Date(2020-10-15), 22.0, 10.0);
-        customerCardDAO.create(customerCard);
+//        StoreProductDAO storeProductDAO = new StoreProductDAOImpl();
+//        StoreProduct storeProduct = new StoreProduct("1", "1", 1, 29.99, 50, false);
+//        storeProductDAO.update(storeProduct);
+
+        CheckDAO checkDAO = new CheckDAOImpl();
+        Check check = new Check("1", "1", "1",  new Date(2020-10-15),
+                33.4, 0.2);
+        checkDAO.update(check);
 
 
     }

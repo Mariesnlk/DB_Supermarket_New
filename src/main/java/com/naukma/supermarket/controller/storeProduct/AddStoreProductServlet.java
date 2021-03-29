@@ -16,8 +16,7 @@ import java.io.IOException;
 @WebServlet(name = "AddStoreProductServlet", urlPatterns = {"/add-storeProduct"})
 public class AddStoreProductServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(com.naukma.supermarket.controller
-            .storeProduct.AddStoreProductServlet.class);
+    private final Logger LOGGER = Logger.getLogger(AddStoreProductServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/storeProduct/addStoreProduct.jsp");

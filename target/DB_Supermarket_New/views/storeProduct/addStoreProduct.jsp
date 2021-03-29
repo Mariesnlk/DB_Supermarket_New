@@ -21,7 +21,12 @@
             <label>ID товару: </label> <input type="text" name="idProduct" placeholder="Введіть номер товару.."><br/>
             <label>Ціна товару: </label><input type="text" name="sellingPrice" placeholder="Введіть ціну товару.."><br/>
             <label>Кількість товару: </label><input type="text" name="productsNum" placeholder="Введіть кількість товару.."><br/>
-            <label>Чи товар акційний: </label><input type="text" name="promotionalProduct" placeholder="Введіть чи товар є акційним.."><br/>
+            <label>Чи товар акційний: </label>
+            <select name="promotionalProduct">
+                <option value=true>Так</option>
+                <option value=false>Ні</option>
+            </select><br>
+<%--            <label>Чи товар акційний: </label><input type="text" name="promotionalProduct" placeholder="Введіть чи товар є акційним.."><br/>--%>
             <button class="button" type="submit">Підтвердити</button>
         </form>
     </div>
