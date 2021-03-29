@@ -19,8 +19,7 @@ import java.text.SimpleDateFormat;
 @WebServlet(name = "UpdateCheckServlet", urlPatterns = {"/update-check"})
 public class UpdateCheckServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(com.naukma.supermarket
-            .controller.check.UpdateCheckServlet.class);
+    private final Logger LOGGER = Logger.getLogger(UpdateCheckServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

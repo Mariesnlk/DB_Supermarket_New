@@ -173,9 +173,9 @@ public class CheckDAOImpl implements CheckDAO {
             Double newVat = check.getVat();
 
             String query =
-                    "UPDATE db_supermarket.check SET check_number  = '" + newCheckNumber + "', id_employee = '" + newIdEmployee + "', " +
-                            "card_number = '" + newCardNumber + "', " + "print_date = '" + newPrintDate +
-                            "'," + "sum_total = '" + newSumTotal + "', " + "vat = '" + newVat +
+                    "UPDATE db_supermarket.check SET id_employee  = '" + newIdEmployee + "', card_number = '" + newCardNumber + "', " +
+                            "print_date = '" + newPrintDate + "', " + "sum_total = '" + newSumTotal +
+                            "'," + "vat = '" + newVat +
                             "' WHERE check_number = ?";
 
             ps = connection.prepareStatement(query);

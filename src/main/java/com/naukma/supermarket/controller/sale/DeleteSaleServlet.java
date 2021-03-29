@@ -15,8 +15,7 @@ import java.io.IOException;
 @WebServlet(name = "DeleteSaleServlet", urlPatterns = {"/delete-sale"})
 public class DeleteSaleServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(com.naukma.supermarket
-            .controller.sale.DeleteSaleServlet.class);
+    private final Logger LOGGER = Logger.getLogger(DeleteSaleServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         LOGGER.info("doGet process");

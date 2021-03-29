@@ -17,8 +17,7 @@ import java.util.List;
 @WebServlet(name = "GetAllSalesServlet", urlPatterns = {"/sales"})
 public class GetAllSalesServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(com.naukma.supermarket.controller
-            .sale.GetAllSalesServlet.class);
+    private final Logger LOGGER = Logger.getLogger(GetAllSalesServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

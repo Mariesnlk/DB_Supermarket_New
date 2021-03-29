@@ -16,8 +16,7 @@ import java.io.IOException;
 @WebServlet(name = "GetCheckByIdServlet", urlPatterns = {"/check"})
 public class GetCheckByIdServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(com.naukma.supermarket.controller
-            .check.GetCheckByIdServlet.class);
+    private final Logger LOGGER = Logger.getLogger(GetCheckByIdServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

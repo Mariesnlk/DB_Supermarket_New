@@ -39,7 +39,7 @@
             <%
                 for (Sale sale : sales) {
                     out.println("<tr>");
-                    out.println("<td><a href=\"/check?upc=" + sale.getUPC() + "\">"
+                    out.println("<td><a href=\"/sale?upc=" + sale.getUPC() + "\">"
                             + sale.getUPC() + "</a></td>");
                     out.println("<td>" + sale.getCheck_number() + "</td>");
                     out.println("<td>" + sale.getProduct_number() + "</td>");

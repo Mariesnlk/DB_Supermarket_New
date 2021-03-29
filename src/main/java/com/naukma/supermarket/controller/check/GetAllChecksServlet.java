@@ -17,8 +17,7 @@ import java.util.List;
 @WebServlet(name = "GetAllChecksServlet", urlPatterns = {"/checks"})
 public class GetAllChecksServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(com.naukma.supermarket.controller
-            .check.GetAllChecksServlet.class);
+    private final Logger LOGGER = Logger.getLogger(GetAllChecksServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
