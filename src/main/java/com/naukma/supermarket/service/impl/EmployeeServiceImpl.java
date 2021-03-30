@@ -44,20 +44,19 @@ public class EmployeeServiceImpl implements EmployeeService {
         return result;
     }
 
-//    @Override
-//    public User getRegisteredUser(String userLogin, String userPassword) {
-//
-//        User registeredUser = null;
-//
-//        UserDAO userDAO = new UserDAOImpl();
-//        List<User> allUsersList = userDAO.findAll();
-//
-//        for (User user : allUsersList) {
-//            if (user.getLogin().equals(userLogin) && user.getPassword().equals(userPassword)) {
-//                registeredUser = user;
-//                break;
-//            }
-//        }
-//        return registeredUser;
-//    }
+    @Override
+    public Employee getRegisteredEmployee(String employeeSurname, String employeeName) {
+        Employee registeredEmployee = null;
+
+        EmployeeDAO employeeDAO = new EmployeeDAOImpl();
+        List<Employee> allEmployeesList = employeeDAO.findAll();
+
+        for (Employee employee : allEmployeesList) {
+            if (employee.getEmpl_surname().equals(employeeSurname) && employee.getEmpl_name().equals(employeeName)) {
+                registeredEmployee = employee;
+                break;
+            }
+        }
+        return registeredEmployee;
+    }
 }
