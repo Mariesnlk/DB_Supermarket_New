@@ -17,6 +17,11 @@
 <br>
 
 <div>
+    <input class="button" type=button onClick="location.href='/logout'" value='Login'>
+</div>
+<br>
+
+<div>
     <input class="button" type=button onClick="location.href='/add-employee'"
            value='Додати працівника'>
 </div>
