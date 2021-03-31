@@ -18,8 +18,10 @@
         <form action="/add-sale" method="post">
             <label>Код товару: </label> <input type="text" name="upc" placeholder="Введіть код товару.."><br/>
             <label>Номер чеку: </label> <input type="text" name="checkNumber" placeholder="Введіть номер чеку.."><br/>
-            <label>Номер продукту: </label><input type="text" name="productNum" placeholder="Введіть номер товару.."><br/>
-            <label>Ціна: </label><input type="text" name="sellingPrice" placeholder="Введіть ціну акційного товару.."><br/>
+            <label>Номер продукту: </label><input type="text" name="productNum"
+                                                  placeholder="Введіть номер товару.."><br/>
+            <label>Ціна: </label><input type="number" min="0" name="sellingPrice"
+                                        placeholder="Введіть ціну акційного товару.."><br/>
             <button class="button" type="submit">Підтвердити</button>
         </form>
     </div>

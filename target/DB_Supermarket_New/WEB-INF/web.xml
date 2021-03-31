@@ -1,12 +1,12 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <!--        http://localhost:8080/DB_Supermarket_New_war_exploded-->
 <!--        /DB_Supermarket_New_war_exploded-->
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+    <display-name>Archetype Created Web Application</display-name>
 
     <welcome-file-list>
         <!--        <welcome-file>index.html</welcome-file>-->

@@ -25,7 +25,7 @@
             <%--  added regex --%>
             <label>Дата видачі чеку: </label><input type="date" name="printDate" value="2021-03-22"><br/>
             <%--  type = number --%>
-            <label>Загальна сума: </label><input type="text" name="sumTotal" placeholder="Введіть загальну суму.."><br
+            <label>Загальна сума: </label><input type="number" min="0" name="sumTotal" placeholder="Введіть загальну суму.."><br
             <%--  type = number --%>
             <label>ПДВ: </label><input type="text" name="vat" type="number" min="0"
                                        placeholder="Введіть значення ПДВ.."><br/>

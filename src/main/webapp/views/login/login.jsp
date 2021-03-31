@@ -10,11 +10,12 @@
 <div class="container">
     <form action="/login" method="POST">
         <div>
-            <input type="text" name="employeeSurname" placeholder="Введіть ваше прізвище"/>
+            <label>Прізвище: </label> <input type="text" name="employeeSurname" placeholder="Введіть ваше прізвище"/>
         </div>
         <div>
-            <input type="text" name="employeeName" placeholder="Введіть ваше ім`я"/>
+            <label>І`мя: </label> <input type="text" name="employeeName" placeholder="Введіть ваше ім`я"/>
         </div>
+        <br>
         <div>
             <button class="button" type="submit">Підтвердити</button>
         </div>

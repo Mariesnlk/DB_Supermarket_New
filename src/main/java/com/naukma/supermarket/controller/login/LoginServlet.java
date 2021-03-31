@@ -5,6 +5,7 @@ import com.naukma.supermarket.model.Employee;
 import com.naukma.supermarket.service.impl.EmployeeServiceImpl;
 import com.naukma.supermarket.service.interf.EmployeeService;
 import org.apache.log4j.Logger;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,8 +36,17 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         session.setAttribute("registeredEmployee", registeredEmployee);
+        String resultPage = "views/login/loginResult.jsp";
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/login/loginResult.jsp");
+        if (registeredEmployee.getRole().equalsIgnoreCase("cashier")) {
+            resultPage = "/indexCashier.jsp";
+
+        } else if (registeredEmployee.getRole().equalsIgnoreCase("manager")) {
+            resultPage = "/indexManager.jsp";
+        }
+
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(resultPage);
         LOGGER.info("doPost process");
         requestDispatcher.forward(request, response);
 
