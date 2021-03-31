@@ -1,3 +1,6 @@
+<%@ page import="com.naukma.supermarket.model.Employee" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.naukma.supermarket.model.CustomerCard" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,10 +21,30 @@
         <form action="/add-check" method="post">
             <%--  added regex --%>
             <label>Номер чеку: </label> <input type="text" name="checkNumber" placeholder="Введіть номер чеку.."><br/>
-            <%--  added regex --%>
-            <label>ID працівника: </label> <input type="text" name="idEmployee"><br/>
-            <%--  added regex --%>
-            <label>Номер картки клієнта: </label><input type="text" name="cardNumber"><br/>
+            <label>ID працівника: </label> <select name="idEmployee">
+            <%
+                List<Employee> employeeList = (List<Employee>) request.getAttribute("allEmployees");
+                for (Employee employee : employeeList) {
+            %>
+            <option value=<%=employee.getId_employee()%>><%=employee.getEmpl_surname()%>
+                &nbsp; <%=employee.getEmpl_name()%>
+            </option>
+            <%}%>
+        </select>
+            <br>
+
+            <label>Номер картки клієнта: </label> <select name="cardNumber">
+            <%
+                List<CustomerCard> customerCardList = (List<CustomerCard>) request.getAttribute("allCustomerCards");
+                for (CustomerCard customerCard : customerCardList) {
+            %>
+            <option value=<%=customerCard.getCard_number()%>><%=customerCard.getCust_surname()%>
+                &nbsp; <%=customerCard.getCust_name()%>
+            </option>
+            <%}%>
+        </select>
+            <br>
+
             <%--  added regex --%>
             <label>Дата видачі чеку: </label><input type="date" name="printDate" value="2021-03-22"><br/>
             <label>Загальна сума: </label><input type="number" min="0" name="sumTotal"

@@ -1,3 +1,6 @@
+<%@ page import="com.naukma.supermarket.model.StoreProduct" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.naukma.supermarket.model.Check" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -6,18 +9,32 @@
 <body>
 
 <div>
-    <%--    <%--%>
-    <%--        if (request.getAttribute("lastName") != null && request.getAttribute("firstName") != null) {--%>
-    <%--            out.println("<p>Працівник '" + request.getAttribute("firstName") + "' '" + request.getAttribute("lastName") + "' зареєстрований!</p>");--%>
-    <%--        }--%>
-    <%--    %>--%>
 
-    <h1>Додавання акції</h1>
+    <h1>Продаж</h1>
 
     <div>
         <form action="/add-sale" method="post">
-            <label>Код товару: </label> <input type="text" name="upc" placeholder="Введіть код товару.."><br/>
-            <label>Номер чеку: </label> <input type="text" name="checkNumber" placeholder="Введіть номер чеку.."><br/>
+
+            <label>Код товару (UPC): </label> <select name="upc">
+            <%
+                List<StoreProduct> storeProductList = (List<StoreProduct>) request.getAttribute("allStoreProducts");
+                for (StoreProduct storeProduct : storeProductList) {
+            %>
+            <option value=<%=storeProduct.getUPC()%>></option> //такое себе знать что за UPC
+            <%}%>
+        </select>
+            <br>
+
+            <label>Номер чеку:  </label> <select name="checkNumber">
+            <%
+                List<Check> checkList = (List<Check>) request.getAttribute("allChecks");
+                for (Check che : checkList) {
+            %>
+            <option value=<%=che.getCheck_number()%>></option>
+            <%}%>
+        </select>
+            <br/>
+
             <label>Номер продукту: </label><input type="text" name="productNum"
                                                   placeholder="Введіть номер товару.."><br/>
             <label>Ціна: </label><input type="number" min="0" name="sellingPrice"

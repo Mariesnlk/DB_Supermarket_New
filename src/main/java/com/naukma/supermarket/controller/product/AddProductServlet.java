@@ -27,6 +27,7 @@ public class AddProductServlet extends HttpServlet {
 
         List<Category> allCategories = categoryService.findAll();
         request.setAttribute("allCategories", allCategories);
+
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/product/addProduct.jsp");
         LOGGER.info("doGet process");
         requestDispatcher.forward(request, response);
@@ -34,7 +35,6 @@ public class AddProductServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//        Integer id_product = Integer.parseInt(request.getParameter("idProd"));
         Integer category_number = Integer.parseInt(request.getParameter("categoryProd"));
         String product_name = request.getParameter("nameProd");
         String characteristics = request.getParameter("charsProd");

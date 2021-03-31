@@ -13,10 +13,6 @@
 
     <div>
         <form action="/add-product" method="post">
-            <!-- <label>Номер категорії: </label> <input type="text" name="categoryProd" placeholder="Введіть номер категорії.."><br/>-->
-            <label>Назва: </label> <input type="text" name="nameProd" placeholder="Введіть назву продукту.."><br/>
-            <label>Характеристика: </label> <input type="text" name="charsProd"
-                                                   placeholder="Введіть характеристику продукту.."><br/>
             <label>Номер категорії: </label> <select name="categoryProd">
             <%
                 List<Category> catList = (List<Category>) request.getAttribute("allCategories");
@@ -25,9 +21,12 @@
             <option value=<%=category.getCategory_number()%>><%=category.getCategory_name()%>
             </option>
             <%}%>
-
         </select>
             <br>
+            <label>Назва: </label> <input type="text" name="nameProd" placeholder="Введіть назву продукту.."><br/>
+            <label>Характеристика: </label> <input type="text" name="charsProd"
+                                                   placeholder="Введіть характеристику продукту.."><br/>
+
             <button class="button" type="submit">Підтвердити</button>
         </form>
     </div>
