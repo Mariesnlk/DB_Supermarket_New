@@ -76,6 +76,12 @@
 
 <br>
 
+<div class="container-button">
+    <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну сторінку'>
+</div>
+
+<br>
+
 <h1>Запити менеджера</h1>
 
 <div>
@@ -181,6 +187,10 @@
 
         </tr>
     </table>
+</div>
+
+<div class="container-button">
+    <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну сторінку'>
 </div>
 
 </body>

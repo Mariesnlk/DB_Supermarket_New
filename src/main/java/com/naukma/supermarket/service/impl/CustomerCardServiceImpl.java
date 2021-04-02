@@ -42,4 +42,11 @@ public class CustomerCardServiceImpl implements CustomerCardService {
         //System.out.println("Delete customerCard: " + result);
         return result;
     }
+
+    @Override
+    public List<CustomerCard> customerWithPercent() {
+        CustomerCardDAO customerCardDAO = new CustomerCardDAOImpl();
+        List<CustomerCard> customerCards = customerCardDAO.customerWithPercent();
+        return customerCards;
+    }
 }
