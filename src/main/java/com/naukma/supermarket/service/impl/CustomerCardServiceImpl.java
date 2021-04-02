@@ -44,9 +44,16 @@ public class CustomerCardServiceImpl implements CustomerCardService {
     }
 
     @Override
-    public List<CustomerCard> customerWithPercent() {
+    public List<CustomerCard> customerWithPercent(Integer percent) {
         CustomerCardDAO customerCardDAO = new CustomerCardDAOImpl();
-        List<CustomerCard> customerCards = customerCardDAO.customerWithPercent();
+        List<CustomerCard> customerCards = customerCardDAO.customerWithPercent(percent);
         return customerCards;
+    }
+
+    @Override
+    public CustomerCard customerWithSurname(String surname) {
+        CustomerCardDAO customerCardDAO = new CustomerCardDAOImpl();
+        CustomerCard customerCard = customerCardDAO.customerWithSurname(surname);
+        return customerCard;
     }
 }

@@ -42,4 +42,11 @@ public class StoreProductServiceImpl implements StoreProductService {
         //System.out.println("Delete product: " + result);
         return result;
     }
+
+    @Override
+    public StoreProduct findSomethingByUpc(String upc) {
+        StoreProductDAO productDAO = new StoreProductDAOImpl();
+        StoreProduct product = productDAO.findSomethingByUpc(upc);
+        return product;
+    }
 }

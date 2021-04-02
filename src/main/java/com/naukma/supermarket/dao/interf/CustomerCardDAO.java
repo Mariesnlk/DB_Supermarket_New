@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface CustomerCardDAO extends CRUDDAO<CustomerCard, String> {
 
-    List<CustomerCard> customerWithPercent();
+    List<CustomerCard> customerWithPercent(Integer percent);
+
+    CustomerCard customerWithSurname(String surname);
 
 }

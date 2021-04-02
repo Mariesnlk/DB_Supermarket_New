@@ -241,5 +241,49 @@ public class StoreProductDAOImpl implements StoreProductDAO {
         }
         return result;
     }
+
+    @Override
+    public StoreProduct findSomethingByUpc(String  upc) {
+        StoreProduct product = null;
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+
+            String query = "SELECT selling_price, products_number FROM db_supermarket.store_product WHERE UPC = ?";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, upc);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Double sellingPrice = rs.getDouble("selling_price");
+                Integer productsNumber = rs.getInt("products_number");
+
+                product = new StoreProduct(sellingPrice, productsNumber); //maybe need to add id
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in StoreProductDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return product;
+    }
 }
 

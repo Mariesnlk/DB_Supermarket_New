@@ -30,10 +30,21 @@ public class Main {
 //        StoreProduct storeProduct = new StoreProduct("1", "1", 1, 29.99, 50, false);
 //        storeProductDAO.update(storeProduct);
 
-        CheckDAO checkDAO = new CheckDAOImpl();
-        Check check = new Check("1", "1", "1",  new Date(2020-10-15),
-                33.4, 0.2);
-        checkDAO.update(check);
+//        CheckDAO checkDAO = new CheckDAOImpl();
+//        Check check = new Check("1", "1", "1",  new Date(2020-10-15),
+//                33.4, 0.2);
+//        checkDAO.update(check);
+
+        StoreProductDAO storeProductDAO = new StoreProductDAOImpl();
+        StoreProduct storeProduct = storeProductDAO.findSomethingByUpc("1");
+        System.out.println("UPC 1 " + storeProduct);
+
+        CustomerCardDAO customerCardDAO = new CustomerCardDAOImpl();
+        List<CustomerCard> customerCardList = customerCardDAO.customerWithPercent(10);
+        System.out.println("find by percent " + customerCardList);
+
+        CustomerCard customerCardList2 = customerCardDAO.customerWithSurname("Danish");
+        System.out.println("find by percent " + customerCardList2);
 
 
     }

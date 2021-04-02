@@ -11,6 +11,11 @@ public class StoreProduct {
 
     public StoreProduct() { }
 
+    public StoreProduct(Double selling_price, Integer products_number){
+        this.selling_price = selling_price;
+        this.products_number = products_number;
+    }
+
     public StoreProduct(String UPC_prom, Integer id_product, Double selling_price, Integer products_number, Boolean promotional_product) {
         this.UPC_prom = UPC_prom;
         this.id_product = id_product;

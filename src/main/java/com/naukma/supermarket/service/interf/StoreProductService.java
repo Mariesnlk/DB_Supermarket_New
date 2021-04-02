@@ -4,5 +4,7 @@ import com.naukma.supermarket.model.StoreProduct;
 
 public interface StoreProductService extends CRUDService<StoreProduct, String> {
 
+    StoreProduct findSomethingByUpc(String upc);
+
 }
 

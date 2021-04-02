@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface CustomerCardService extends CRUDService<CustomerCard, String> {
 
-    List<CustomerCard> customerWithPercent();
+    List<CustomerCard> customerWithPercent(Integer percent);
+
+    CustomerCard customerWithSurname(String surname);
 
 }

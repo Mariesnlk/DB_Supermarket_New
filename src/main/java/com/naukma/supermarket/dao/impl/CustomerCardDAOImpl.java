@@ -262,7 +262,7 @@ public class CustomerCardDAOImpl implements CustomerCardDAO {
     }
 
     @Override
-    public List<CustomerCard> customerWithPercent() {
+    public List<CustomerCard> customerWithPercent(Integer percent) {
         List<CustomerCard> customerList = new ArrayList<>();
 
         DBHelper objectDBHelper = new DBHelper();
@@ -272,36 +272,30 @@ public class CustomerCardDAOImpl implements CustomerCardDAO {
         ResultSet rs = null;
         try {
 
-            String query = "SELECT  print_date,  COUNT(card_number) AS quantity_card_number \n" +
-                    "FROM db_supermarket.check \n" +
-                    "WHERE card_number IN \n" +
-                    "( SELECT card_number \n" +
-                    "FROM db_supermarket.customer_card\n" +
-                    "WHERE percent >= 10)\n" +
-                    "GROUP BY print_date\n" +
-                    "ORDER BY print_date";
+            String query = " SELECT * FROM db_supermarket.customer_card WHERE percent = ?";
 
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
 
+            ps.setString(1, String.valueOf(percent));
+
             rs = ps.executeQuery();
 
             while (rs.next()) {
 
-//                String cardNumber = rs.getString("card_number");
-//                String custSurname = rs.getString("cust_surname");
-//                String custName = rs.getString("cust_name");
-//                String custPatronymic = rs.getString("cust_patronymic");
-//                String phoneNumber = rs.getString("phone_number");
-//                String city = rs.getString("city");
-//                String street = rs.getString("street");
-//                String zipCode = rs.getString("zip_code");
-//                Integer percent = rs.getInt("percent");
-//
-//                CustomerCard customer = new CustomerCard(cardNumber, custSurname, custName,
-//                        custPatronymic, phoneNumber, city, street, zipCode, percent);
-//                customerList.add(customer);
+                String cardNumber = rs.getString("card_number");
+                String custSurname = rs.getString("cust_surname");
+                String custName = rs.getString("cust_name");
+                String custPatronymic = rs.getString("cust_patronymic");
+                String phoneNumber = rs.getString("phone_number");
+                String city = rs.getString("city");
+                String street = rs.getString("street");
+                String zipCode = rs.getString("zip_code");
+
+                CustomerCard customer = new CustomerCard(cardNumber, custSurname, custName,
+                        custPatronymic, phoneNumber, city, street, zipCode, percent);
+                customerList.add(customer);
             }
 
         } catch (Exception e) {
@@ -317,5 +311,57 @@ public class CustomerCardDAOImpl implements CustomerCardDAO {
             }
         }
         return customerList;
+    }
+
+    @Override
+    public CustomerCard customerWithSurname(String surname) {
+        CustomerCard customer = null;
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+
+            String query = "SELECT * FROM db_supermarket.customer_card WHERE cust_surname = ?";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, surname);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                String cardNumber = rs.getString("card_number");
+                String custName = rs.getString("cust_name");
+                String custPatronymic = rs.getString("cust_patronymic");
+                String phoneNumber = rs.getString("phone_number");
+                String city = rs.getString("city");
+                String street = rs.getString("street");
+                String zipCode = rs.getString("zip_code");
+                Integer percent = rs.getInt("percent");
+
+                customer = new CustomerCard(cardNumber, surname, custName, custPatronymic,
+                        phoneNumber, city, street, zipCode, percent);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in CustomerCardDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return
+                customer;
     }
 }

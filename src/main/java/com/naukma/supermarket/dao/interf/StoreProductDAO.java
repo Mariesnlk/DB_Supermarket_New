@@ -4,4 +4,6 @@ import com.naukma.supermarket.model.StoreProduct;
 
 public interface StoreProductDAO extends CRUDDAO<StoreProduct, String> {
 
+    StoreProduct findSomethingByUpc(String upc);
+
 }

@@ -89,7 +89,7 @@
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 
         <tr>
-            <th>Силка на запит</th>
+            <th>Посилання на запит</th>
             <th>параметр</th>
 
         </tr>
