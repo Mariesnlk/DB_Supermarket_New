@@ -10,7 +10,7 @@ public interface EmployeeService  extends CRUDService<Employee, String> {
 
     List<Employee> listCashiersBySurname();
 
-    Employee findEmployeeInfoBySurname(String surname);
+    Employee getEmployeeBySurname(String surname);
 
 }
 

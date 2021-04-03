@@ -71,11 +71,4 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Employee> listCashiersBySurname() {
         return null;
     }
-
-    @Override
-    public Employee findEmployeeInfoBySurname(String surname) {
-        return null;
-    }
-
-
 }
