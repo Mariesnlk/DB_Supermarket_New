@@ -317,4 +317,14 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         }
         return employee;
     }
+
+    @Override
+    public List<Employee> listCashiersBySurname() {
+        return null;
+    }
+
+    @Override
+    public Employee findEmployeeInfoBySurname(String surname) {
+        return null;
+    }
 }

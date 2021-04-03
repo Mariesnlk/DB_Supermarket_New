@@ -2,11 +2,15 @@ package com.naukma.supermarket.service.interf;
 
 import com.naukma.supermarket.model.Employee;
 
-public interface EmployeeService extends CRUDService<Employee, String> {
+import java.util.List;
+
+public interface EmployeeService  extends CRUDService<Employee, String> {
 
     Employee getRegisteredEmployee(String employeeSurname, String employeeName);
 
-    Employee getEmployeeBySurname(String surname);
+    List<Employee> listCashiersBySurname();
+
+    Employee findEmployeeInfoBySurname(String surname);
 
 }
 
