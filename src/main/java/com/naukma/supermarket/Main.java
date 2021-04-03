@@ -56,6 +56,23 @@ public class Main {
         List<Product> productsList = productDAO.allProductsSortedByName();
         System.out.println("allProductsSortedByName: " + productsList);
 
+        List<CustomerCard> MyCustomerCardList = customerCardDAO.customerWithCashierCheck("2");
+        System.out.println(" За номером касира вивести інформацію про всіх покупців, яким він друкував чеки  " + MyCustomerCardList);
+
+        EmployeeDAO employeeDAO = new EmployeeDAOImpl();
+        Employee employee = employeeDAO.getEmployeeBySurname("Synelnyk");
+        System.out.println("За прізвищем працівника знайти його телефон та адресу " + employee);
+
+        //not work
+//        CheckDAO checkDAO = new CheckDAOImpl();
+//        Check check = checkDAO.totalSumOfChecks("2", new Date(2021 - 3 - 2), new Date(2021 - 3 - 9));
+//        System.out.println("Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу " + check);
+
+        List<Product> product = productDAO.productByCategory("fruits");
+        System.out.println("Скласти список всіх товарів, що належать певній категорії " + product);
+
+        List<Product> productOrdered = productDAO.productByCategoryOrdered("fruits");
+        System.out.println("Скласти список товарів, що належать певній категорії, відсортованих за назвою\n " + productOrdered);
 
     }
 }

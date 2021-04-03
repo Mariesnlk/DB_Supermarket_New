@@ -15,11 +15,8 @@ public class DBHelper {
     public Connection getConnection() {
         Connection connection = null;
         try {
-            System.out.println("One");
             Class.forName(DRIVER_NAME);//for MySQL database
-            System.out.println("Two");
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            System.out.println("Three");
         } catch (Exception e) {
             System.out.println(e);
         }

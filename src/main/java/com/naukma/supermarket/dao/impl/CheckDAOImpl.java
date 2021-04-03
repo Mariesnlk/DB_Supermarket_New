@@ -242,5 +242,50 @@ public class CheckDAOImpl implements CheckDAO {
         }
         return result;
     }
+
+    @Override
+    public Check totalSumOfChecks(String idEmployee,  java.util.Date dateFrom, java.util.Date dateTo) {
+        Check check = null;
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+
+            String query = "SELECT SUM(sum_total) AS total_sum_all_checks FROM db_supermarket.check WHERE id_employee = ? AND print_date BETWEEN ? AND ?";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, idEmployee);
+            ps.setString(2, String.valueOf(dateFrom));
+            ps.setString(3, String.valueOf(dateTo));
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Double sumTotal = rs.getDouble("sum_total");
+
+                check = new Check(sumTotal);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in CheckDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return check;
+    }
 }
 

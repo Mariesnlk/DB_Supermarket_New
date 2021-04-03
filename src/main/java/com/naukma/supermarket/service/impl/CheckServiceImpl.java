@@ -5,6 +5,7 @@ import com.naukma.supermarket.dao.interf.CheckDAO;
 import com.naukma.supermarket.model.Check;
 import com.naukma.supermarket.service.interf.CheckService;
 
+import java.util.Date;
 import java.util.List;
 
 public class CheckServiceImpl implements CheckService {
@@ -41,5 +42,12 @@ public class CheckServiceImpl implements CheckService {
         boolean result = checkDAO.delete(check);
         //System.out.println("Delete check: " + result);
         return result;
+    }
+
+    @Override
+    public Check totalSumOfChecks(String idEmployee, Date dateFrom, Date dateTo) {
+        CheckDAO checkDAO = new CheckDAOImpl();
+        Check check = checkDAO.totalSumOfChecks(idEmployee, dateFrom, dateTo);
+        return check;
     }
 }

@@ -8,4 +8,9 @@ public interface ProductService extends CRUDService<Product, Integer> {
 
     List<Product> allProductsSortedByName();
 
+    List<Product> productByCategory(String nameCategory);
+
+    List<Product> productByCategoryOrdered(String nameCategory);
+
+
 }

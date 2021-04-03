@@ -13,6 +13,10 @@ public class Check {
 
     public Check() { }
 
+    public Check(Double sum_total) {
+        this.sum_total = sum_total;
+    }
+
     public Check(String id_employee, String card_number, Date print_date, Double sum_total, Double vat) {
         this.id_employee = id_employee;
         this.card_number = card_number;

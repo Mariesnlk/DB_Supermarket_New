@@ -8,6 +8,8 @@ public interface CustomerCardService extends CRUDService<CustomerCard, String> {
 
     List<CustomerCard> customerWithPercent(Integer percent);
 
+    List<CustomerCard> customerWithCashierCheck(String idEmployee);
+
     CustomerCard customerWithSurname(String surname);
 
 }

@@ -271,4 +271,50 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         }
         return result;
     }
+
+    @Override
+    public Employee getEmployeeBySurname(String surname) {
+        Employee employee = null;
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+
+            String query = "SELECT phone_number, city, street, zip_code FROM db_supermarket.employee WHERE empl_surname = ?";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, String.valueOf(surname));
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                String phoneNumber = rs.getString("phone_number");
+                String city = rs.getString("city");
+                String street = rs.getString("street");
+                String zipCode = rs.getString("zip_code");
+
+                employee = new Employee(surname, phoneNumber, city, street, zipCode);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return employee;
+    }
 }

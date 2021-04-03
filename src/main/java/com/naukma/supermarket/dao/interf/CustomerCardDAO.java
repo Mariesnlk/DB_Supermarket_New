@@ -12,4 +12,6 @@ public interface CustomerCardDAO extends CRUDDAO<CustomerCard, String> {
     // Вивести усю інформацію про покупця з певним прізвищем, що має карту клієнта
     CustomerCard customerWithSurname(String surname);
 
+    List<CustomerCard> customerWithCashierCheck(String idEmployee);
+
 }

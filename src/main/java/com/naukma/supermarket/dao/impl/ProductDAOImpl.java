@@ -275,5 +275,100 @@ public class ProductDAOImpl implements ProductDAO {
         return productsList;
     }
 
+    @Override
+    public List<Product> productByCategory(String nameCategory) {
+        List<Product> productList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM db_supermarket.product prod JOIN db_supermarket.category categ  ON " +
+                    " prod.category_number = categ.category_number  WHERE categ.category_name = ?";
+
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, String.valueOf(nameCategory));
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Integer idProduct = rs.getInt("id_product");
+                Integer categoryNum = rs.getInt("category_number");
+                String productName = rs.getString("product_name");
+                String characterstcs = rs.getString("characteristics");
+
+                Product product = new Product(idProduct, categoryNum, productName, characterstcs);
+                productList.add(product);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in ProductDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return productList;
+    }
+
+    @Override
+    public List<Product> productByCategoryOrdered(String nameCategory) {
+        List<Product> productList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM db_supermarket.product WHERE category_number IN " +
+                    "(SELECT  category_number  FROM  db_supermarket.category WHERE category_name = ?) " +
+                    "ORDER BY product_name";
+
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, String.valueOf(nameCategory));
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Integer idProduct = rs.getInt("id_product");
+                Integer categoryNum = rs.getInt("category_number");
+                String productName = rs.getString("product_name");
+                String characterstcs = rs.getString("characteristics");
+
+                Product product = new Product(idProduct, categoryNum, productName, characterstcs);
+                productList.add(product);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in ProductDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return productList;
+    }
+
 }
 

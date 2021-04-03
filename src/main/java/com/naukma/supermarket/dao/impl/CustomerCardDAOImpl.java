@@ -118,7 +118,7 @@ public class CustomerCardDAOImpl implements CustomerCardDAO {
             }
         }
         return
-        customer;
+                customer;
     }
 
     @Override
@@ -314,6 +314,65 @@ public class CustomerCardDAOImpl implements CustomerCardDAO {
     }
 
     @Override
+    public List<CustomerCard> customerWithCashierCheck(String idEmployee) {
+        List<CustomerCard> customerList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * \n" +
+                    "FROM  db_supermarket.customer_card \n" +
+                    "WHERE card_number IN ( SELECT card_number \n" +
+                    "   FROM db_supermarket.check \n" +
+                    "   WHERE id_employee  IN ( SELECT id_employee\n" +
+                    "       FROM db_supermarket.employee \n" +
+                    "       WHERE role = 'cashier' AND  id_employee = ?))\n";
+
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, idEmployee);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                String cardNumber = rs.getString("card_number");
+                String custSurname = rs.getString("cust_surname");
+                String custName = rs.getString("cust_name");
+                String custPatronymic = rs.getString("cust_patronymic");
+                String phoneNumber = rs.getString("phone_number");
+                String city = rs.getString("city");
+                String street = rs.getString("street");
+                String zipCode = rs.getString("zip_code");
+                Integer percent = rs.getInt("percent");
+
+                CustomerCard customer = new CustomerCard(cardNumber, custSurname, custName,
+                        custPatronymic, phoneNumber, city, street, zipCode, percent);
+                customerList.add(customer);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in CustomerCardDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return customerList;
+    }
+
+    @Override
     public CustomerCard customerWithSurname(String surname) {
         CustomerCard customer = null;
 
@@ -361,7 +420,6 @@ public class CustomerCardDAOImpl implements CustomerCardDAO {
                 }
             }
         }
-        return
-                customer;
+        return customer;
     }
 }

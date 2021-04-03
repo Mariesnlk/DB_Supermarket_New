@@ -49,4 +49,18 @@ public class ProductServiceImpl implements ProductService {
         List<Product> products = productDAO.allProductsSortedByName();
         return products;
     }
+
+    @Override
+    public List<Product> productByCategory(String nameCategory) {
+        ProductDAO productDAO = new ProductDAOImpl();
+        List<Product> products = productDAO.productByCategory(nameCategory);
+        return products;
+    }
+
+    @Override
+    public List<Product> productByCategoryOrdered(String nameCategory) {
+        ProductDAO productDAO = new ProductDAOImpl();
+        List<Product> products = productDAO.productByCategoryOrdered(nameCategory);
+        return products;
+    }
 }
