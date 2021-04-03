@@ -95,8 +95,7 @@
         </tr>
 
         <tr>
-            <td><a href="/login"> Скласти список працівників, що займають посаду касира, відсортованих за прізвищем</a>
-            </td>
+            <td><a href="/login"> Скласти список працівників, що займають посаду касира, відсортованих за прізвищем</a></td>
             <td></td>
 
         </tr>
@@ -189,9 +188,11 @@
     </table>
 </div>
 
+<br>
 <div class="container-button">
     <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну сторінку'>
 </div>
+<br>
 
 </body>
 </html>
