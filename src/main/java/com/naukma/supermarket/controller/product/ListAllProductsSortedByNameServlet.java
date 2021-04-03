@@ -14,11 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "GetAllProductsServlet", urlPatterns = {"/products"})
-public class GetAllProductsServlet extends HttpServlet {
+@WebServlet(name = "ListAllProductsSortedByNameServlet", urlPatterns = {"/products"})
+public class ListAllProductsSortedByNameServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(com.naukma.supermarket
-            .controller.product.GetAllProductsServlet.class);
+    private final Logger LOGGER = Logger.getLogger(com.naukma
+            .supermarket.controller.product.ListAllProductsSortedByNameServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

@@ -2,6 +2,7 @@ package com.naukma.supermarket.dao.impl;
 
 import com.naukma.supermarket.dao.interf.ProductDAO;
 import com.naukma.supermarket.database.DBHelper;
+import com.naukma.supermarket.model.CustomerCard;
 import com.naukma.supermarket.model.Product;
 import org.apache.log4j.Logger;
 
@@ -227,5 +228,52 @@ public class ProductDAOImpl implements ProductDAO {
         }
         return result;
     }
+
+    @Override
+    public List<Product> allProductsSortedByName() {
+
+        List<Product> productsList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM db_supermarket.product ORDER BY product_name";
+
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Integer idProduct = rs.getInt("id_product");
+                Integer categoryNum = rs.getInt("category_number");
+                String productName = rs.getString("product_name");
+                String characterstcs = rs.getString("characteristics");
+
+                Product product = new Product(idProduct, categoryNum, productName, characterstcs);
+                productsList.add(product);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in ProductDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return productsList;
+    }
+
 }
 

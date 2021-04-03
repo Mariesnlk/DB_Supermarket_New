@@ -42,4 +42,11 @@ public class ProductServiceImpl implements ProductService {
         //System.out.println("Delete product: " + result);
         return result;
     }
+
+    @Override
+    public List<Product> allProductsSortedByName() {
+        ProductDAO productDAO = new ProductDAOImpl();
+        List<Product> products = productDAO.allProductsSortedByName();
+        return products;
+    }
 }
