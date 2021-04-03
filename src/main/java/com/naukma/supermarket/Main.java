@@ -35,16 +35,26 @@ public class Main {
 //                33.4, 0.2);
 //        checkDAO.update(check);
 
+        // ----
+
+        // За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару
         StoreProductDAO storeProductDAO = new StoreProductDAOImpl();
         StoreProduct storeProduct = storeProductDAO.findSomethingByUpc("1");
         System.out.println("UPC 1 " + storeProduct);
 
+        // Список усіх постійних клієнтів, що мають карту клієнта з певним відсотком
         CustomerCardDAO customerCardDAO = new CustomerCardDAOImpl();
         List<CustomerCard> customerCardList = customerCardDAO.customerWithPercent(10);
         System.out.println("find by percent " + customerCardList);
 
+        // Вивести усю інформацію про покупця з певним прізвищем, що має карту клієнта
         CustomerCard customerCardList2 = customerCardDAO.customerWithSurname("Danish");
-        System.out.println("find by percent " + customerCardList2);
+        System.out.println("customerWithSurname " + customerCardList2);
+
+        // Скласти список усіх товарів, відсортований за назвою
+        ProductDAO productDAO = new ProductDAOImpl();
+        List<Product> productsList = productDAO.allProductsSortedByName();
+        System.out.println("allProductsSortedByName: " + productsList);
 
 
     }
