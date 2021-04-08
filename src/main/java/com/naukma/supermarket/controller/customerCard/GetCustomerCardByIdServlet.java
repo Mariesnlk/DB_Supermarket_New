@@ -16,8 +16,7 @@ import java.io.IOException;
 @WebServlet(name = "GetCustomerCardByIdServlet", urlPatterns = {"/customerCard"})
 public class GetCustomerCardByIdServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(com.naukma.supermarket.controller
-            .customerCard.GetCustomerCardByIdServlet.class);
+    private final Logger LOGGER = Logger.getLogger(GetCustomerCardByIdServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

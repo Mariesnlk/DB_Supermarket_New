@@ -14,22 +14,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-//@WebServlet(name = "ListAllProductsSortedByNameServlet", urlPatterns = {"/products"})
+@WebServlet(name = "ListAllProductsSortedByNameServlet", urlPatterns = {"/sort-products-name"})
 public class ListAllProductsSortedByNameServlet extends HttpServlet {
 
-//    private final Logger LOGGER = Logger.getLogger(com.naukma
-//            .supermarket.controller.product.ListAllProductsSortedByNameServlet.class);
-//
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//        ProductService productService = new ProductServiceImpl();
-//
-//        List<Product> allProducts = productService.findAll();
-//        request.setAttribute("allProducts", allProducts);
-//
-//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/product/allProducts.jsp");
-//        LOGGER.info("doGet process");
-//        requestDispatcher.forward(request, response);
-//    }
+    private final Logger LOGGER = Logger.getLogger(com.naukma
+            .supermarket.controller.product.ListAllProductsSortedByNameServlet.class);
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        ProductService productService = new ProductServiceImpl();
+
+        List<Product> allProducts = productService.allProductsSortedByName();
+        request.setAttribute("allProducts", allProducts);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/product/allProducts.jsp");
+        LOGGER.info("doGet process");
+        requestDispatcher.forward(request, response);
+    }
 
 }

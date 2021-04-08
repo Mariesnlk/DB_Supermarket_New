@@ -16,8 +16,7 @@ import java.io.IOException;
 @WebServlet(name = "UpdateCustomerCardServlet", urlPatterns = {"/update-customerCard"})
 public class UpdateCustomerCardServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(com.naukma.supermarket
-            .controller.customerCard.UpdateCustomerCardServlet.class);
+    private final Logger LOGGER = Logger.getLogger(UpdateCustomerCardServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
