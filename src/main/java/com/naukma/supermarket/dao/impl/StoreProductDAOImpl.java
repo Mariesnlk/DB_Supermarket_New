@@ -2,6 +2,7 @@ package com.naukma.supermarket.dao.impl;
 
 import com.naukma.supermarket.dao.interf.StoreProductDAO;
 import com.naukma.supermarket.database.DBHelper;
+import com.naukma.supermarket.model.Product;
 import com.naukma.supermarket.model.StoreProduct;
 import org.apache.log4j.Logger;
 
@@ -255,6 +256,54 @@ public class StoreProductDAOImpl implements StoreProductDAO {
         try {
 
             String query = "SELECT selling_price, products_number FROM db_supermarket.store_product WHERE UPC = ?";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, upc);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Double sellingPrice = rs.getDouble("selling_price");
+                Integer productsNumber = rs.getInt("products_number");
+
+                product = new StoreProduct(sellingPrice, productsNumber); //maybe need to add id
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in StoreProductDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return product;
+    }
+
+    @Override
+    public StoreProduct findProductInfoByUPC(String upc) {
+        StoreProduct product = null;
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+
+            String query = "SELECT S.selling_price, S.products_number, " +
+                    "P.product_name, P.characteristics " +
+                    "FROM db_supermarket.store_product S " +
+                    "INNER JOIN db_supermarket.product P " +
+                    "ON S.id_product = P.id_product";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
