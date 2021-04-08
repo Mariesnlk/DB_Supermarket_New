@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/*"})
+//@WebFilter(urlPatterns = {"/*"})
 public class SecurityFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -26,7 +26,7 @@ public class SecurityFilter implements Filter {
 
         Employee emp = (Employee) session.getAttribute("registeredEmployee");
 
-        String[] urlAccessCashier = {"/", "/add-check", "/add-customerCard", "/login", "/indexCashier.jsp"};
+        String[] urlAccessCashier = {"/", "/add-check", "/add-customerCard", "/login", "/indexCashier.jsp", "/employee/**"};
 
         String[] urlAccessManager = {"/", "/login", "/indexManager.jsp", "/add-employee", "/add-category",
                 "/add-product", "/add-customerCard", "/add-check", "/add-sale", "/add-storeProduct", "/add-query", "/catServlet/**"};

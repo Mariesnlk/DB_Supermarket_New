@@ -244,7 +244,7 @@ public class CheckDAOImpl implements CheckDAO {
     }
 
     @Override
-    public Check totalSumOfChecks(String idEmployee,  java.util.Date dateFrom, java.util.Date dateTo) {
+    public Check totalSumOfChecks(String idEmployee, java.util.Date dateFrom, java.util.Date dateTo) {
         Check check = null;
 
         DBHelper objectDBHelper = new DBHelper();
@@ -255,7 +255,7 @@ public class CheckDAOImpl implements CheckDAO {
 
         try {
 
-            String query = "SELECT SUM(sum_total) AS total_sum_all_checks FROM db_supermarket.check WHERE id_employee = ? AND print_date BETWEEN ? AND ?";
+            String query = "SELECT SUM(sum_total) AS sum_total FROM db_supermarket.check WHERE id_employee = ? AND print_date BETWEEN ? AND ?";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
@@ -286,6 +286,157 @@ public class CheckDAOImpl implements CheckDAO {
             }
         }
         return check;
+    }
+
+    @Override
+    public Check totalSumOfChecksAllEmployees(java.util.Date dateFrom, java.util.Date dateTo) {
+        Check check = null;
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+
+            String query = "SELECT SUM(sum_total) AS sum_total FROM db_supermarket.check WHERE print_date BETWEEN ? AND ?";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, String.valueOf(dateFrom));
+            ps.setString(2, String.valueOf(dateTo));
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Double sumTotal = rs.getDouble("sum_total");
+
+                check = new Check(sumTotal);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in CheckDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return check;
+    }
+
+    @Override
+    public List<Check> allChecksFromPeriod(String idEmployee, java.util.Date dateFrom, java.util.Date dateTo) {
+        List<Check> checkList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT P.product_name, S.product_number, S.selling_price, C.check_number, C.id_employee\n" +
+                    "FROM db_supermarket.product  P\n" +
+                    "INNER JOIN db_supermarket.store_product ST ON P.id_product=ST.id_product\n" +
+                    "INNER JOIN db_supermarket.sale S ON ST.UPC=S.UPC\n" +
+                    "INNER JOIN db_supermarket.check C ON S.check_number=C.check_number\n" +
+                    "WHERE C.print_date BETWEEN ? AND  ? AND C.id_employee IN \n" +
+                    "(SELECT id_employee \n" +
+                    "FROM db_supermarket.employee\n" +
+                    "WHERE id_employee = ? AND role = 'cashier')";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, idEmployee);
+            ps.setString(2, String.valueOf(dateFrom));
+            ps.setString(3, String.valueOf(dateTo));
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+//                String checkNumber = rs.getString("check_number");
+//                String idEmployee = rs.getString("id_employee");
+//                String cardNumber = rs.getString("card_number");
+//                Date printDate = rs.getDate("print_date");
+//                Double sumTotal = rs.getDouble("sum_total");
+//                Double vat = rs.getDouble("vat");
+//
+//                Check check = new Check(checkNumber, idEmployee, cardNumber, printDate, sumTotal, vat);
+//                checkList.add(check);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in CheckDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return checkList;
+    }
+
+    @Override
+    public List<Check> checksFromPeriodOfCashier(String idEmployee, java.util.Date dateFrom, java.util.Date dateTo) {
+        List<Check> checkList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM db_supermarket.check WHERE id_employee = ? AND print_date BETWEEN ? AND ?";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, idEmployee);
+            ps.setString(2, String.valueOf(dateFrom));
+            ps.setString(3, String.valueOf(dateTo));
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                String checkNumber = rs.getString("check_number");
+                String cardNumber = rs.getString("card_number");
+                Date printDate = rs.getDate("print_date");
+                Double sumTotal = rs.getDouble("sum_total");
+                Double vat = rs.getDouble("vat");
+
+                Check check = new Check(checkNumber, idEmployee, cardNumber, printDate, sumTotal, vat);
+                checkList.add(check);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in CheckDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return checkList;
     }
 }
 

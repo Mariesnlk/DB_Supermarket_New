@@ -1,5 +1,16 @@
 package com.naukma.supermarket;
 
+import com.naukma.supermarket.dao.impl.*;
+import com.naukma.supermarket.dao.interf.*;
+import com.naukma.supermarket.model.*;
+
+import java.util.List;
+import java.sql.Date;
+
+public class Main {
+
+    public static void main(String[] args) {
+
         // Скласти список усіх категорій, відсортованих за назвою
 //        CategoryDAO categoryDAO = new CategoryDAOImpl();
 //        List<Category> categoryList = categoryDAO.
@@ -13,17 +24,6 @@ package com.naukma.supermarket;
         // За прізвищем працівника знайти його телефон та адресу
 //        Employee employee = employeeDAO.
 //        System.out.println("customerWithSurname " + employee);
-
-import com.naukma.supermarket.dao.impl.*;
-import com.naukma.supermarket.dao.interf.*;
-import com.naukma.supermarket.model.*;
-
-import java.util.List;
-import java.sql.Date;
-
-public class Main {
-
-    public static void main(String[] args) {
 
 //        EmployeeDAO employeeDAO = new EmployeeDAOImpl();
 //        Employee employee = new Employee("AB1", "Синельник", "Марія", "Сергіївна", "manager", 25000.0, null, null,
@@ -69,23 +69,37 @@ public class Main {
         List<Product> productsList = productDAO.allProductsSortedByName();
         System.out.println("allProductsSortedByName: " + productsList);
 
+        //За номером касира вивести інформацію про всіх покупців, яким він друкував чеки
         List<CustomerCard> MyCustomerCardList = customerCardDAO.customerWithCashierCheck("2");
-        System.out.println(" За номером касира вивести інформацію про всіх покупців, яким він друкував чеки  " + MyCustomerCardList);
+        System.out.println("За номером касира вивести інформацію про всіх покупців, яким він друкував чеки " + MyCustomerCardList);
 
+        //За прізвищем працівника знайти його телефон та адресу
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
         Employee employee = employeeDAO.getEmployeeBySurname("Synelnyk");
         System.out.println("За прізвищем працівника знайти його телефон та адресу " + employee);
 
         //not work
-//        CheckDAO checkDAO = new CheckDAOImpl();
+        CheckDAO checkDAO = new CheckDAOImpl();
+        System.out.println(1);
 //        Check check = checkDAO.totalSumOfChecks("2", new Date(2021 - 3 - 2), new Date(2021 - 3 - 9));
 //        System.out.println("Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу " + check);
 
-        List<Product> product = productDAO.productByCategory("fruits");
-        System.out.println("Скласти список всіх товарів, що належать певній категорії " + product);
 
-        List<Product> productOrdered = productDAO.productByCategoryOrdered("fruits");
-        System.out.println("Скласти список товарів, що належать певній категорії, відсортованих за назвою\n " + productOrdered);
+
+        Check check1 = checkDAO.totalSumOfChecksAllEmployees(new Date(2021 - 3 - 2), new Date(2021 - 3 - 9));
+        System.out.println(2);
+        System.out.println("Загальна сума проданих товарів з чеків, видрукуваних усіма касиром за певний період часу " + check1);
+        System.out.println(3);
+
+//        //Скласти список всіх товарів, що належать певній категорії
+//        List<Product> product = productDAO.productByCategory("fruits");
+//        System.out.println("Скласти список всіх товарів, що належать певній категорії " + product);
+//
+//        //Скласти список товарів, що належать певній категорії, відсортованих за назвою
+//        List<Product> productOrdered = productDAO.productByCategoryOrdered("fruits");
+//        System.out.println("Скласти список товарів, що належать певній категорії, відсортованих за назвою " + productOrdered);
+
+
 
     }
 }

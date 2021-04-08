@@ -50,4 +50,25 @@ public class CheckServiceImpl implements CheckService {
         Check check = checkDAO.totalSumOfChecks(idEmployee, dateFrom, dateTo);
         return check;
     }
+
+    @Override
+    public Check totalSumOfChecksAllEmployees(Date dateFrom, Date dateTo) {
+        CheckDAO checkDAO = new CheckDAOImpl();
+        Check check = checkDAO.totalSumOfChecksAllEmployees(dateFrom, dateTo);
+        return check;
+    }
+
+    @Override
+    public List<Check> allChecksFromPeriod(String idEmployee, Date dateFrom, Date dateTo) {
+        CheckDAO checkDAO = new CheckDAOImpl();
+        List<Check> checks = checkDAO.allChecksFromPeriod(idEmployee, dateFrom, dateTo);
+        return checks;
+    }
+
+    @Override
+    public List<Check> checksFromPeriodOfCashier(String idEmployee, Date dateFrom, Date dateTo) {
+        CheckDAO checkDAO = new CheckDAOImpl();
+        List<Check> checks = checkDAO.checksFromPeriodOfCashier(idEmployee, dateFrom, dateTo);
+        return checks;
+    }
 }
