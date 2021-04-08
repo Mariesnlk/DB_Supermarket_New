@@ -13,23 +13,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-//
-@WebServlet(name = "FindEmployeeInfoBySurnameServlet", urlPatterns = {"/"})
+//@WebServlet(name = "FindEmployeeInfoBySurnameServlet", urlPatterns = {"/"})
 public class FindEmployeeInfoBySurnameServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(FindEmployeeInfoBySurnameServlet.class);
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        EmployeeService employeeService = new EmployeeServiceImpl();
-
-        String idEmployee = request.getParameter("id");
-        Employee employee = employeeService.findById(idEmployee);
-        request.setAttribute("employee", employee);
-
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/employee/showEmployee.jsp");
-        LOGGER.info("doGet process");
-        requestDispatcher.forward(request, response);
-
-    }
+//    private final Logger LOGGER = Logger.getLogger(FindEmployeeInfoBySurnameServlet.class);
+//
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//
+//        EmployeeService employeeService = new EmployeeServiceImpl();
+//
+//        String idEmployee = request.getParameter("id");
+//        Employee employee = employeeService.findById(idEmployee);
+//        request.setAttribute("employee", employee);
+//
+//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/employee/showEmployee.jsp");
+//        LOGGER.info("doGet process");
+//        requestDispatcher.forward(request, response);
+//
+//    }
 }

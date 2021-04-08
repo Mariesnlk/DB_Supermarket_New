@@ -28,6 +28,13 @@
 <h1>Сторінка менеджера</h1>
 
 <div>
+    <input class="button" type=button onClick="location.href='/add-query'"
+           value='Мій запит'>
+</div>
+
+<br>
+
+<div>
     <input class="button" type=button onClick="location.href='/add-employee'"
            value='Додати працівника'>
 </div>
@@ -89,21 +96,20 @@
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 
         <tr>
-            <th>Силка на запит</th>
+            <th>Посилання на запит</th>
             <th>параметр</th>
 
         </tr>
 
         <tr>
-            <td><a href="/login"> Скласти список працівників, що займають посаду касира, відсортованих за прізвищем</a>
-            </td>
+            <td><a href="/login" > Скласти список працівників, що займають посаду касира, відсортованих за прізвищем</a></td>
             <td></td>
 
         </tr>
 
         <tr>
-            <td><a href="/login">Скласти список товарів, що належать певній категорії, відсортованих за назвою</a></td>
-            <td>параметр</td>
+            <td><a class="query"  href="/catServlet/?category=">Скласти список товарів, що належать певній категорії, відсортованих за назвою</a></td>
+            <td><input class="query-field" type="text"></td>
 
         </tr>
         <tr>
@@ -189,9 +195,30 @@
     </table>
 </div>
 
+<br>
 <div class="container-button">
     <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну сторінку'>
 </div>
+<br>
+
+
+
+<!-- <tr>
+            <td><a class="query"   href="/catServlet/category=">Скласти список товарів, що належать певній категорії, відсортованих за назвою</a></td>
+            <td><input class="query-field" type="text"></td>
+
+        </tr>-->
+<script>
+ document.querySelectorAll('.query-field').forEach((elem)=>elem.addEventListener('input',addParameter))
+ function addParameter() {
+     let value = this.value;
+     let a=this.parentNode.parentNode.querySelector('a');
+     a.setAttribute('href',a.getAttribute('href')+value);
+
+ }
+
+
+    </script>
 
 </body>
 </html>

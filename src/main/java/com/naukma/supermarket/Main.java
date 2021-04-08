@@ -1,12 +1,12 @@
 package com.naukma.supermarket;
 
         // Скласти список усіх категорій, відсортованих за назвою
-        CategoryDAO categoryDAO = new CategoryDAOImpl();
+//        CategoryDAO categoryDAO = new CategoryDAOImpl();
 //        List<Category> categoryList = categoryDAO.
 //        System.out.println("allProductsSortedByName: " + categoryList);
 
         // Скласти список працівників, що займають посаду касира, відсортованих за прізвищем
-        EmployeeDAO employeeDAO = new EmployeeDAOImpl();
+//        EmployeeDAO employeeDAO = new EmployeeDAOImpl();
 //        List<Employee> employeeList = employeeDAO.
 //        System.out.println("allProductsSortedByName: " + employeeList);
 
