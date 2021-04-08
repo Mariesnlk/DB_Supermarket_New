@@ -317,4 +317,9 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         }
         return employee;
     }
+
+    @Override
+    public List<Employee> listCashiersBySurname() {
+        return null;
+    }
 }

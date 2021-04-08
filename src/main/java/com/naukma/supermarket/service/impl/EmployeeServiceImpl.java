@@ -66,4 +66,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = employeeDAO.getEmployeeBySurname(surname);
         return employee;
     }
+
+    @Override
+    public List<Employee> listCashiersBySurname() {
+        return null;
+    }
 }
