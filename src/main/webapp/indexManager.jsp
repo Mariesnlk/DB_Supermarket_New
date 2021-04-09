@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.naukma.supermarket.model.StoreProduct" %>
 <%@ page import="com.naukma.supermarket.model.Product" %>
+<%@ page import="com.naukma.supermarket.model.Employee" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -124,13 +125,34 @@
 <%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
 <%--            <td>Скласти список товарів у магазині, що належать певному товару</td>--%>
 
-<%--            <td><label>Номер категорії: </label>--%>
+<%--            <td><label>Назва товару: </label>--%>
 <%--                <select name="productName">--%>
 <%--                    <%--%>
 <%--                        List<Product> catList1 = (List<Product>) request.getAttribute("allProducts");--%>
 <%--                        for (Product category : catList1) {--%>
 <%--                    %>--%>
 <%--                    <option value=<%=category.getProduct_name()%>><%=category.getProduct_name()%>--%>
+<%--                    </option>--%>
+<%--                    <%}%>--%>
+<%--                </select>--%>
+<%--            </td>--%>
+<%--            <td>--%>
+<%--                <button class="button" type="submit">Підтвердити</button>--%>
+<%--            </td>--%>
+<%--        </table>--%>
+<%--    </form>--%>
+
+<%--    <form action="/show-employee-info" method="post">--%>
+<%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
+<%--            <td>За прізвищем працівника знайти його телефон та адресу</td>--%>
+
+<%--            <td><label>Прізвище працівника: </label>--%>
+<%--                <select name="lastName">--%>
+<%--                    <%--%>
+<%--                        List<Employee> emplList = (List<Employee>) request.getAttribute("employeeSpecific");--%>
+<%--                        for (Employee employee : emplList) {--%>
+<%--                    %>--%>
+<%--                    <option value=<%=employee.getEmpl_surname()%>><%=employee.getEmpl_surname()%>--%>
 <%--                    </option>--%>
 <%--                    <%}%>--%>
 <%--                </select>--%>
@@ -161,8 +183,8 @@
 
         </tr>
         <tr>
-            <td><a href="/login">!!За прізвищем працівника знайти його телефон та адресу </a></td>
-
+            <td><a class="query" href="/show-employee-info/?lastName=">?За прізвищем працівника знайти його телефон та адресу </a></td>
+            <td><input class="query-field" type="text"></td>
         </tr>
         <tr>
             <td><a href="/sort-products-name">+Скласти список усіх товарів, відсортованих за назвою</a></td>
@@ -176,11 +198,11 @@
 
         </tr>
         <tr>
-            <td><a href="/list-store-products">Скласти список товарів у магазині, що належать певному товару</a></td>
+            <td><a href="/list-store-products">?Скласти список товарів у магазині, що належать певному товару</a></td>
 
         </tr>
         <tr>
-            <td><a href="/storeProductByUpc">За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару</a></td>
+            <td><a href="/storeProductByUpc">?За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару</a></td>
 
         </tr>
         <tr>

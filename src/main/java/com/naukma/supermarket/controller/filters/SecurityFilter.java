@@ -32,7 +32,7 @@ public class SecurityFilter implements Filter {
         String[] urlAccessManager = {"/", "/login", "/add-employee", "/add-category",
                 "/add-product", "/add-customerCard", "/add-check", "/add-sale", "/add-storeProduct", "/add-query",
                 "/sorted-categories-name", "/index-manager", "/sorted-cashier-name", "/list-products-in-category",
-                "/list-customer-card", "/storeProductByUpc", "/sort-products-name"};
+                "/list-customer-card", "/storeProductByUpc", "/sort-products-name", "/show-employee-info"};
 
         if (emp != null) {
             userRole = emp.getRole();
