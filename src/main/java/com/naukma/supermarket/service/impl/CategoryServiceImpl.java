@@ -44,4 +44,11 @@ public class CategoryServiceImpl implements CategoryService {
         //System.out.println("Delete user: " + result);
         return result;
     }
+
+    @Override
+    public List<Category> categoriesSortedByName() {
+        CategoryDAO categoryDAO = new CategoryDAOImpl();
+        List<Category> categories = categoryDAO.categoriesSortedByName();
+        return categories;
+    }
 }
