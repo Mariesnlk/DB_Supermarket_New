@@ -6,5 +6,7 @@ public interface StoreProductService extends CRUDService<StoreProduct, String> {
 
     StoreProduct findSomethingByUpc(String upc);
 
+    StoreProduct findProductInfoByUPC(String upc);
+
 }
 

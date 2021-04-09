@@ -1,7 +1,10 @@
 package com.naukma.supermarket.service.impl;
 
+import com.naukma.supermarket.dao.impl.ProductDAOImpl;
 import com.naukma.supermarket.dao.impl.StoreProductDAOImpl;
+import com.naukma.supermarket.dao.interf.ProductDAO;
 import com.naukma.supermarket.dao.interf.StoreProductDAO;
+import com.naukma.supermarket.model.Product;
 import com.naukma.supermarket.model.StoreProduct;
 import com.naukma.supermarket.service.interf.StoreProductService;
 
@@ -47,6 +50,13 @@ public class StoreProductServiceImpl implements StoreProductService {
     public StoreProduct findSomethingByUpc(String upc) {
         StoreProductDAO productDAO = new StoreProductDAOImpl();
         StoreProduct product = productDAO.findSomethingByUpc(upc);
+        return product;
+    }
+
+    @Override
+    public StoreProduct findProductInfoByUPC(String upc) {
+        StoreProductDAO storeProductDAO = new StoreProductDAOImpl();
+        StoreProduct product = storeProductDAO.findProductInfoByUPC(upc);
         return product;
     }
 }
