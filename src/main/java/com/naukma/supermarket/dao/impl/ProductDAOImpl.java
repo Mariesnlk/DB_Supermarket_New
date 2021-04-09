@@ -393,12 +393,9 @@ public class ProductDAOImpl implements ProductDAO {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Integer idProduct = rs.getInt("id_product");
-                Integer categoryNum = rs.getInt("category_number");
                 String productName = rs.getString("product_name");
-                String characterstcs = rs.getString("characteristics");
 
-                Product product = new Product(idProduct, categoryNum, productName, characterstcs);
+                Product product = new Product(productName);
                 productList.add(product);
             }
 
@@ -440,12 +437,9 @@ public class ProductDAOImpl implements ProductDAO {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Integer idProduct = rs.getInt("id_product");
-                Integer categoryNum = rs.getInt("category_number");
                 String productName = rs.getString("product_name");
-                String characterstcs = rs.getString("characteristics");
 
-                Product product = new Product(idProduct, categoryNum, productName, characterstcs);
+                Product product = new Product(productName);
                 productList.add(product);
             }
 
@@ -488,12 +482,9 @@ public class ProductDAOImpl implements ProductDAO {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Integer idProduct = rs.getInt("id_product");
-                Integer categoryNum = rs.getInt("category_number");
                 String productName = rs.getString("product_name");
-                String characterstcs = rs.getString("characteristics");
 
-                Product product = new Product(idProduct, categoryNum, productName, characterstcs);
+                Product product = new Product(productName);
                 productList.add(product);
             }
 
@@ -536,12 +527,9 @@ public class ProductDAOImpl implements ProductDAO {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Integer idProduct = rs.getInt("id_product");
-                Integer categoryNum = rs.getInt("category_number");
                 String productName = rs.getString("product_name");
-                String characterstcs = rs.getString("characteristics");
 
-                Product product = new Product(idProduct, categoryNum, productName, characterstcs);
+                Product product = new Product(productName);
                 productList.add(product);
             }
 

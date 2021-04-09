@@ -9,6 +9,10 @@ public class Product {
 
     public Product() { }
 
+    public Product(String product_name) {
+        this.product_name = product_name;
+    }
+
     public Product(Integer category_number, String product_name, String characteristics) {
         this.category_number = category_number;
         this.product_name = product_name;

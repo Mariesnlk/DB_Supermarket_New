@@ -68,4 +68,11 @@ public class StoreProductServiceImpl implements StoreProductService {
         StoreProduct product = storeProductDAO.findProductInfoByUPC(upc);
         return product;
     }
+
+    @Override
+    public List<StoreProduct> allStoreProductsByProductName(String productName) {
+        StoreProductDAO productDAO = new StoreProductDAOImpl();
+        List<StoreProduct> products = productDAO.allStoreProductsByProductName(productName);
+        return products;
+    }
 }

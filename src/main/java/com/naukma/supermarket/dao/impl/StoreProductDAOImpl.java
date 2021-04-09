@@ -299,11 +299,11 @@ public class StoreProductDAOImpl implements StoreProductDAO {
 
         try {
 
-            String query = "SELECT S.selling_price, S.products_number, " +
-                    "P.product_name, P.characteristics " +
-                    "FROM db_supermarket.store_product S " +
-                    "INNER JOIN db_supermarket.product P " +
-                    "ON S.id_product = P.id_product";
+            String query = "SELECT store_product.selling_price, store_product.products_number, " +
+                    "product.product_name, product.characteristics " +
+                    "FROM db_supermarket.store_product " +
+                    "INNER JOIN db_supermarket.product " +
+                    "ON store_product.id_product = product.id_product ";
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
@@ -333,6 +333,56 @@ public class StoreProductDAOImpl implements StoreProductDAO {
             }
         }
         return product;
+    }
+
+    @Override
+    public List<StoreProduct> allStoreProductsByProductName(String productName) {
+        List<StoreProduct> productList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM db_supermarket.store_product " +
+                    "WHERE id_product IN (SELECT  id_product " +
+                    "FROM  db_supermarket.product WHERE product_name = ?)";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, String.valueOf(productName));
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                String upc = rs.getString("UPC");
+                String UPCprom = rs.getString("UPC_prom");
+                Integer idProduct = rs.getInt("id_product");
+                Double sellingPrice = rs.getDouble("selling_price");
+                Integer productsNumber = rs.getInt("products_number");
+                Boolean promotionalProduct = rs.getBoolean("promotional_product");
+
+                StoreProduct product = new StoreProduct(upc, UPCprom, idProduct, sellingPrice, productsNumber, promotionalProduct);
+                productList.add(product);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in StoreProductDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return productList;
     }
 }
 
