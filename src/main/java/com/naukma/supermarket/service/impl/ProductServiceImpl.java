@@ -91,4 +91,11 @@ public class ProductServiceImpl implements ProductService {
         List<Product> products = productDAO.nonPromProductsSortedByName();
         return products;
     }
+
+    @Override
+    public List<Product> allProductsInCheckByCheckNum(String checkNumber) {
+        ProductDAO productDAO = new ProductDAOImpl();
+        List<Product> products = productDAO.allProductsInCheckByCheckNum(checkNumber);
+        return products;
+    }
 }

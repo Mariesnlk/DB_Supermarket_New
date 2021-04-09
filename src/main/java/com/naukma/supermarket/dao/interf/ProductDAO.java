@@ -20,4 +20,6 @@ public interface ProductDAO extends CRUDDAO<Product, Integer> {
 
     List<Product> nonPromProductsSortedByName();
 
+    List<Product> allProductsInCheckByCheckNum(String checkNumber);
+
 }

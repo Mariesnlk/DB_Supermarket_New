@@ -547,5 +547,56 @@ public class ProductDAOImpl implements ProductDAO {
         }
         return productList;
     }
+
+    @Override
+    public List<Product> allProductsInCheckByCheckNum(String checkNumber) {
+        List<Product> productList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT product_name " +
+                    "FROM db_supermarket.product " +
+                    "WHERE id_product IN (SELECT id_product " +
+                    "FROM db_supermarket.store_product " +
+                    "WHERE UPC IN (SELECT UPC " +
+                    "  FROM db_supermarket.sale " +
+                    "  WHERE check_number IN (SELECT check_number " +
+                    "         FROM db_supermarket.check " +
+                    "         WHERE check_number = ?)))";
+
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, String.valueOf(checkNumber));
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String productName = rs.getString("product_name");
+
+                Product product = new Product(productName);
+                productList.add(product);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in ProductDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return productList;
+    }
 }
 
