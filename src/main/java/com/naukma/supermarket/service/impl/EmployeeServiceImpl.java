@@ -63,7 +63,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee getEmployeeBySurname(String surname) {
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
-        Employee employee = employeeDAO.getEmployeeBySurname(surname);
+        Employee employee = employeeDAO.getEmployeeInfoBySurname(surname);
         return employee;
     }
 

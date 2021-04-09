@@ -8,6 +8,6 @@ public interface EmployeeDAO extends CRUDDAO<Employee, String>{
 
     List<Employee> listCashiersBySurname();
 
-    Employee getEmployeeBySurname(String surname);
+    Employee getEmployeeInfoBySurname(String surname);
 
 }

@@ -26,7 +26,7 @@ public class ListCustomerCardServlet extends HttpServlet {
         List<CustomerCard> allCustomerCards = customerCardService.listAllCustomers();
         request.setAttribute("allCustomerCards", allCustomerCards);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/customerCard/allCustomerCards.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/customerCard/allCustomerCardsSpecific.jsp");
         LOGGER.info("doGet process");
         requestDispatcher.forward(request, response);
     }

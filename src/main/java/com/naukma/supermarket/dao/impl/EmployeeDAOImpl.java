@@ -273,7 +273,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
-    public Employee getEmployeeBySurname(String surname) {
+    public Employee getEmployeeInfoBySurname(String surname) {
         Employee employee = null;
 
         DBHelper objectDBHelper = new DBHelper();

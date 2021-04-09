@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface StoreProductDAO extends CRUDDAO<StoreProduct, String> {
 
-    // За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару
     StoreProduct findSomethingByUpc(String upc);
 
     StoreProduct findProductInfoByUPC(String upc);

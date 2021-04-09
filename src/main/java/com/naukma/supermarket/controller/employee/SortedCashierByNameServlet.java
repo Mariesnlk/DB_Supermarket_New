@@ -17,13 +17,13 @@ import java.util.List;
 @WebServlet(name = "SortedCashierByNameServlet", urlPatterns = {"/sorted-cashier-name"})
 public class SortedCashierByNameServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(GetAllEmployeesServlet.class);
+    private final Logger LOGGER = Logger.getLogger(SortedCashierByNameServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         EmployeeService employeeService = new EmployeeServiceImpl();
 
-        List<Employee> allEmployees = employeeService.findAll();//
+        List<Employee> allEmployees = employeeService.listCashiersBySurname();
         request.setAttribute("allEmployees", allEmployees);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/employee/allEmployees.jsp");
