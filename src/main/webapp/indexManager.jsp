@@ -1,5 +1,7 @@
 <%@ page import="com.naukma.supermarket.model.Category" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.naukma.supermarket.model.StoreProduct" %>
+<%@ page import="com.naukma.supermarket.model.Product" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -98,8 +100,7 @@
     <!-- start -->
     <form action="/list-products-in-category" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <!--<td><a href="/views/product/listProductsInCategory.jsp">Скласти список всіх товарів, що належать певній категорії</a></td>-->
-            <td>Скласти список всіх товарів, що належать певній категорії</td>
+            <td>+Скласти список всіх товарів, що належать певній категорії</td>
 
             <td><label>Номер категорії: </label>
                 <select name="categoryProd">
@@ -119,6 +120,27 @@
     </form>
     <!-- end -->
 
+<%--    <form action="/list-store-products" method="post">--%>
+<%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
+<%--            <td>Скласти список товарів у магазині, що належать певному товару</td>--%>
+
+<%--            <td><label>Номер категорії: </label>--%>
+<%--                <select name="productName">--%>
+<%--                    <%--%>
+<%--                        List<Product> catList1 = (List<Product>) request.getAttribute("allProducts");--%>
+<%--                        for (Product category : catList1) {--%>
+<%--                    %>--%>
+<%--                    <option value=<%=category.getProduct_name()%>><%=category.getProduct_name()%>--%>
+<%--                    </option>--%>
+<%--                    <%}%>--%>
+<%--                </select>--%>
+<%--            </td>--%>
+<%--            <td>--%>
+<%--                <button class="button" type="submit">Підтвердити</button>--%>
+<%--            </td>--%>
+<%--        </table>--%>
+<%--    </form>--%>
+
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 
         <tr>
@@ -127,7 +149,7 @@
         </tr>
 
         <tr>
-            <td><a href="/sorted-cashier-name"> Скласти список працівників, що займають посаду касира, відсортованих за
+            <td><a href="/sorted-cashier-name">+Скласти список працівників, що займають посаду касира, відсортованих за
                 прізвищем</a></td>
 
         </tr>
@@ -139,26 +161,26 @@
 
         </tr>
         <tr>
-            <td><a href="/login">За прізвищем працівника знайти його телефон та адресу </a></td>
+            <td><a href="/login">!!За прізвищем працівника знайти його телефон та адресу </a></td>
 
         </tr>
         <tr>
-            <td><a href="/login">Скласти список усіх товарів, відсортованих за назвою</a></td>
+            <td><a href="/sort-products-name">+Скласти список усіх товарів, відсортованих за назвою</a></td>
 
         </tr>
         <tr>
-            <td><a href="/sorted-categories-name">Скласти список усіх категорій, відсортованих за назвою</a></td>
+            <td><a href="/sorted-categories-name">+Скласти список усіх категорій, відсортованих за назвою</a></td>
 
         </tr>
         <tr>
 
         </tr>
         <tr>
-            <td><a href="/login">Скласти список товарів у магазині, що належать певному товару</a></td>
+            <td><a href="/list-store-products">Скласти список товарів у магазині, що належать певному товару</a></td>
 
         </tr>
         <tr>
-            <td><a href="/login">За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару</a></td>
+            <td><a href="/storeProductByUpc">За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару</a></td>
 
         </tr>
         <tr>
@@ -197,7 +219,7 @@
 
         </tr>
         <tr>
-            <td><a href="/list-customer-card">Скласти список усіх постійних клієнтів, що мають карту клієнта, по полях
+            <td><a href="/list-customer-card">+Скласти список усіх постійних клієнтів, що мають карту клієнта, по полях
                 ПІБ, телефон, адреса (якщо вказана)</a></td>
 
         </tr>
