@@ -212,4 +212,45 @@ public class CategoryDAOImpl implements CategoryDAO {
         }
         return result;
     }
+
+    @Override
+    public List<Category> categoriesSortedByName() {
+        List<Category> categoryList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM db_supermarket.category ORDER BY category_name";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Integer idCategory = rs.getInt("category_number");
+                String categoryName = rs.getString("category_name");
+
+                Category category = new Category(idCategory, categoryName);
+                categoryList.add(category);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in CategoryDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return categoryList;
+    }
 }

@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CategoryService extends CRUDService<Category, Integer> {
 
+    List<Category> categoriesSortedByName();
+
 }

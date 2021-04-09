@@ -23,7 +23,7 @@ public class SortedCategoriesByNameServlet extends HttpServlet {
 
         CategoryService categoryService = new CategoryServiceImpl();
 
-        List<Category> allCategories = categoryService.findAll();//
+        List<Category> allCategories = categoryService.categoriesSortedByName();
         request.setAttribute("allCategories", allCategories);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/category/allCategories.jsp");
