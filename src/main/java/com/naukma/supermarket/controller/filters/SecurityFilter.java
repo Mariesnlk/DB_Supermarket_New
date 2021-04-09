@@ -26,10 +26,12 @@ public class SecurityFilter implements Filter {
 
         Employee emp = (Employee) session.getAttribute("registeredEmployee");
 
-        String[] urlAccessCashier = {"/", "/add-check", "/add-customerCard", "/login", "/indexCashier.jsp", "/employee/**"};
+        String[] urlAccessCashier = {"/", "/add-check", "/add-customerCard", "/login", "/indexCashier.jsp", "/employee/**",
+        "/sort-products-name"};
 
-        String[] urlAccessManager = {"/", "/login", "/indexManager.jsp", "/add-employee", "/add-category",
-                "/add-product", "/add-customerCard", "/add-check", "/add-sale", "/add-storeProduct", "/add-query", "/catServlet/**"};
+        String[] urlAccessManager = {"/", "/login", "/add-employee", "/add-category",
+                "/add-product", "/add-customerCard", "/add-check", "/add-sale", "/add-storeProduct", "/add-query",
+                "/sorted-categories-name", "/index-manager", "/sorted-cashier-name"};
 
         if (emp != null) {
             userRole = emp.getRole();

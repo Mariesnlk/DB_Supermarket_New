@@ -95,29 +95,29 @@
 
 <div>
 
-
+    <!-- start -->
     <form action="/list-products-in-category" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-        <!--<td><a href="/views/product/listProductsInCategory.jsp">Скласти список всіх товарів, що належать певній категорії</a></td>-->
-        <td>Скласти список всіх товарів, що належать певній категорії</td>
+            <!--<td><a href="/views/product/listProductsInCategory.jsp">Скласти список всіх товарів, що належать певній категорії</a></td>-->
+            <td>Скласти список всіх товарів, що належать певній категорії</td>
 
-        <td><label>Номер категорії: </label>
-            <select name="categoryProd">
-                <%
-                    List<Category> catList = (List<Category>) request.getAttribute("allCategories");
-                    for (Category category : catList) {
-                %>
-                <option value=<%=category.getCategory_name()%>><%=category.getCategory_name()%>
-                </option>
-                <%}%>
-            </select>
-        </td>
-        <td>
-            <button class="button" type="submit">Підтвердити</button>
-        </td>
+            <td><label>Номер категорії: </label>
+                <select name="categoryProd">
+                    <%
+                        List<Category> catList = (List<Category>) request.getAttribute("allCategories");
+                        for (Category category : catList) {
+                    %>
+                    <option value=<%=category.getCategory_name()%>><%=category.getCategory_name()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
         </table>
     </form>
-
+    <!-- end -->
 
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 
@@ -127,12 +127,14 @@
         </tr>
 
         <tr>
-            <td><a href="/sorted-cashier-name" > Скласти список працівників, що займають посаду касира, відсортованих за прізвищем</a></td>
+            <td><a href="/sorted-cashier-name"> Скласти список працівників, що займають посаду касира, відсортованих за
+                прізвищем</a></td>
 
         </tr>
 
         <tr>
-            <td><a class="query"  href="/catServlet/?category=">Скласти список товарів, що належать певній категорії, відсортованих за назвою</a></td>
+            <td><a class="query" href="/catServlet/?category=">Скласти список товарів, що належать певній категорії,
+                відсортованих за назвою</a></td>
             <td><input class="query-field" type="text"></td>
 
         </tr>
@@ -150,16 +152,6 @@
         </tr>
         <tr>
 
-
-
-
-
-
-
-
-
-
-
         </tr>
         <tr>
             <td><a href="/login">Скласти список товарів у магазині, що належать певному товару</a></td>
@@ -170,43 +162,53 @@
 
         </tr>
         <tr>
-            <td><a href="/login">Скласти список усіх акційних товарів, відсортованих за кількістю одиниць товару/ за назвою</a></td>
+            <td><a href="/login">Скласти список усіх акційних товарів, відсортованих за кількістю одиниць товару/ за
+                назвою</a></td>
 
         </tr>
         <tr>
-            <td><a href="/login">Скласти список усіх не акційних товарів, відсортованих за кількістю одиниць товару/ за назвою</a></td>
+            <td><a href="/login">Скласти список усіх не акційних товарів, відсортованих за кількістю одиниць товару/ за
+                назвою</a></td>
 
         </tr>
         <tr>
-            <td><a href="/login">Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни)</a></td>
+            <td><a href="/login">Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю
+                перегляду куплених товарів, їх к-сті та ціни)</a></td>
 
         </tr>
         <tr>
-            <td><a href="/login">Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни )</a></td>
+            <td><a href="/login">Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю
+                перегляду куплених товарів, їх к-сті та ціни )</a></td>
 
         </tr>
         <tr>
-            <td><a href="/login">Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу</a></td>
+            <td><a href="/login">Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період
+                часу</a></td>
 
         </tr>
         <tr>
-            <td><a href="/login">Загальна сума проданих товарів з чеків, видрукуваних усіма касиром за певний період часу</a></td>
+            <td><a href="/login">Загальна сума проданих товарів з чеків, видрукуваних усіма касиром за певний період
+                часу</a></td>
 
         </tr>
         <tr>
-            <td><a href="/login">Визначити загальну кількість одиниць певного товару, проданого за певний період часу</a></td>
+            <td><a href="/login">Визначити загальну кількість одиниць певного товару, проданого за певний період
+                часу</a></td>
 
         </tr>
         <tr>
-            <td><a href="/list-customer-card">Скласти список усіх постійних клієнтів, що мають карту клієнта, по полях  ПІБ, телефон, адреса (якщо вказана)</a></td>
+            <td><a href="/list-customer-card">Скласти список усіх постійних клієнтів, що мають карту клієнта, по полях
+                ПІБ, телефон, адреса (якщо вказана)</a></td>
 
         </tr>
         <tr>
-            <td><a href="/login">Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</a></td>
+            <td><a href="/login">Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</a>
+            </td>
 
         </tr>
         <tr>
-            <td><a href="/login">За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики товару</a></td>
+            <td><a href="/login">За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та
+                характеристики товару</a></td>
 
         </tr>
     </table>
@@ -219,23 +221,23 @@
 <br>
 
 
-
 <!-- <tr>
             <td><a class="query"   href="/catServlet/category=">Скласти список товарів, що належать певній категорії, відсортованих за назвою</a></td>
             <td><input class="query-field" type="text"></td>
 
         </tr>-->
 <script>
- document.querySelectorAll('.query-field').forEach((elem)=>elem.addEventListener('input',addParameter))
- function addParameter() {
-     let value = this.value;
-     let a=this.parentNode.parentNode.querySelector('a');
-     a.setAttribute('href',a.getAttribute('href')+value);
+    document.querySelectorAll('.query-field').forEach((elem) => elem.addEventListener('input', addParameter))
 
- }
+    function addParameter() {
+        let value = this.value;
+        let a = this.parentNode.parentNode.querySelector('a');
+        a.setAttribute('href', a.getAttribute('href') + value);
+
+    }
 
 
-    </script>
+</script>
 
 </body>
 </html>

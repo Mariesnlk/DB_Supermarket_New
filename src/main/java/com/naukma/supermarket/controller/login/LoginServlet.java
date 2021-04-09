@@ -42,9 +42,9 @@ public class LoginServlet extends HttpServlet {
             resultPage = "/indexCashier.jsp";
 
            //убрать когда будет сервлет на касира
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher(resultPage);
-            LOGGER.info("doPost process");
-            requestDispatcher.forward(request, response);
+//            RequestDispatcher requestDispatcher = request.getRequestDispatcher(resultPage);
+//            LOGGER.info("doPost process");
+//            requestDispatcher.forward(request, response);
 
         } else if (registeredEmployee.getRole().equalsIgnoreCase("manager")) {
             response.sendRedirect("/index-manager");
