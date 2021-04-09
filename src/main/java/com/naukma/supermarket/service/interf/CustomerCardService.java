@@ -12,4 +12,5 @@ public interface CustomerCardService extends CRUDService<CustomerCard, String> {
 
     CustomerCard customerWithSurname(String surname);
 
+    List<CustomerCard> listAllCustomers();
 }

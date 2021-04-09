@@ -373,6 +373,56 @@ public class CustomerCardDAOImpl implements CustomerCardDAO {
     }
 
     @Override
+    public List<CustomerCard> listAllCustomers() {
+        List<CustomerCard> customerList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT cust_surname, cust_name, cust_patronymic, " +
+                    "phone_number, city, street, zip_code " +
+                    "FROM db_supermarket.customer_card ";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                String custSurname = rs.getString("cust_surname");
+                String custName = rs.getString("cust_name");
+                String custPatronymic = rs.getString("cust_patronymic");
+                String phoneNumber = rs.getString("phone_number");
+                String city = rs.getString("city");
+                String street = rs.getString("street");
+                String zipCode = rs.getString("zip_code");
+
+                CustomerCard customer = new CustomerCard(custSurname, custName,
+                        custPatronymic, phoneNumber, city, street, zipCode);
+                customerList.add(customer);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in CustomerCardDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return customerList;
+    }
+
+    @Override
     public CustomerCard customerWithSurname(String surname) {
         CustomerCard customer = null;
 

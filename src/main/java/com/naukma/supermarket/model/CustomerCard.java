@@ -14,6 +14,16 @@ public class CustomerCard {
 
     public CustomerCard() { }
 
+    public CustomerCard(String cust_surname, String cust_name, String cust_patronymic, String phone_number, String city, String street, String zip_code) {
+        this.cust_surname = cust_surname;
+        this.cust_name = cust_name;
+        this.cust_patronymic = cust_patronymic;
+        this.phone_number = phone_number;
+        this.city = city;
+        this.street = street;
+        this.zip_code = zip_code;
+    }
+
     public CustomerCard(String cust_surname, String cust_name, String cust_patronymic, String phone_number, String city, String street, String zip_code, Integer percent) {
         this.cust_surname = cust_surname;
         this.cust_name = cust_name;

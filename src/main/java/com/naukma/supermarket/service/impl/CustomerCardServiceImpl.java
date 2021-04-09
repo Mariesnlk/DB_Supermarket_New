@@ -63,4 +63,11 @@ public class CustomerCardServiceImpl implements CustomerCardService {
         CustomerCard customerCard = customerCardDAO.customerWithSurname(surname);
         return customerCard;
     }
+
+    @Override
+    public List<CustomerCard> listAllCustomers() {
+        CustomerCardDAO customerCardDAO = new CustomerCardDAOImpl();
+        List<CustomerCard> customerCards = customerCardDAO.listAllCustomers();
+        return customerCards;
+    }
 }

@@ -23,7 +23,7 @@ public class ListCustomerCardServlet extends HttpServlet {
 
         CustomerCardService customerCardService = new CustomerCardServiceImpl();
 
-        List<CustomerCard> allCustomerCards = customerCardService.findAll();//
+        List<CustomerCard> allCustomerCards = customerCardService.listAllCustomers();
         request.setAttribute("allCustomerCards", allCustomerCards);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/customerCard/allCustomerCards.jsp");
