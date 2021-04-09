@@ -69,6 +69,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<Employee> listCashiersBySurname() {
-        return null;
+        EmployeeDAO employeeDAO = new EmployeeDAOImpl();
+        List<Employee> employees = employeeDAO.listCashiersBySurname();
+        return employees;
     }
 }

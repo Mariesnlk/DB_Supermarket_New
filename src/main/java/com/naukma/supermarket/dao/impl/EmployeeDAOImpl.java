@@ -320,6 +320,55 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public List<Employee> listCashiersBySurname() {
-        return null;
+        List<Employee> employeeList = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT * FROM db_supermarket.employee " +
+                    "WHERE role = 'cashier' " +
+                    "ORDER BY empl_surname";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String idEmployee = rs.getString("id_employee");
+                String surname = rs.getString("empl_surname");
+                String name = rs.getString("empl_name");
+                String patronymic = rs.getString("empl_patronymic");
+                String role = rs.getString("role");
+                double salary = rs.getDouble("salary");
+                Date dateBirth = rs.getDate("date_of_birth");
+                Date dateStart = rs.getDate("date_of_start");
+                String phoneNumber = rs.getString("phone_number");
+                String city = rs.getString("city");
+                String street = rs.getString("street");
+                String zipCode = rs.getString("zip_code");
+
+                Employee employee = new Employee(idEmployee, surname, name, patronymic, role, salary, dateBirth,
+                        dateStart, phoneNumber, city, street, zipCode);
+                employeeList.add(employee);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in OrderDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return employeeList;
     }
 }
