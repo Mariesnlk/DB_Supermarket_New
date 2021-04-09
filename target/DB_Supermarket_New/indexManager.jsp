@@ -1,3 +1,5 @@
+<%@ page import="com.naukma.supermarket.model.Category" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -93,6 +95,30 @@
 
 <div>
 
+
+    <form action="/list-products-in-category" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+        <!--<td><a href="/views/product/listProductsInCategory.jsp">Скласти список всіх товарів, що належать певній категорії</a></td>-->
+        <td>Скласти список всіх товарів, що належать певній категорії</td>
+
+        <td><label>Номер категорії: </label>
+            <select name="categoryProd">
+                <%
+                    List<Category> catList = (List<Category>) request.getAttribute("allCategories");
+                    for (Category category : catList) {
+                %>
+                <option value=<%=category.getCategory_name()%>><%=category.getCategory_name()%>
+                </option>
+                <%}%>
+            </select>
+        </td>
+        <td>
+            <button class="button" type="submit">Підтвердити</button>
+        </td>
+        </table>
+    </form>
+
+
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 
         <tr>
@@ -123,7 +149,16 @@
 
         </tr>
         <tr>
-            <td><a href="/login">Скласти список всіх товарів, що належать певній категорії</a></td>
+
+
+
+
+
+
+
+
+
+
 
         </tr>
         <tr>

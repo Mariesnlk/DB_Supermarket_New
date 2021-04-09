@@ -1,10 +1,7 @@
 package com.naukma.supermarket.service.impl;
 
-import com.naukma.supermarket.dao.impl.ProductDAOImpl;
 import com.naukma.supermarket.dao.impl.StoreProductDAOImpl;
-import com.naukma.supermarket.dao.interf.ProductDAO;
 import com.naukma.supermarket.dao.interf.StoreProductDAO;
-import com.naukma.supermarket.model.Product;
 import com.naukma.supermarket.model.StoreProduct;
 import com.naukma.supermarket.service.interf.StoreProductService;
 
@@ -12,8 +9,20 @@ import java.util.List;
 
 public class StoreProductServiceImpl implements StoreProductService {
 
+    //для наценки
+
     @Override
     public void create(StoreProduct product) {
+        double coeff=0;
+        if(product.getPromotional_product()){
+            coeff=0.2;
+        }
+        else{
+            coeff=0.3;
+        }
+        product.setSelling_price(product.getSelling_price()*coeff);
+
+
         StoreProductDAO productDAO = new StoreProductDAOImpl();
         productDAO.create(product);
     }

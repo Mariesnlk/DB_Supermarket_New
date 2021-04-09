@@ -4,6 +4,8 @@ import com.naukma.supermarket.dao.impl.*;
 import com.naukma.supermarket.dao.interf.*;
 import com.naukma.supermarket.model.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.sql.Date;
 
@@ -81,15 +83,26 @@ public class Main {
         //not work
         CheckDAO checkDAO = new CheckDAOImpl();
         System.out.println(1);
-//        Check check = checkDAO.totalSumOfChecks("2", new Date(2021 - 3 - 2), new Date(2021 - 3 - 9));
-//        System.out.println("Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу " + check);
+        java.util.Date dateFirst=null;
+        java.util.Date dateSecond=null;
+
+        try {
+            dateFirst = parseDate("2021-03-02", "yyyy-MM-dd");
+            dateSecond = parseDate("2021-03-09", "yyyy-MM-dd");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+        Check check = checkDAO.totalSumOfChecks("2", new Date(dateFirst.getTime()), new Date(dateSecond.getTime()));
+        System.out.println("Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу " + check);
 
 
 
-        Check check1 = checkDAO.totalSumOfChecksAllEmployees(new Date(2021 - 3 - 2), new Date(2021 - 3 - 9));
-        System.out.println(2);
-        System.out.println("Загальна сума проданих товарів з чеків, видрукуваних усіма касиром за певний період часу " + check1);
-        System.out.println(3);
+//        Check check1 = checkDAO.totalSumOfChecksAllEmployees(new Date(2021 - 3 - 2), new Date(2021 - 3 - 9));
+//        System.out.println(2);
+//        System.out.println("Загальна сума проданих товарів з чеків, видрукуваних усіма касиром за певний період часу " + check1);
+//        System.out.println(3);
 
 //        //Скласти список всіх товарів, що належать певній категорії
 //        List<Product> product = productDAO.productByCategory("fruits");
@@ -101,5 +114,13 @@ public class Main {
 
 
 
+    }
+
+
+    //для парсинга даты
+    private static java.util.Date parseDate(String date, String format) throws ParseException
+    {
+        SimpleDateFormat formatter = new SimpleDateFormat(format);
+        return formatter.parse(date);
     }
 }

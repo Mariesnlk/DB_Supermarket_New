@@ -19,15 +19,16 @@ public class ListProductsInCategoryServlet extends HttpServlet {
 
     private final Logger LOGGER = Logger.getLogger(GetProductByIdServlet.class);
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ProductService productService = new ProductServiceImpl();
 
-        String categoryName = request.getParameter("category_name");
+        String categoryName = request.getParameter("categoryProd");
+        System.out.println(categoryName);
 
         List<Product> allProducts = productService.productByCategory(categoryName);
         request.setAttribute("allProducts", allProducts);
-
+        System.out.println(allProducts);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/product/allProducts.jsp");
         LOGGER.info("doGet process");
         requestDispatcher.forward(request, response);

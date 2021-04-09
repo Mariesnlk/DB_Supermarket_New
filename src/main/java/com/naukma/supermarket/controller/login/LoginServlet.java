@@ -41,15 +41,18 @@ public class LoginServlet extends HttpServlet {
         if (registeredEmployee.getRole().equalsIgnoreCase("cashier")) {
             resultPage = "/indexCashier.jsp";
 
+           //убрать когда будет сервлет на касира
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher(resultPage);
+            LOGGER.info("doPost process");
+            requestDispatcher.forward(request, response);
+
         } else if (registeredEmployee.getRole().equalsIgnoreCase("manager")) {
-            resultPage = "/indexManager.jsp";
+            response.sendRedirect("/index-manager");
+        } else {
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher(resultPage);
+            LOGGER.info("doPost process");
+            requestDispatcher.forward(request, response);
         }
-
-
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher(resultPage);
-        LOGGER.info("doPost process");
-        requestDispatcher.forward(request, response);
-
 
     }
 

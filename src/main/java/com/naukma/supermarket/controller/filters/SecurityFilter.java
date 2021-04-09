@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-//@WebFilter(urlPatterns = {"/*"})
+@WebFilter(urlPatterns = {"/*"})
 public class SecurityFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -61,11 +61,36 @@ public class SecurityFilter implements Filter {
     }
 
     boolean checkAccess(String url, String[] accessUrls) {
+
+      /*   /employee/**
+         /employee/111
+        */
+
         for (String strUrl : accessUrls) {
             if (strUrl.equals(url)) {
                 return true;
             }
+
+            if (strUrl.contains("**")) {
+                String[] pathUserElems = url.split("/");
+                String[] parthsElems = strUrl.split("/");
+                String strWithout = "";
+                String strUserWithout = "";
+                int count = 0;
+                for (String elem : parthsElems) {
+                    if (!elem.equalsIgnoreCase("**")) {
+                        strWithout += elem;
+                        strUserWithout += pathUserElems[count];
+                    }
+                    count++;
+
+                }
+                if (strWithout.equalsIgnoreCase(strUserWithout)) {
+                    return true;
+                }
+            }
         }
+
         return false;
     }
 
