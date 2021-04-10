@@ -51,7 +51,6 @@ public class AddCheckServlet extends HttpServlet {
         String cardNumber = request.getParameter("cardNumber");
 
         String availablePrintDate = request.getParameter("printDate");
-        SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd");
         java.util.Date d = null;
         try {
             d = new SimpleDateFormat("yyyy-MM-dd").parse(availablePrintDate);

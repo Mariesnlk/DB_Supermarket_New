@@ -112,18 +112,17 @@ public class Main {
         List<Check> listCheck = checkDAO.checksFromPeriodOfCashier("2", new Date(dateStart.getTime()), new Date(dateFinish.getTime()));
         System.out.println("Скласти список чеків,  видрукуваних даним касиром за певний період часу " + listCheck);
 
-//        Check check1 = checkDAO.totalSumOfChecksAllEmployees(new Date(2021 - 3 - 2), new Date(2021 - 3 - 9));
-//        System.out.println(2);
-//        System.out.println("Загальна сума проданих товарів з чеків, видрукуваних усіма касиром за певний період часу " + check1);
-//        System.out.println(3);
+        //Загальна сума проданих товарів з чеків, видрукуваних усіма касиром за певний період часу
+        Check check1 = checkDAO.totalSumOfChecksAllEmployees(new Date(dateFirst.getTime()), new Date(dateSecond.getTime()));
+        System.out.println("Загальна сума проданих товарів з чеків, видрукуваних усіма касиром за певний період часу " + check1);
 
 //        //Скласти список всіх товарів, що належать певній категорії
 //        List<Product> product = productDAO.productByCategory("fruits");
 //        System.out.println("Скласти список всіх товарів, що належать певній категорії " + product);
 //
-//        //Скласти список товарів, що належать певній категорії, відсортованих за назвою
-//        List<Product> productOrdered = productDAO.productByCategoryOrdered("fruits");
-//        System.out.println("Скласти список товарів, що належать певній категорії, відсортованих за назвою " + productOrdered);
+        //Скласти список товарів, що належать певній категорії, відсортованих за назвою
+        List<Product> productOrdered = productDAO.productByCategoryOrdered("fruits");
+        System.out.println("Скласти список товарів, що належать певній категорії, відсортованих за назвою " + productOrdered);
 
 
     }

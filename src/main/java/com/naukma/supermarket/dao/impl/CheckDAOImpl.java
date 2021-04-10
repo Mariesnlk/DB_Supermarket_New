@@ -255,21 +255,26 @@ public class CheckDAOImpl implements CheckDAO {
 
         try {
 
-            String query = "SELECT SUM(sum_total)  FROM db_supermarket.check WHERE id_employee = ? AND print_date BETWEEN ? AND ?";
+            String query = "SELECT SUM(sum_total) AS sum_total " +
+                    "FROM db_supermarket.check " +
+                    "WHERE print_date BETWEEN ? AND ? AND id_employee  IN \n" +
+                    "(SELECT id_employee \n" +
+                    "FROM db_supermarket.employee\n" +
+                    "WHERE role = 'cashier' AND id_employee = ?)";
+
             ps = connection.prepareStatement(query);
 
             LOG.debug("Executed query" + query);
 
-            ps.setString(1, idEmployee);
-            ps.setString(2, String.valueOf(dateFrom));
-            ps.setString(3, String.valueOf(dateTo));
-        System.out.println(query);
-            System.out.println(ps.toString());
+            ps.setString(1, String.valueOf(dateFrom));
+            ps.setString(2, String.valueOf(dateTo));
+            ps.setString(3, idEmployee);
+
             rs = ps.executeQuery();
 
             while (rs.next()) {
 
-                Double sumTotal = rs.getDouble("SUM(sum_total)");
+                Double sumTotal = rs.getDouble("sum_total");
 
                 check = new Check(sumTotal);
             }
