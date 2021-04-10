@@ -29,14 +29,16 @@ public class SecurityFilter implements Filter {
         String[] urlAccessCashier = {"/", "/login", "/indexCashier.jsp", "/index-cashier", "/add-check",
                 "/add-customerCard", "/employee/**", "/sort-products-name", "/list-products-in-check",
                 "/sort-non-prom-by-name", "/sort-prom-by-name", "/sort-non-prom-by-quantity", "/sort-prom-by-quantity",
-                "/checkInfo"
+                "/checkInfo", "/list-sorted-products-in-category", "/storeProductByUpc",
+                "/list-customers-by-percent", "/show-customer-info-by-surname"
         };
 
         String[] urlAccessManager = {"/", "/login", "/index-manager", "/indexManager.jsp", "/add-employee", "/add-category",
                 "/add-product", "/add-customerCard", "/add-check", "/add-sale", "/add-storeProduct", "/add-query",
                 "/sorted-categories-name", "/sort-cashiers-by-surname", "/list-products-in-category", "/list-store-products",
-                "/show-employee-info", "/storeProductByUpc",
-                "/sort-non-prom-by-name", "/sort-prom-by-name", "/sort-non-prom-by-quantity", "/sort-prom-by-quantity"};
+                "/show-employee-info", "/storeProductByUpc", "/list-sorted-products-in-category",
+                "/sort-non-prom-by-name", "/sort-prom-by-name", "/sort-non-prom-by-quantity", "/sort-prom-by-quantity",
+                "/sum-check-one-empl", "/sum-check-all-empl", "/list-customers-by-percent" };
 
         if (emp != null) {
             userRole = emp.getRole();

@@ -208,7 +208,7 @@
 
     <form action="/list-customers-by-percent" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>!!Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>
+            <td>+Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>
 
             <td><label>Відсоток знижки: </label>
                 <select name="percent">
