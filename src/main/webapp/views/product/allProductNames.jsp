@@ -13,7 +13,6 @@
 <br>
 <div>
     <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
-    <input class="button" type=button onClick="location.href='/index-manager'" value='Повернутися на сторінку менеджера'>
 </div>
 <br>
 <br>
@@ -55,7 +54,6 @@
 
 <div>
     <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
-    <input class="button" type=button onClick="location.href='/index-manager'" value='Повернутися на сторінрку менеджера'>
 </div>
 </body>
 </html>

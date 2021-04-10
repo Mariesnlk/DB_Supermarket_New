@@ -97,6 +97,7 @@
 <br>
 
 <input class="button" type=button onClick="location.href='/customerCards'" value='Всі картки клієнтів'>
+<input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
 
 </body>
 </html>
