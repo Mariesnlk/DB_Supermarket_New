@@ -1,8 +1,17 @@
 package com.naukma.supermarket.controller.login;
 
 import com.naukma.supermarket.model.Category;
+import com.naukma.supermarket.model.Check;
+import com.naukma.supermarket.model.Employee;
+import com.naukma.supermarket.model.Product;
 import com.naukma.supermarket.service.impl.CategoryServiceImpl;
+import com.naukma.supermarket.service.impl.CheckServiceImpl;
+import com.naukma.supermarket.service.impl.EmployeeServiceImpl;
+import com.naukma.supermarket.service.impl.ProductServiceImpl;
 import com.naukma.supermarket.service.interf.CategoryService;
+import com.naukma.supermarket.service.interf.CheckService;
+import com.naukma.supermarket.service.interf.EmployeeService;
+import com.naukma.supermarket.service.interf.ProductService;
 import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -21,15 +30,29 @@ public class CashierServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //all categories
         CategoryService categoryService = new CategoryServiceImpl();
 
         List<Category> allCategories = categoryService.findAll();
         request.setAttribute("allCategories", allCategories);
 
-//        ProductService productService = new ProductServiceImpl();
-//
-//        List<Product> allProducts = productService.findAll();
-//        request.setAttribute("allProducts", allProducts);
+        //all products
+        ProductService productService = new ProductServiceImpl();
+
+        List<Product> allProducts = productService.findAll();
+        request.setAttribute("allProducts", allProducts);
+
+        //all employees
+        EmployeeService employeeService = new EmployeeServiceImpl();
+
+        List<Employee> allEmployees = employeeService.findAll();
+        request.setAttribute("allEmployees", allEmployees);
+
+        //all checks
+        CheckService checkService = new CheckServiceImpl();
+
+        List<Check> allChecks = checkService.findAll();
+        request.setAttribute("allChecks", allChecks);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("indexCashier.jsp");
         LOGGER.info("doGet process");

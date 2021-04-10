@@ -18,7 +18,7 @@ public class FindSomethingByUpcServlet extends HttpServlet {
 
     private final Logger LOGGER = Logger.getLogger(FindSomethingByUpcServlet.class);
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         StoreProductService storeProductService = new StoreProductServiceImpl();
 
@@ -28,7 +28,7 @@ public class FindSomethingByUpcServlet extends HttpServlet {
         request.setAttribute("storeProductByUpc", storeProduct);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/storeProduct/showStoreProductByUpc.jsp");
-        LOGGER.info("doGet process");
+        LOGGER.info("doPost process");
         requestDispatcher.forward(request, response);
 
     }

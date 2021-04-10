@@ -26,9 +26,9 @@ public class ListAllProductsInCheckServlet extends HttpServlet {
         String checkNum = request.getParameter("checkNum");
 
         List<Product> allProducts = productService.allProductsInCheckByCheckNum(checkNum);
-        request.setAttribute("allProducts", allProducts);
+        request.setAttribute("allProductNames", allProducts);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/product/allProducts.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/product/allProductNames.jsp");
         LOGGER.info("doPost process");
         requestDispatcher.forward(request, response);
     }
