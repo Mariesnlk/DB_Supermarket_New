@@ -50,6 +50,12 @@ public class ManagerServlet extends HttpServlet {
         List<StoreProduct> allStoreProducts = storeProductService.findAll();
         request.setAttribute("allStoreProducts", allStoreProducts);
 
+        //all customerCards
+        CustomerCardService customerCardService = new CustomerCardServiceImpl();
+
+        List<CustomerCard> allCustomerCards = customerCardService.findAll();
+        request.setAttribute("allCustomerCards", allCustomerCards);
+
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("indexManager.jsp");
         LOGGER.info("doGet process");
         requestDispatcher.forward(request, response);

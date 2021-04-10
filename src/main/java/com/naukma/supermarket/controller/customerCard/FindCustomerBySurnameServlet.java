@@ -13,21 +13,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-//@WebServlet(name = "FindCustomerBySurnameServlet", urlPatterns = {"/"})
+@WebServlet(name = "FindCustomerBySurnameServlet", urlPatterns = {"/show-customer-info-by-surname"})
 public class FindCustomerBySurnameServlet extends HttpServlet {
 
-//    private final Logger LOGGER = Logger.getLogger(GetAllCustomerCardsServlet.class);
-//
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//        CustomerCardService customerCardService = new CustomerCardServiceImpl();
-//
-//        String surname = request.getParameter("cust_surname");
-//        CustomerCard customerCard = customerCardService.customerWithSurname(surname);
-//        request.setAttribute("customerCard", customerCard);
-//
-//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/customerCard/showCustomerCard.jsp");
-//        LOGGER.info("doGet process");
-//        requestDispatcher.forward(request, response);
-//    }
+    private final Logger LOGGER = Logger.getLogger(FindCustomerBySurnameServlet.class);
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        CustomerCardService customerCardService = new CustomerCardServiceImpl();
+
+        String surname = request.getParameter("custSurname");
+
+        CustomerCard customerCard = customerCardService.customerWithSurname(surname);
+        request.setAttribute("customerCard", customerCard);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/customerCard/showCustomerCard.jsp");
+        LOGGER.info("doPost process");
+        requestDispatcher.forward(request, response);
+    }
 }
