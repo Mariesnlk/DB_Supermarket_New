@@ -209,6 +209,28 @@
         </table>
     </form>
 
+<%--    <form action="/list-customers-by-percent" method="post">--%>
+<%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
+<%--            <td>!!Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>--%>
+
+<%--            <td><label>Номер категорії: </label>--%>
+<%--                <select name="categoryProd">--%>
+<%--                    <%--%>
+<%--                        List<Category> percList = (List<Category>) request.getAttribute("allCategories");--%>
+<%--                        for (Category category : percList) {--%>
+<%--                    %>--%>
+<%--                    <option value=<%=category.getCategory_name()%>><%=category.getCategory_name()%>--%>
+<%--                    </option>--%>
+<%--                    <%}%>--%>
+<%--                </select>--%>
+<%--            </td>--%>
+<%--            <td>--%>
+<%--                <button class="button" type="submit">Підтвердити</button>--%>
+<%--            </td>--%>
+<%--        </table>--%>
+<%--    </form>--%>
+
+
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 
         <tr>
@@ -253,9 +275,6 @@
         </tr>
         <tr>
             <td><a href="/list-customer-card">+Скласти список усіх постійних клієнтів, що мають карту клієнта, по полях ПІБ, телефон, адреса (якщо вказана)</a></td>
-        </tr>
-        <tr>
-            <td><a href="/login">!!Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</a></td>
         </tr>
         <tr>
             <td><a href="/login">?За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики товару</a></td>

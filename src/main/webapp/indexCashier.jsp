@@ -139,6 +139,48 @@
         </table>
     </form>
 
+<%--    <form action="/show-customer-info-by-surname" method="post">--%>
+<%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
+<%--            <td>!!Вивести усю інформацію про покупця з певним прізвищем, що має карту клієнта</td>--%>
+
+<%--            <td><label>Номер категорії: </label>--%>
+<%--                <select name="categoryProd">--%>
+<%--                    <%--%>
+<%--                        List<Category> surnameList = (List<Category>) request.getAttribute("allCategories");--%>
+<%--                        for (Category category : surnameList) {--%>
+<%--                    %>--%>
+<%--                    <option value=<%=category.getCategory_name()%>><%=category.getCategory_name()%>--%>
+<%--                    </option>--%>
+<%--                    <%}%>--%>
+<%--                </select>--%>
+<%--            </td>--%>
+<%--            <td>--%>
+<%--                <button class="button" type="submit">Підтвердити</button>--%>
+<%--            </td>--%>
+<%--        </table>--%>
+<%--    </form>--%>
+
+<%--    <form action="/list-customers-by-percent" method="post">--%>
+<%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
+<%--            <td>!!Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>--%>
+
+<%--            <td><label>Номер категорії: </label>--%>
+<%--                <select name="categoryProd">--%>
+<%--                    <%--%>
+<%--                        List<Category> percList = (List<Category>) request.getAttribute("allCategories");--%>
+<%--                        for (Category category : percList) {--%>
+<%--                    %>--%>
+<%--                    <option value=<%=category.getCategory_name()%>><%=category.getCategory_name()%>--%>
+<%--                    </option>--%>
+<%--                    <%}%>--%>
+<%--                </select>--%>
+<%--            </td>--%>
+<%--            <td>--%>
+<%--                <button class="button" type="submit">Підтвердити</button>--%>
+<%--            </td>--%>
+<%--        </table>--%>
+<%--    </form>--%>
+
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 
         <tr>
@@ -148,12 +190,6 @@
 
         <tr>
             <td><a href="/list-check-period">?Скласти список чеків, видрукуваних даним касиром за певний період часу</a></td>
-        </tr>
-        <tr>
-            <td><a href="/login">!!Вивести усю інформацію про покупця з певним прізвищем, що має карту клієнта</a></td>
-        </tr>
-        <tr>
-            <td><a href="/login">!!Список усіх постійних клієнтів, що мають карту клієнта з певним відсотком</a></td>
         </tr>
         <tr>
             <td><a href="/sort-products-name">+Скласти список усіх товарів, відсортований за назвою</a></td>
