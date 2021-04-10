@@ -74,6 +74,27 @@
         </table>
     </form>
 
+    <form action="/checkInfo" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>За номером чеку вивести усю інформацію про даний чек</td>
+
+            <td><label>Номер чека: </label>
+                <select name="checkNumber">
+                    <%
+                        List<Check> checkList1 = (List<Check>) request.getAttribute("allChecks");
+                        for (Check check : checkList1) {
+                    %>
+                    <option value=<%=check.getCheck_number()%>><%=check.getCheck_number()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
+
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 
         <tr>
@@ -85,10 +106,9 @@
             <td><a href="/list-check-period">Скласти список чеків, видрукуваних даним касиром за певний період часу</a></td>
 
         </tr>
-        <tr>
-            <td><a href="/login">За номером чеку вивести усю інформацію про даний чек</a></td>
-
-        </tr>
+<%--        <tr>--%>
+<%--            <td><a href="/login">За номером чеку вивести усю інформацію про даний чек</a></td>--%>
+<%--        </tr>--%>
         <tr>
             <td><a href="/login">Вивести усю інформацію про покупця з певним прізвищем, що має карту клієнта</a></td>
 
