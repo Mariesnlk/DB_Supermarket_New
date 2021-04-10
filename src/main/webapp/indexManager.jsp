@@ -167,6 +167,27 @@
         </table>
     </form>
 
+    <form action="/storeProductByUpc" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>+За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару</td>
+
+            <td><label>UPC товару: </label>
+                <select name="upc">
+                    <%
+                        List<StoreProduct> prodStList = (List<StoreProduct>) request.getAttribute("allStoreProducts");
+                        for (StoreProduct prod : prodStList) {
+                    %>
+                    <option value=<%=prod.getUPC()%>><%=prod.getUPC()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
+
 
 
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
@@ -190,10 +211,6 @@
         <tr>
             <td><a href="/sorted-categories-name">+Скласти список усіх категорій, відсортованих за назвою</a></td>
         </tr>
-        <tr>
-            <td><a href="/storeProductByUpc">?За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару</a></td>
-        </tr>
-
         <tr>
             <td><a href="/sort-prom-by-name">+Скласти список усіх акційних товарів, відсортованих за назвою</a></td>
         </tr>

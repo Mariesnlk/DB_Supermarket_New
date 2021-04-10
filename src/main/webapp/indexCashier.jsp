@@ -53,27 +53,47 @@
 
 <div>
 
-<%--  опять ошибка  --%>
-<%--    <form action="/list-products-in-check" method="post">--%>
-<%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
-<%--            <td>За номером чека скласти список усіх товарів, інформація про продаж яких є у цьому чеку</td>--%>
+    <form action="/list-products-in-check" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>+За номером чека скласти список усіх товарів, інформація про продаж яких є у цьому чеку</td>
 
-<%--            <td><label>Номер чека: </label>--%>
-<%--                <select name="checkNum">--%>
-<%--                    <%--%>
-<%--                        List<Check> checkList = (List<Check>) request.getAttribute("allChecks");--%>
-<%--                        for (Check check : checkList) {--%>
-<%--                    %>--%>
-<%--                    <option value=<%=check.getCheck_number()%>><%=check.getCheck_number()%>--%>
-<%--                    </option>--%>
-<%--                    <%}%>--%>
-<%--                </select>--%>
-<%--            </td>--%>
-<%--            <td>--%>
-<%--                <button class="button" type="submit">Підтвердити</button>--%>
-<%--            </td>--%>
-<%--        </table>--%>
-<%--    </form>--%>
+            <td><label>Номер чека: </label>
+                <select name="checkNum">
+                    <%
+                        List<Check> checkList = (List<Check>) request.getAttribute("allChecks");
+                        for (Check check : checkList) {
+                    %>
+                    <option value=<%=check.getCheck_number()%>><%=check.getCheck_number()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
+
+    <form action="/checkInfo" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>За номером чеку вивести усю інформацію про даний чек</td>
+
+            <td><label>Номер чека: </label>
+                <select name="checkNumber">
+                    <%
+                        List<Check> checkList1 = (List<Check>) request.getAttribute("allChecks");
+                        for (Check check : checkList1) {
+                    %>
+                    <option value=<%=check.getCheck_number()%>><%=check.getCheck_number()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
 
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 
@@ -86,10 +106,9 @@
             <td><a href="/list-check-period">Скласти список чеків, видрукуваних даним касиром за певний період часу</a></td>
 
         </tr>
-        <tr>
-            <td><a href="/login">За номером чеку вивести усю інформацію про даний чек</a></td>
-
-        </tr>
+<%--        <tr>--%>
+<%--            <td><a href="/login">За номером чеку вивести усю інформацію про даний чек</a></td>--%>
+<%--        </tr>--%>
         <tr>
             <td><a href="/login">Вивести усю інформацію про покупця з певним прізвищем, що має карту клієнта</a></td>
 
@@ -118,10 +137,6 @@
         <tr>
             <td><a href="/sort-non-prom-by-quantity">+Скласти список усіх не акційних товарів, відсортованих за кількістю одиниць товару</a></td>
         </tr>
-
-<%--        <tr>--%>
-<%--            <td><a href="/list-products-in-check">?За номером чека скласти список усіх товарів, інформація про продаж яких є у цьому чеку</a></td>--%>
-<%--        </tr>--%>
         <tr>
             <td><a href="/login">За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару</a></td>
 
