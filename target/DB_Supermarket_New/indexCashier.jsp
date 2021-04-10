@@ -28,6 +28,10 @@
 
 <h1>Сторінка касира</h1>
 
+<div>
+    <input class="button" type=button onClick="location.href='/logout'" value='Вийти'>
+</div>
+
 <br>
 
 <div class="container-button">

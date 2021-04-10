@@ -41,13 +41,9 @@ public class LoginServlet extends HttpServlet {
         if (registeredEmployee.getRole().equalsIgnoreCase("cashier")) {
             response.sendRedirect("/index-cashier");
 
-            //убрать когда будет сервлет на касира
-//            RequestDispatcher requestDispatcher = request.getRequestDispatcher(resultPage);
-//            LOGGER.info("doPost process");
-//            requestDispatcher.forward(request, response);
-
         } else if (registeredEmployee.getRole().equalsIgnoreCase("manager")) {
             response.sendRedirect("/index-manager");
+
         } else {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(resultPage);
             LOGGER.info("doPost process");

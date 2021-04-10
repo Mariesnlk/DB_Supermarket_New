@@ -19,7 +19,7 @@ public class GetEmployeeInfoBySurnameServlet extends HttpServlet {
 
     private final Logger LOGGER = Logger.getLogger(GetEmployeeInfoBySurnameServlet.class);
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         EmployeeService employeeService = new EmployeeServiceImpl();
 
@@ -28,7 +28,7 @@ public class GetEmployeeInfoBySurnameServlet extends HttpServlet {
         request.setAttribute("employeeSpecific", employee);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/employee/showEmployeeInfo.jsp");
-        LOGGER.info("doGet process");
+        LOGGER.info("doPost process");
         requestDispatcher.forward(request, response);
 
     }

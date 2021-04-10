@@ -33,6 +33,10 @@
 <h1>Сторінка менеджера</h1>
 
 <div>
+    <input class="button" type=button onClick="location.href='/logout'" value='Вийти'>
+</div>
+
+<div>
     <input class="button" type=button onClick="location.href='/add-query'"
            value='Мій запит'>
 </div>
@@ -121,48 +125,47 @@
     </form>
     <!-- end -->
 
-<%--  где ошибка ??  --%>
-<%--    <form action="/list-store-products" method="post">--%>
-<%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
-<%--            <td>Скласти список товарів у магазині, що належать певному товару</td>--%>
+    <form action="/list-store-products" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>+Скласти список товарів у магазині, що належать певному товару</td>
 
-<%--            <td><label>Назва товару: </label>--%>
-<%--                <select name="nameProd">--%>
-<%--                    <%--%>
-<%--                        List<Product> prodList = (List<Product>) request.getAttribute("allProducts");--%>
-<%--                        for (Product prod : prodList) {--%>
-<%--                    %>--%>
-<%--                    <option value=<%=prod.getProduct_name()%>><%=prod.getProduct_name()%>--%>
-<%--                    </option>--%>
-<%--                    <%}%>--%>
-<%--                </select>--%>
-<%--            </td>--%>
-<%--            <td>--%>
-<%--                <button class="button" type="submit">Підтвердити</button>--%>
-<%--            </td>--%>
-<%--        </table>--%>
-<%--    </form>--%>
+            <td><label>Назва товару: </label>
+                <select name="nameProd">
+                    <%
+                        List<Product> prodList = (List<Product>) request.getAttribute("allProducts");
+                        for (Product prod : prodList) {
+                    %>
+                    <option value=<%=prod.getProduct_name()%>><%=prod.getProduct_name()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
 
-<%--    <form action="/show-employee-info" method="post">--%>
-<%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
-<%--            <td>За прізвищем працівника знайти його телефон та адресу</td>--%>
+    <form action="/show-employee-info" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>+За прізвищем працівника знайти його телефон та адресу</td>
 
-<%--            <td><label>Прізвище працівника: </label>--%>
-<%--                <select name="lastName">--%>
-<%--                    <%--%>
-<%--                        List<Employee> emplList = (List<Employee>) request.getAttribute("employeeSpecific");--%>
-<%--                        for (Employee employee : emplList) {--%>
-<%--                    %>--%>
-<%--                    <option value=<%=employee.getEmpl_surname()%>><%=employee.getEmpl_surname()%>--%>
-<%--                    </option>--%>
-<%--                    <%}%>--%>
-<%--                </select>--%>
-<%--            </td>--%>
-<%--            <td>--%>
-<%--                <button class="button" type="submit">Підтвердити</button>--%>
-<%--            </td>--%>
-<%--        </table>--%>
-<%--    </form>--%>
+            <td><label>Прізвище працівника: </label>
+                <select name="lastName">
+                    <%
+                        List<Employee> emplList = (List<Employee>) request.getAttribute("allEmployees");
+                        for (Employee employee : emplList) {
+                    %>
+                    <option value=<%=employee.getEmpl_surname()%>><%=employee.getEmpl_surname()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
 
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 

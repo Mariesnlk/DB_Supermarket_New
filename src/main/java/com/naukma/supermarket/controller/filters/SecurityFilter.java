@@ -29,9 +29,10 @@ public class SecurityFilter implements Filter {
         String[] urlAccessCashier = {"/", "/login", "/indexCashier.jsp", "/index-cashier", "/add-check", "/add-customerCard", "/employee/**",
         "/sort-products-name"};
 
-        String[] urlAccessManager = {"/", "/login", "/index-manager", "indexManager.jsp", "/add-employee", "/add-category",
+        String[] urlAccessManager = {"/", "/login", "/index-manager", "/indexManager.jsp", "/add-employee", "/add-category",
                 "/add-product", "/add-customerCard", "/add-check", "/add-sale", "/add-storeProduct", "/add-query",
-                "/sorted-categories-name", "/sorted-cashier-name"};
+                "/sorted-categories-name", "/sorted-cashier-name", "/list-products-in-category", "/list-store-products",
+                "/show-employee-info"};
 
         if (emp != null) {
             userRole = emp.getRole();

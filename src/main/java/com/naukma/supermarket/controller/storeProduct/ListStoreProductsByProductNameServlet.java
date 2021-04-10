@@ -19,7 +19,7 @@ public class ListStoreProductsByProductNameServlet extends HttpServlet {
 
     private final Logger LOGGER = Logger.getLogger(ListStoreProductsByProductNameServlet.class);
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         StoreProductService storeProductService = new StoreProductServiceImpl();
 
