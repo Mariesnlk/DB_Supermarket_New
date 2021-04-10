@@ -29,7 +29,7 @@ public class SecurityFilter implements Filter {
         String[] urlAccessCashier = {"/", "/login", "/indexCashier.jsp", "/index-cashier", "/add-check",
                 "/add-customerCard", "/employee/**", "/sort-products-name", "/list-products-in-check",
                 "/sort-non-prom-by-name", "/sort-prom-by-name", "/sort-non-prom-by-quantity", "/sort-prom-by-quantity",
-                "/checkInfo"
+                "/checkInfo", "/list-sorted-products-in-category", "/storeProductByUpc"
         };
 
         String[] urlAccessManager = {"/", "/login", "/index-manager", "/indexManager.jsp", "/add-employee", "/add-category",

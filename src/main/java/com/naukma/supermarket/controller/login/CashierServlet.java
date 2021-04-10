@@ -1,17 +1,8 @@
 package com.naukma.supermarket.controller.login;
 
-import com.naukma.supermarket.model.Category;
-import com.naukma.supermarket.model.Check;
-import com.naukma.supermarket.model.Employee;
-import com.naukma.supermarket.model.Product;
-import com.naukma.supermarket.service.impl.CategoryServiceImpl;
-import com.naukma.supermarket.service.impl.CheckServiceImpl;
-import com.naukma.supermarket.service.impl.EmployeeServiceImpl;
-import com.naukma.supermarket.service.impl.ProductServiceImpl;
-import com.naukma.supermarket.service.interf.CategoryService;
-import com.naukma.supermarket.service.interf.CheckService;
-import com.naukma.supermarket.service.interf.EmployeeService;
-import com.naukma.supermarket.service.interf.ProductService;
+import com.naukma.supermarket.model.*;
+import com.naukma.supermarket.service.impl.*;
+import com.naukma.supermarket.service.interf.*;
 import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -53,6 +44,12 @@ public class CashierServlet extends HttpServlet {
 
         List<Check> allChecks = checkService.findAll();
         request.setAttribute("allChecks", allChecks);
+
+        //all storeProducts
+        StoreProductService storeProductService = new StoreProductServiceImpl();
+
+        List<StoreProduct> allStoreProducts = storeProductService.findAll();
+        request.setAttribute("allStoreProducts", allStoreProducts);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("indexCashier.jsp");
         LOGGER.info("doGet process");
