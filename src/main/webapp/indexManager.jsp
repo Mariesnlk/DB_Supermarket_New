@@ -188,7 +188,26 @@
         </table>
     </form>
 
+    <form action="/list-sorted-products-in-category" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>+Скласти список товарів, що належать певній категорії, відсортованих за назвою</td>
 
+            <td><label>Номер категорії: </label>
+                <select name="categoryProd">
+                    <%
+                        List<Category> cattList = (List<Category>) request.getAttribute("allCategories");
+                        for (Category category : cattList) {
+                    %>
+                    <option value=<%=category.getCategory_name()%>><%=category.getCategory_name()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
 
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 
@@ -198,12 +217,6 @@
 
         <tr>
             <td><a href="/sort-cashiers-by-surname">+Скласти список працівників, що займають посаду касира, відсортованих за прізвищем</a></td>
-        </tr>
-
-        <tr>
-            <td><a class="query" href="/catServlet/?category=">Скласти список товарів, що належать певній категорії,
-                відсортованих за назвою</a></td>
-            <td><input class="query-field" type="text"></td>
         </tr>
         <tr>
             <td><a href="/sort-products-name">+Скласти список усіх товарів, відсортованих за назвою</a></td>
