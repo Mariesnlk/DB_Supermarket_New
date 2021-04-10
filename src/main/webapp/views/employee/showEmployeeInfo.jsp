@@ -63,7 +63,7 @@
 </div>
 <br>
 
-<input class="button" type=button onClick="location.href='/employees'" value='Всі працівники'>
+<input class="button" type=button onClick="location.href='/index-manager'" value='Повернутися на сторінку менеджера'>
 
 </body>
 </html>

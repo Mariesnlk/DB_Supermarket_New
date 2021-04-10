@@ -38,7 +38,8 @@ public class SecurityFilter implements Filter {
                 "/sorted-categories-name", "/sort-cashiers-by-surname", "/list-products-in-category", "/list-store-products",
                 "/show-employee-info", "/storeProductByUpc", "/list-sorted-products-in-category",
                 "/sort-non-prom-by-name", "/sort-prom-by-name", "/sort-non-prom-by-quantity", "/sort-prom-by-quantity",
-                "/sum-check-one-empl", "/sum-check-all-empl", "/list-customers-by-percent" };
+                "/sum-check-one-empl", "/sum-check-all-empl", "/list-customers-by-percent", "/sort-products-name",
+                "/checks-by-allEmployees-from-period", "/checks-by-employee-from-period", "/list-customer-card" };
 
         if (emp != null) {
             userRole = emp.getRole();
