@@ -23,7 +23,8 @@ public class ListStoreProductsByProductNameServlet extends HttpServlet {
 
         StoreProductService storeProductService = new StoreProductServiceImpl();
 
-        String productName = request.getParameter("productName");
+        String productName = request.getParameter("nameProd");
+
         List<StoreProduct> allStoreProducts = storeProductService.allStoreProductsByProductName(productName);
         request.setAttribute("allStoreProducts", allStoreProducts);
 

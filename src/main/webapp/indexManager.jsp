@@ -121,17 +121,18 @@
     </form>
     <!-- end -->
 
+<%--  где ошибка ??  --%>
 <%--    <form action="/list-store-products" method="post">--%>
 <%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
 <%--            <td>Скласти список товарів у магазині, що належать певному товару</td>--%>
 
 <%--            <td><label>Назва товару: </label>--%>
-<%--                <select name="productName">--%>
+<%--                <select name="nameProd">--%>
 <%--                    <%--%>
-<%--                        List<Product> catList1 = (List<Product>) request.getAttribute("allProducts");--%>
-<%--                        for (Product category : catList1) {--%>
+<%--                        List<Product> prodList = (List<Product>) request.getAttribute("allProducts");--%>
+<%--                        for (Product prod : prodList) {--%>
 <%--                    %>--%>
-<%--                    <option value=<%=category.getProduct_name()%>><%=category.getProduct_name()%>--%>
+<%--                    <option value=<%=prod.getProduct_name()%>><%=prod.getProduct_name()%>--%>
 <%--                    </option>--%>
 <%--                    <%}%>--%>
 <%--                </select>--%>

@@ -14,23 +14,23 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ListProductsInCategoryServlet", urlPatterns = {"/list-products-in-category"})
-public class ListProductsInCategoryServlet extends HttpServlet {
+@WebServlet(name = "ListAllProductsInCheckServlet", urlPatterns = {"/list-products-in-check"})
+public class ListAllProductsInCheckServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(GetProductByIdServlet.class);
+    private final Logger LOGGER = Logger.getLogger(ListAllProductsInCheckServlet.class);
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ProductService productService = new ProductServiceImpl();
 
-        String categoryName = request.getParameter("categoryProd");
+        String checkNum = request.getParameter("checkNumber");
 
-        List<Product> allProducts = productService.productByCategory(categoryName);
+        List<Product> allProducts = productService.allProductsInCheckByCheckNum(checkNum);
         request.setAttribute("allProducts", allProducts);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/product/allProducts.jsp");
         LOGGER.info("doGet process");
         requestDispatcher.forward(request, response);
-
     }
+
 }
