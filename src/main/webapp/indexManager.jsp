@@ -299,49 +299,49 @@
         </table>
     </form>
 
-<%--    <form action="/sold-product-count-by-period" method="post">--%>
-<%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
-<%--            <td>Визначити загальну кількість одиниць певного товару, проданого за певний період часу</td>--%>
-<%--            --%>
-<%--            <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>--%>
-<%--            <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>--%>
-<%--            <td><label>Відсоток знижки: </label>--%>
-<%--                <select name="percent">--%>
-<%--                    <%--%>
-<%--                        List<CustomerCard> percList = (List<CustomerCard>) request.getAttribute("allCustomerCards");--%>
-<%--                        for (CustomerCard cust : percList) {--%>
-<%--                    %>--%>
-<%--                    <option value=<%=cust.getPercent()%>><%=cust.getPercent()%>--%>
-<%--                    </option>--%>
-<%--                    <%}%>--%>
-<%--                </select>--%>
-<%--            </td>--%>
-<%--            <td>--%>
-<%--                <button class="button" type="submit">Підтвердити</button>--%>
-<%--            </td>--%>
-<%--        </table>--%>
-<%--    </form>--%>
+    <form action="/count-sold-product-by-period" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>?Визначити загальну кількість одиниць певного товару, проданого за певний період часу</td>
 
-<%--    <form action="/list-customers-by-percent" method="post">--%>
-<%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
-<%--            <td>За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики товару</td>--%>
+            <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td><label>Назва товару: </label>
+                <select name="nameProd">
+                    <%
+                        List<Product> prodListt = (List<Product>) request.getAttribute("allProducts");
+                        for (Product prod : prodListt) {
+                    %>
+                    <option value=<%=prod.getProduct_name()%>><%=prod.getProduct_name()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
 
-<%--            <td><label>Відсоток знижки: </label>--%>
-<%--                <select name="percent">--%>
-<%--                    <%--%>
-<%--                        List<CustomerCard> percList = (List<CustomerCard>) request.getAttribute("allCustomerCards");--%>
-<%--                        for (CustomerCard cust : percList) {--%>
-<%--                    %>--%>
-<%--                    <option value=<%=cust.getPercent()%>><%=cust.getPercent()%>--%>
-<%--                    </option>--%>
-<%--                    <%}%>--%>
-<%--                </select>--%>
-<%--            </td>--%>
-<%--            <td>--%>
-<%--                <button class="button" type="submit">Підтвердити</button>--%>
-<%--            </td>--%>
-<%--        </table>--%>
-<%--    </form>--%>
+    <form action="/find-lot-info-by-upc" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>?За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики товару</td>
+
+            <td><label>UPC товару: </label>
+                <select name="upc">
+                    <%
+                        List<StoreProduct> list = (List<StoreProduct>) request.getAttribute("allStoreProducts");
+                        for (StoreProduct prod : list) {
+                    %>
+                    <option value=<%=prod.getUPC()%>><%=prod.getUPC()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
 
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 
