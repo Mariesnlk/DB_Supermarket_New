@@ -13,6 +13,7 @@ public interface CheckService extends CRUDService<Check, String> {
 
     List<Check> allChecksFromPeriod(String idEmployee, Date dateFrom, Date dateTo);
 
+    //Скласти список чеків,  видрукуваних даним касиром за певний період часу
     List<Check> checksFromPeriodOfCashier(String idEmployee, Date dateFrom, Date dateTo);
 
 }

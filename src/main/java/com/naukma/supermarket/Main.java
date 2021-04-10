@@ -80,11 +80,10 @@ public class Main {
         Employee employee = employeeDAO.getEmployeeInfoBySurname("Synelnyk");
         System.out.println("За прізвищем працівника знайти його телефон та адресу " + employee);
 
-        //not work
         CheckDAO checkDAO = new CheckDAOImpl();
         System.out.println(1);
-        java.util.Date dateFirst=null;
-        java.util.Date dateSecond=null;
+        java.util.Date dateFirst = null;
+        java.util.Date dateSecond = null;
 
         try {
             dateFirst = parseDate("2021-03-02", "yyyy-MM-dd");
@@ -98,6 +97,20 @@ public class Main {
         System.out.println("Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу " + check);
 
 
+        java.util.Date dateStart = null;
+        java.util.Date dateFinish = null;
+
+        try {
+            dateStart = parseDate("2021-03-01", "yyyy-MM-dd");
+            dateFinish = parseDate("2021-03-02", "yyyy-MM-dd");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+        //Скласти список чеків,  видрукуваних даним касиром за певний період часу
+        List<Check> listCheck = checkDAO.checksFromPeriodOfCashier("2", new Date(dateStart.getTime()), new Date(dateFinish.getTime()));
+        System.out.println("Скласти список чеків,  видрукуваних даним касиром за певний період часу " + listCheck);
 
 //        Check check1 = checkDAO.totalSumOfChecksAllEmployees(new Date(2021 - 3 - 2), new Date(2021 - 3 - 9));
 //        System.out.println(2);
@@ -113,13 +126,11 @@ public class Main {
 //        System.out.println("Скласти список товарів, що належать певній категорії, відсортованих за назвою " + productOrdered);
 
 
-
     }
 
 
     //для парсинга даты
-    private static java.util.Date parseDate(String date, String format) throws ParseException
-    {
+    private static java.util.Date parseDate(String date, String format) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat(format);
         return formatter.parse(date);
     }
