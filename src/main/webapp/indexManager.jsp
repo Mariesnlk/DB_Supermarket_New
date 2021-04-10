@@ -271,18 +271,7 @@
             <td><input class="query-field" type="text"></td>
 
         </tr>-->
-<script>
-    document.querySelectorAll('.query-field').forEach((elem) => elem.addEventListener('input', addParameter))
 
-    function addParameter() {
-        let value = this.value;
-        let a = this.parentNode.parentNode.querySelector('a');
-        a.setAttribute('href', a.getAttribute('href') + value);
-
-    }
-
-
-</script>
 
 </body>
 </html>

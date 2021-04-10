@@ -43,7 +43,7 @@
                     out.println("<td>" + category.getCategory_name() + "</td>");
 
                     out.println("<td><a href=\"/update-category?id=" + category.getCategory_number()
-                            + "\">Обновити</a></td>");
+                            + "\">Оновити</a></td>");
                     out.println("<td><a href=\"/delete-category?id=" + category.getCategory_number()
                             + "\">Видалити</a></td>");
                     out.println("</tr>");

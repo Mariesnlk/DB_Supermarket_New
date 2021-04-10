@@ -77,7 +77,7 @@ public class Main {
 
         //За прізвищем працівника знайти його телефон та адресу
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
-        Employee employee = employeeDAO.getEmployeeBySurname("Synelnyk");
+        Employee employee = employeeDAO.getEmployeeInfoBySurname("Synelnyk");
         System.out.println("За прізвищем працівника знайти його телефон та адресу " + employee);
 
         //not work

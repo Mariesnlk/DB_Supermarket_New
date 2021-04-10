@@ -6,13 +6,12 @@
 <div>
     <input class="button" type=button onClick="location.href='/login'" value='Ввійти'>
 </div>
-<br>
 
 <div>
     <input class="button" type=button onClick="location.href='/logout'" value='Вийти'>
 </div>
 
-
+<br><br>
 <div>
     <input class="button" type=button onClick="location.href='/employees'"
            value='Всі працівники'>

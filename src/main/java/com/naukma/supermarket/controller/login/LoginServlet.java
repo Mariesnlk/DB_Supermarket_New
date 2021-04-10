@@ -39,9 +39,9 @@ public class LoginServlet extends HttpServlet {
         String resultPage = "views/login/loginResult.jsp";
 
         if (registeredEmployee.getRole().equalsIgnoreCase("cashier")) {
-            resultPage = "/indexCashier.jsp";
+            response.sendRedirect("/index-cashier");
 
-           //убрать когда будет сервлет на касира
+            //убрать когда будет сервлет на касира
 //            RequestDispatcher requestDispatcher = request.getRequestDispatcher(resultPage);
 //            LOGGER.info("doPost process");
 //            requestDispatcher.forward(request, response);

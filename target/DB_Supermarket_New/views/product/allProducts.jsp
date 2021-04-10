@@ -47,7 +47,7 @@
                     out.println("<td>" + product.getCharacteristics() + "</td>");
 
                     out.println("<td><a href=\"/update-product?id=" + product.getId_product()
-                            + "\">Обновити</a></td>");
+                            + "\">Оновити</a></td>");
                     out.println("<td><a href=\"/delete-product?id=" + product.getId_product()
                             + "\">Видалити</a></td>");
                     out.println("</tr>");
