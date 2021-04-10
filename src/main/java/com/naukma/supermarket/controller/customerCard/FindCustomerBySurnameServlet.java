@@ -18,17 +18,17 @@ public class FindCustomerBySurnameServlet extends HttpServlet {
 
     private final Logger LOGGER = Logger.getLogger(FindCustomerBySurnameServlet.class);
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         CustomerCardService customerCardService = new CustomerCardServiceImpl();
 
-        String surname = request.getParameter("cust_surname");
+        String surname = request.getParameter("custSurname");
 
         CustomerCard customerCard = customerCardService.customerWithSurname(surname);
         request.setAttribute("customerCard", customerCard);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/customerCard/showCustomerCard.jsp");
-        LOGGER.info("doGet process");
+        LOGGER.info("doPost process");
         requestDispatcher.forward(request, response);
     }
 }

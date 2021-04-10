@@ -1,8 +1,5 @@
-<%@ page import="com.naukma.supermarket.model.Employee" %>
-<%@ page import="com.naukma.supermarket.model.Check" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.naukma.supermarket.model.StoreProduct" %>
-<%@ page import="com.naukma.supermarket.model.Category" %>
+<%@ page import="com.naukma.supermarket.model.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -139,47 +136,47 @@
         </table>
     </form>
 
-<%--    <form action="/show-customer-info-by-surname" method="post">--%>
-<%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
-<%--            <td>!!Вивести усю інформацію про покупця з певним прізвищем, що має карту клієнта</td>--%>
+    <form action="/show-customer-info-by-surname" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>!!Вивести усю інформацію про покупця з певним прізвищем, що має карту клієнта</td>
 
-<%--            <td><label>Номер категорії: </label>--%>
-<%--                <select name="categoryProd">--%>
-<%--                    <%--%>
-<%--                        List<Category> surnameList = (List<Category>) request.getAttribute("allCategories");--%>
-<%--                        for (Category category : surnameList) {--%>
-<%--                    %>--%>
-<%--                    <option value=<%=category.getCategory_name()%>><%=category.getCategory_name()%>--%>
-<%--                    </option>--%>
-<%--                    <%}%>--%>
-<%--                </select>--%>
-<%--            </td>--%>
-<%--            <td>--%>
-<%--                <button class="button" type="submit">Підтвердити</button>--%>
-<%--            </td>--%>
-<%--        </table>--%>
-<%--    </form>--%>
+            <td><label>Прізвище клієнта: </label>
+                <select name="custSurname">
+                    <%
+                        List<CustomerCard> surnameList = (List<CustomerCard>) request.getAttribute("allCustomerCards");
+                        for (CustomerCard cust : surnameList) {
+                    %>
+                    <option value=<%=cust.getCust_surname()%>><%=cust.getCust_surname()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
 
-<%--    <form action="/list-customers-by-percent" method="post">--%>
-<%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
-<%--            <td>!!Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>--%>
+    <form action="/list-customers-by-percent" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>!!Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>
 
-<%--            <td><label>Номер категорії: </label>--%>
-<%--                <select name="categoryProd">--%>
-<%--                    <%--%>
-<%--                        List<Category> percList = (List<Category>) request.getAttribute("allCategories");--%>
-<%--                        for (Category category : percList) {--%>
-<%--                    %>--%>
-<%--                    <option value=<%=category.getCategory_name()%>><%=category.getCategory_name()%>--%>
-<%--                    </option>--%>
-<%--                    <%}%>--%>
-<%--                </select>--%>
-<%--            </td>--%>
-<%--            <td>--%>
-<%--                <button class="button" type="submit">Підтвердити</button>--%>
-<%--            </td>--%>
-<%--        </table>--%>
-<%--    </form>--%>
+            <td><label>Номер категорії: </label>
+                <select name="categoryProd">
+                    <%
+                        List<Category> percList = (List<Category>) request.getAttribute("allCategories");
+                        for (Category category : percList) {
+                    %>
+                    <option value=<%=category.getCategory_name()%>><%=category.getCategory_name()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
 
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 

@@ -1,8 +1,5 @@
-<%@ page import="com.naukma.supermarket.model.Category" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.naukma.supermarket.model.StoreProduct" %>
-<%@ page import="com.naukma.supermarket.model.Product" %>
-<%@ page import="com.naukma.supermarket.model.Employee" %>
+<%@ page import="com.naukma.supermarket.model.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -209,26 +206,26 @@
         </table>
     </form>
 
-<%--    <form action="/list-customers-by-percent" method="post">--%>
-<%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
-<%--            <td>!!Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>--%>
+    <form action="/list-customers-by-percent" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>!!Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>
 
-<%--            <td><label>Номер категорії: </label>--%>
-<%--                <select name="categoryProd">--%>
-<%--                    <%--%>
-<%--                        List<Category> percList = (List<Category>) request.getAttribute("allCategories");--%>
-<%--                        for (Category category : percList) {--%>
-<%--                    %>--%>
-<%--                    <option value=<%=category.getCategory_name()%>><%=category.getCategory_name()%>--%>
-<%--                    </option>--%>
-<%--                    <%}%>--%>
-<%--                </select>--%>
-<%--            </td>--%>
-<%--            <td>--%>
-<%--                <button class="button" type="submit">Підтвердити</button>--%>
-<%--            </td>--%>
-<%--        </table>--%>
-<%--    </form>--%>
+            <td><label>Відсоток знижки: </label>
+                <select name="percent">
+                    <%
+                        List<CustomerCard> percList = (List<CustomerCard>) request.getAttribute("allCustomerCards");
+                        for (CustomerCard cust : percList) {
+                    %>
+                    <option value=<%=cust.getPercent()%>><%=cust.getPercent()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
 
 
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
