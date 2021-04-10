@@ -22,11 +22,14 @@ public class TotalSumChecksFromOneEmplServlet extends HttpServlet {
 
         CheckService checkService = new CheckServiceImpl();
 
+        String dateFrom = request.getParameter("checkNumber");
+        String dateTo = request.getParameter("checkNumber");
+
         String checkNumber = request.getParameter("checkNumber");
         Check check = checkService.findById(checkNumber);
         request.setAttribute("check", check);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/check/showCheck.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/check/showCheckSum.jsp");
         LOGGER.info("doPost process");
         requestDispatcher.forward(request, response);
 
