@@ -1,6 +1,5 @@
 package com.naukma.supermarket.dao.interf;
 
-import com.naukma.supermarket.model.Product;
 import com.naukma.supermarket.model.StoreProduct;
 
 import java.util.List;

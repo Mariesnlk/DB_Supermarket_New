@@ -244,7 +244,7 @@ public class StoreProductDAOImpl implements StoreProductDAO {
     }
 
     @Override
-    public StoreProduct findSomethingByUpc(String  upc) {
+    public StoreProduct findSomethingByUpc(String upc) {
         StoreProduct product = null;
 
         DBHelper objectDBHelper = new DBHelper();

@@ -125,6 +125,11 @@ public class Main {
         System.out.println("Скласти список товарів, що належать певній категорії, відсортованих за назвою " + productOrdered);
 
 
+        //За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики товару.
+        StoreProductAndProductDAO storeProductAndProductDAO = new StoreProductAndProductDAOImpl();
+        StoreProductAndProduct storeProductAndProduct = storeProductAndProductDAO.findInfoByUPC("1");
+        System.out.println("За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики товару" + storeProductAndProduct);
+
     }
 
 
