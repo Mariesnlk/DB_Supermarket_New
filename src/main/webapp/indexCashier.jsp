@@ -178,15 +178,25 @@
         </table>
     </form>
 
+    <%--   --------------  --%>
+
+<%--    <form action="/list-check-period" method="post">--%>
+<%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
+<%--            <td>Скласти список чеків, видрукуваних даним касиром за певний період часу</td>--%>
+
+<%--            <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>--%>
+<%--            <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>--%>
+<%--            &lt;%&ndash;     &ndash;%&gt;--%>
+<%--            <td>--%>
+<%--                <button class="button" type="submit">Підтвердити</button>--%>
+<%--            </td>--%>
+<%--        </table>--%>
+<%--    </form>--%>
+
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 
         <tr>
             <th>Посилання на запит</th>
-
-        </tr>
-
-        <tr>
-            <td><a href="/list-check-period">?Скласти список чеків, видрукуваних даним касиром за певний період часу</a></td>
         </tr>
         <tr>
             <td><a href="/sort-products-name">+Скласти список усіх товарів, відсортований за назвою</a></td>
