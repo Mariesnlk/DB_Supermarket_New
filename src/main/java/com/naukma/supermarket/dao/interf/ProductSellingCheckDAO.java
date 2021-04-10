@@ -8,4 +8,6 @@ import java.util.List;
 public interface ProductSellingCheckDAO {
 
     List<ProductSellingCheck> checksListByCashierFromPeriod(String idEmployee, Date dateFrom, Date dateTo);
+
+    List<ProductSellingCheck> checksListByAllFromPeriod(Date dateFrom, Date dateTo);
 }

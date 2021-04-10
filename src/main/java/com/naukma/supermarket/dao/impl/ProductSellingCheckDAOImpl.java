@@ -3,7 +3,6 @@ package com.naukma.supermarket.dao.impl;
 import com.naukma.supermarket.dao.interf.ProductSellingCheckDAO;
 import com.naukma.supermarket.database.DBHelper;
 import com.naukma.supermarket.model.ProductSellingCheck;
-import com.naukma.supermarket.model.StoreProduct;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -58,6 +57,62 @@ public class ProductSellingCheckDAOImpl implements ProductSellingCheckDAO {
 
                 ProductSellingCheck productSellingCheck = new ProductSellingCheck(productName, productNumber,
                         sellingPrice, checkNumber, idEmployee);
+                list.add(productSellingCheck);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in StoreProductDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public List<ProductSellingCheck> checksListByAllFromPeriod(Date dateFrom, Date dateTo) {
+        List<ProductSellingCheck> list = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT P.product_name, S.product_number, S.selling_price, C.check_number, C.id_employee\n" +
+                    "FROM db_supermarket.product  P\n" +
+                    "INNER JOIN db_supermarket.store_product ST ON P.id_product=ST.id_product\n" +
+                    "INNER JOIN db_supermarket.sale S ON ST.UPC=S.UPC\n" +
+                    "INNER JOIN db_supermarket.check C ON S.check_number=C.check_number\n" +
+                    "WHERE C.print_date BETWEEN ? AND  ? AND C.id_employee IN (SELECT id_employee \n" +
+                    "FROM db_supermarket.employee\n" +
+                    "WHERE role = 'cashier')";
+
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, String.valueOf(dateFrom));
+            ps.setString(2, String.valueOf(dateTo));
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                String productName = rs.getString("product_name");
+                Integer productNumber = rs.getInt("product_number");
+                Double sellingPrice = rs.getDouble("selling_price");
+                String checkNumber = rs.getString("check_number");
+
+                ProductSellingCheck productSellingCheck = new ProductSellingCheck(productName, productNumber,
+                        sellingPrice, checkNumber);
                 list.add(productSellingCheck);
             }
 

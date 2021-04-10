@@ -134,6 +134,11 @@ public class Main {
         ProductSellingCheckDAO productSellingCheckDAO = new ProductSellingCheckDAOImpl();
         List<ProductSellingCheck> productSellingCheckList = productSellingCheckDAO.checksListByCashierFromPeriod("2", new Date(dateStart.getTime()), new Date(dateSecond.getTime()));
         System.out.println("Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни)" + productSellingCheckList);
+
+        // Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни )
+        List<ProductSellingCheck> productSellingCheckList1 = productSellingCheckDAO.checksListByAllFromPeriod(new Date(dateStart.getTime()), new Date(dateSecond.getTime()));
+        System.out.println("Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни )" + productSellingCheckList1);
+
     }
 
 

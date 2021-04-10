@@ -16,4 +16,11 @@ public class ProductSellingCheckServiceImpl implements ProductSellingCheckServic
         List<ProductSellingCheck> list = productSellingCheckDAO.checksListByCashierFromPeriod(idEmployee, dateFrom, dateTo);
         return list;
     }
+
+    @Override
+    public List<ProductSellingCheck> checksListByAllFromPeriod(Date dateFrom, Date dateTo) {
+        ProductSellingCheckDAO productSellingCheckDAO = new ProductSellingCheckDAOImpl();
+        List<ProductSellingCheck> list = productSellingCheckDAO.checksListByAllFromPeriod(dateFrom, dateTo);
+        return list;
+    }
 }

@@ -12,6 +12,14 @@ public class ProductSellingCheck {
     }
 
     public ProductSellingCheck(String product_name, Integer product_number, Double selling_price,
+                               String check_number) {
+        this.product_name = product_name;
+        this.product_number = product_number;
+        this.selling_price = selling_price;
+        this.check_number = check_number;
+    }
+
+    public ProductSellingCheck(String product_name, Integer product_number, Double selling_price,
                                String check_number, String id_employee) {
         this.product_name = product_name;
         this.product_number = product_number;
