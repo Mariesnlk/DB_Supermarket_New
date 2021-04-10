@@ -1,8 +1,5 @@
-<%@ page import="com.naukma.supermarket.model.Category" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.naukma.supermarket.model.StoreProduct" %>
-<%@ page import="com.naukma.supermarket.model.Product" %>
-<%@ page import="com.naukma.supermarket.model.Employee" %>
+<%@ page import="com.naukma.supermarket.model.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -36,10 +33,10 @@
     <input class="button" type=button onClick="location.href='/logout'" value='Вийти'>
 </div>
 
-<%--<div>--%>
-<%--    <input class="button" type=button onClick="location.href='/add-query'"--%>
-<%--           value='Мій запит'>--%>
-<%--</div>--%>
+<div>
+    <input class="button" type=button onClick="location.href='/add-query'"
+           value='Мій запит'>
+</div>
 
 <br>
 
@@ -222,6 +219,49 @@
         </table>
     </form>
 
+    <form action="/list-sorted-products-in-category" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>+Скласти список товарів, що належать певній категорії, відсортованих за назвою</td>
+
+            <td><label>Номер категорії: </label>
+                <select name="categoryProd">
+                    <%
+                        List<Category> cattList = (List<Category>) request.getAttribute("allCategories");
+                        for (Category category : cattList) {
+                    %>
+                    <option value=<%=category.getCategory_name()%>><%=category.getCategory_name()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
+
+    <form action="/list-customers-by-percent" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>!!Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>
+
+            <td><label>Відсоток знижки: </label>
+                <select name="percent">
+                    <%
+                        List<CustomerCard> percList = (List<CustomerCard>) request.getAttribute("allCustomerCards");
+                        for (CustomerCard cust : percList) {
+                    %>
+                    <option value=<%=cust.getPercent()%>><%=cust.getPercent()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
+
+
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 
         <tr>
@@ -229,14 +269,7 @@
         </tr>
 
         <tr>
-            <td><a href="/sort-cashiers-by-surname">+Скласти список працівників, що займають посаду касира,
-                відсортованих за прізвищем</a></td>
-        </tr>
-
-        <tr>
-            <td><a class="query" href="/catServlet/?category=">Скласти список товарів, що належать певній категорії,
-                відсортованих за назвою</a></td>
-            <td><input class="query-field" type="text"></td>
+            <td><a href="/sort-cashiers-by-surname">+Скласти список працівників, що займають посаду касира, відсортованих за прізвищем</a></td>
         </tr>
         <tr>
             <td><a href="/sort-products-name">+Скласти список усіх товарів, відсортованих за назвою</a></td>
@@ -248,41 +281,34 @@
             <td><a href="/sort-prom-by-name">+Скласти список усіх акційних товарів, відсортованих за назвою</a></td>
         </tr>
         <tr>
-            <td><a href="/sort-prom-by-quantity">+Скласти список усіх акційних товарів, відсортованих за кількістю
-                одиниць товару</a></td>
+            <td><a href="/sort-prom-by-quantity">+Скласти список усіх акційних товарів, відсортованих за кількістю одиниць товару</a></td>
         </tr>
         <tr>
-            <td><a href="/sort-non-prom-by-name">+Скласти список усіх не акційних товарів, відсортованих за назвою</a>
-            </td>
+            <td><a href="/sort-non-prom-by-name">+Скласти список усіх не акційних товарів, відсортованих за назвою</a></td>
         </tr>
         <tr>
-            <td><a href="/sort-non-prom-by-quantity">+Скласти список усіх не акційних товарів, відсортованих за
-                кількістю одиниць товару</a></td>
-        </tr>
-
-        <tr>
-            <td><a href="/login">Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю
-                перегляду куплених товарів, їх к-сті та ціни)</a></td>
+            <td><a href="/sort-non-prom-by-quantity">+Скласти список усіх не акційних товарів, відсортованих за кількістю одиниць товару</a></td>
         </tr>
         <tr>
-            <td><a href="/login">Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю
-                перегляду куплених товарів, їх к-сті та ціни )</a></td>
+            <td><a href="/login">?Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни)</a></td>
         </tr>
         <tr>
-            <td><a href="/login">Визначити загальну кількість одиниць певного товару, проданого за певний період
-                часу</a></td>
+            <td><a href="/login">?Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни )</a></td>
         </tr>
         <tr>
-            <td><a href="/list-customer-card">+Скласти список усіх постійних клієнтів, що мають карту клієнта, по полях
-                ПІБ, телефон, адреса (якщо вказана)</a></td>
+            <td><a href="/sum-check-one-empl">?Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу</a></td>
         </tr>
         <tr>
-            <td><a href="/login">Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</a>
-            </td>
+            <td><a href="/sum-check-all-empl">?Загальна сума проданих товарів з чеків, видрукуваних усіма касирами за певний період часу</a></td>
         </tr>
         <tr>
-            <td><a href="/login">За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та
-                характеристики товару</a></td>
+            <td><a href="/login">?Визначити загальну кількість одиниць певного товару, проданого за певний період часу</a></td>
+        </tr>
+        <tr>
+            <td><a href="/list-customer-card">+Скласти список усіх постійних клієнтів, що мають карту клієнта, по полях ПІБ, телефон, адреса (якщо вказана)</a></td>
+        </tr>
+        <tr>
+            <td><a href="/login">?За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики товару</a></td>
         </tr>
     </table>
 </div>
@@ -292,14 +318,6 @@
     <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну сторінку'>
 </div>
 <br>
-
-
-<!-- <tr>
-            <td><a class="query"   href="/catServlet/category=">Скласти список товарів, що належать певній категорії, відсортованих за назвою</a></td>
-            <td><input class="query-field" type="text"></td>
-
-        </tr>-->
-
 
 </body>
 </html>

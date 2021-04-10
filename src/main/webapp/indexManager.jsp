@@ -185,6 +185,40 @@
         </table>
     </form>
 
+    <form action="/checks-by-allEmployees-from-period" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>+Загальна сума проданих товарів з чеків, видрукуваних усіма касиром за певний період часу</td>
+            <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
+
+    <form action="/checks-by-employee-from-period" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>-Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу</td>
+            <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td><label>Працівник: </label>
+                <select name="idEmpl">
+                    <%
+                        List<Employee> emplList1 = (List<Employee>) request.getAttribute("allEmployees");
+                        for (Employee employee : emplList1) {
+                            if(employee.getRole().equalsIgnoreCase("cashier")){
+                    %>
+                    <option value=<%=employee.getId_employee()%>><%=employee.getEmpl_surname()%>  <%=employee.getEmpl_name()%>
+                    </option>
+                    <%}}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
+
     <form action="/list-sorted-products-in-category" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
             <td>+Скласти список товарів, що належать певній категорії, відсортованих за назвою</td>
