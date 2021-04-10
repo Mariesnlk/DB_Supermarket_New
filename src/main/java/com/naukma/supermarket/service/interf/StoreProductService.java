@@ -11,6 +11,5 @@ public interface StoreProductService extends CRUDService<StoreProduct, String> {
     StoreProduct findProductInfoByUPC(String upc);
 
     List<StoreProduct> allStoreProductsByProductName(String productName);
-
 }
 

@@ -3,6 +3,7 @@ package com.naukma.supermarket.dao.impl;
 import com.naukma.supermarket.dao.interf.SaleDAO;
 import com.naukma.supermarket.database.DBHelper;
 import com.naukma.supermarket.model.Sale;
+import com.naukma.supermarket.model.StoreProduct;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -10,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class SaleDAOImpl implements SaleDAO {
@@ -231,6 +233,56 @@ public class SaleDAOImpl implements SaleDAO {
             }
         }
         return result;
+    }
+
+    @Override
+    public Sale productCount(String productName, Date startDate, Date finishDate) {
+        Sale sale = null;
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+
+            String query = "SELECT SUM(S.product_number)AS count_product\n" +
+                    "FROM db_supermarket.product  P\n" +
+                    "INNER JOIN db_supermarket.store_product ST ON P.id_product=ST.id_product\n" +
+                    "INNER JOIN db_supermarket.sale S ON ST.UPC=S.UPC\n" +
+                    "INNER JOIN db_supermarket.check C ON S.check_number=C.check_number\n" +
+                    "WHERE C.print_date BETWEEN ? AND  ? AND P.product_name = ?";
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, String.valueOf(startDate));
+            ps.setString(2, String.valueOf(finishDate));
+            ps.setString(3, productName);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Integer countProduct = rs.getInt("count_product");
+
+                sale = new Sale(countProduct);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in ProductDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return sale;
     }
 }
 

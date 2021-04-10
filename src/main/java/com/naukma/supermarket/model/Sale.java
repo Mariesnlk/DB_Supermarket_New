@@ -9,6 +9,10 @@ public class Sale {
 
     public Sale() { }
 
+    public Sale(Integer product_number) {
+        this.product_number = product_number;
+    }
+
     public Sale(Integer product_number, Double selling_price) {
         this.product_number = product_number;
         this.selling_price = selling_price;

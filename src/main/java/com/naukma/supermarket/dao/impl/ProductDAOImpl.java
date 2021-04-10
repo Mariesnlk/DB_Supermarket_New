@@ -2,7 +2,6 @@ package com.naukma.supermarket.dao.impl;
 
 import com.naukma.supermarket.dao.interf.ProductDAO;
 import com.naukma.supermarket.database.DBHelper;
-import com.naukma.supermarket.model.CustomerCard;
 import com.naukma.supermarket.model.Product;
 import org.apache.log4j.Logger;
 

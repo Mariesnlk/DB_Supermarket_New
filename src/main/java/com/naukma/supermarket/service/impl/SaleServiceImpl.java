@@ -5,6 +5,7 @@ import com.naukma.supermarket.dao.interf.SaleDAO;
 import com.naukma.supermarket.model.Sale;
 import com.naukma.supermarket.service.interf.SaleService;
 
+import java.util.Date;
 import java.util.List;
 
 public class SaleServiceImpl implements SaleService {
@@ -41,5 +42,12 @@ public class SaleServiceImpl implements SaleService {
         boolean result = saleDAO.delete(sale);
         //System.out.println("Delete sale: " + result);
         return result;
+    }
+
+    @Override
+    public Sale productCount(String productName, Date startDate, Date finishDate) {
+        SaleDAO saleDAO = new SaleDAOImpl();
+        Sale productCount = saleDAO.productCount(productName, startDate, finishDate);
+        return productCount;
     }
 }

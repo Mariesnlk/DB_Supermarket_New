@@ -139,6 +139,10 @@ public class Main {
         List<ProductSellingCheck> productSellingCheckList1 = productSellingCheckDAO.checksListByAllFromPeriod(new Date(dateStart.getTime()), new Date(dateSecond.getTime()));
         System.out.println("Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни )" + productSellingCheckList1);
 
+        //Визначити загальну кількість одиниць певного товару, проданого за певний період часу
+        SaleDAO saleDAO = new SaleDAOImpl();
+        Sale sale = saleDAO.productCount("apple", new Date(dateStart.getTime()), new Date(dateSecond.getTime()));
+        System.out.println("Визначити загальну кількість одиниць певного товару, проданого за певний період часу" + sale);
     }
 
 
