@@ -381,10 +381,12 @@ public class ProductDAOImpl implements ProductDAO {
         ResultSet rs = null;
         try {
 
-            String query = "SELECT product_name FROM db_supermarket.product " +
-                    "WHERE id_product IN (SELECT id_product " +
-                    "FROM db_supermarket.store_product " +
-                    "WHERE promotional_product  = 1 ORDER BY products_number)";
+            String query = "SELECT product_name " +
+                    "FROM db_supermarket.product P " +
+                    "INNER JOIN db_supermarket.store_product ST " +
+                    "ON P.id_product=ST.id_product " +
+                    "WHERE promotional_product = 1 " +
+                    "ORDER BY products_number";
 
             ps = connection.prepareStatement(query);
 
@@ -425,10 +427,12 @@ public class ProductDAOImpl implements ProductDAO {
         ResultSet rs = null;
         try {
 
-            String query = "SELECT product_name FROM db_supermarket.product " +
-                    "WHERE id_product IN (SELECT id_product " +
-                    "FROM db_supermarket.store_product " +
-                    "WHERE promotional_product = 0 ORDER BY products_number)";
+            String query = "SELECT product_name " +
+                    "FROM db_supermarket.product P " +
+                    "INNER JOIN db_supermarket.store_product ST " +
+                    "ON P.id_product=ST.id_product " +
+                    "WHERE promotional_product = 0 " +
+                    "ORDER BY products_number";
 
             ps = connection.prepareStatement(query);
 
