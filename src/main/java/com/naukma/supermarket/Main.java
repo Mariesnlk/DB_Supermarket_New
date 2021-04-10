@@ -130,6 +130,10 @@ public class Main {
         StoreProductAndProduct storeProductAndProduct = storeProductAndProductDAO.findInfoByUPC("1");
         System.out.println("За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики товару" + storeProductAndProduct);
 
+        //Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни)
+        ProductSellingCheckDAO productSellingCheckDAO = new ProductSellingCheckDAOImpl();
+        List<ProductSellingCheck> productSellingCheckList = productSellingCheckDAO.checksListByCashierFromPeriod("2", new Date(dateStart.getTime()), new Date(dateSecond.getTime()));
+        System.out.println("Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни)" + productSellingCheckList);
     }
 
 
