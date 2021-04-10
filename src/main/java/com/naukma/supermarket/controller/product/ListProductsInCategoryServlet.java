@@ -17,7 +17,7 @@ import java.util.List;
 @WebServlet(name = "ListProductsInCategoryServlet", urlPatterns = {"/list-products-in-category"})
 public class ListProductsInCategoryServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(GetProductByIdServlet.class);
+    private final Logger LOGGER = Logger.getLogger(ListProductsInCategoryServlet.class);
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -29,7 +29,7 @@ public class ListProductsInCategoryServlet extends HttpServlet {
         request.setAttribute("allProducts", allProducts);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/product/allProducts.jsp");
-        LOGGER.info("doGet process");
+        LOGGER.info("doPost process");
         requestDispatcher.forward(request, response);
 
     }

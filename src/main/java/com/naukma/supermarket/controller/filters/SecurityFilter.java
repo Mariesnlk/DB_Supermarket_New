@@ -26,12 +26,14 @@ public class SecurityFilter implements Filter {
 
         Employee emp = (Employee) session.getAttribute("registeredEmployee");
 
-        String[] urlAccessCashier = {"/", "/login", "/indexCashier.jsp", "/index-cashier", "/add-check", "/add-customerCard", "/employee/**",
-        "/sort-products-name"};
+        String[] urlAccessCashier = {"/", "/login", "/indexCashier.jsp", "/index-cashier", "/add-check",
+                "/add-customerCard", "/employee/**", "/sort-products-name", "/list-products-in-check",
+                "/sort-non-prom-by-name", "/sort-prom-by-name", "/sort-non-prom-by-quantity", "/sort-prom-by-quantity"
+        };
 
         String[] urlAccessManager = {"/", "/login", "/index-manager", "/indexManager.jsp", "/add-employee", "/add-category",
                 "/add-product", "/add-customerCard", "/add-check", "/add-sale", "/add-storeProduct", "/add-query",
-                "/sorted-categories-name", "/sorted-cashier-name", "/list-products-in-category", "/list-store-products",
+                "/sorted-categories-name", "/sort-cashiers-by-surname", "/list-products-in-category", "/list-store-products",
                 "/show-employee-info",
                 "/sort-non-prom-by-name", "/sort-prom-by-name", "/sort-non-prom-by-quantity", "/sort-prom-by-quantity"};
 

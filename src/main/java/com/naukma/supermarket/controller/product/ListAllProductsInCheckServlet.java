@@ -19,17 +19,17 @@ public class ListAllProductsInCheckServlet extends HttpServlet {
 
     private final Logger LOGGER = Logger.getLogger(ListAllProductsInCheckServlet.class);
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ProductService productService = new ProductServiceImpl();
 
-        String checkNum = request.getParameter("checkNumber");
+        String checkNum = request.getParameter("checkNum");
 
         List<Product> allProducts = productService.allProductsInCheckByCheckNum(checkNum);
         request.setAttribute("allProducts", allProducts);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/product/allProducts.jsp");
-        LOGGER.info("doGet process");
+        LOGGER.info("doPost process");
         requestDispatcher.forward(request, response);
     }
 

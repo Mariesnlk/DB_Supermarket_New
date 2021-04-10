@@ -14,10 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "SortedCashierByNameServlet", urlPatterns = {"/sorted-cashier-name"})
-public class SortedCashierByNameServlet extends HttpServlet {
+@WebServlet(name = "SortCashiersBySurnameServlet", urlPatterns = {"/sort-cashiers-by-surname"})
+public class SortCashiersBySurnameServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(SortedCashierByNameServlet.class);
+    private final Logger LOGGER = Logger.getLogger(SortCashiersBySurnameServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

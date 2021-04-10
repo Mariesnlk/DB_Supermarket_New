@@ -1,4 +1,6 @@
 <%@ page import="com.naukma.supermarket.model.Employee" %>
+<%@ page import="com.naukma.supermarket.model.Check" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -51,6 +53,28 @@
 
 <div>
 
+<%--  опять ошибка  --%>
+<%--    <form action="/list-products-in-check" method="post">--%>
+<%--        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">--%>
+<%--            <td>За номером чека скласти список усіх товарів, інформація про продаж яких є у цьому чеку</td>--%>
+
+<%--            <td><label>Номер чека: </label>--%>
+<%--                <select name="checkNum">--%>
+<%--                    <%--%>
+<%--                        List<Check> checkList = (List<Check>) request.getAttribute("allChecks");--%>
+<%--                        for (Check check : checkList) {--%>
+<%--                    %>--%>
+<%--                    <option value=<%=check.getCheck_number()%>><%=check.getCheck_number()%>--%>
+<%--                    </option>--%>
+<%--                    <%}%>--%>
+<%--                </select>--%>
+<%--            </td>--%>
+<%--            <td>--%>
+<%--                <button class="button" type="submit">Підтвердити</button>--%>
+<%--            </td>--%>
+<%--        </table>--%>
+<%--    </form>--%>
+
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 
         <tr>
@@ -79,31 +103,31 @@
 
         </tr>
         <tr>
-            <td><a href="/sort-products-name">Скласти список усіх товарів, відсортований за назвою</a></td>
+            <td><a href="/sort-products-name">+Скласти список усіх товарів, відсортований за назвою</a></td>
+        </tr>
 
+        <tr>
+            <td><a href="/sort-prom-by-name">+Скласти список усіх акційних товарів, відсортованих за назвою</a></td>
         </tr>
         <tr>
-            <td><a href="/login">Скласти список усіх акційних товарів, відсортованих за кількістю одиниць товару/ за
-                назвою</a></td>
-
+            <td><a href="/sort-prom-by-quantity">+Скласти список усіх акційних товарів, відсортованих за кількістю одиниць товару</a></td>
         </tr>
         <tr>
-            <td><a href="/login">Скласти список усіх не акційних товарів, відсортованих за кількістю одиниць товару/ за
-                назвою</a></td>
-
+            <td><a href="/sort-non-prom-by-name">+Скласти список усіх не акційних товарів, відсортованих за назвою</a></td>
         </tr>
         <tr>
-            <td><a href="/list-products-in-check">?За номером чека скласти список усіх товарів, інформація про продаж яких є у цьому
-                чеку</a></td>
-
+            <td><a href="/sort-non-prom-by-quantity">+Скласти список усіх не акційних товарів, відсортованих за кількістю одиниць товару</a></td>
         </tr>
+
+<%--        <tr>--%>
+<%--            <td><a href="/list-products-in-check">?За номером чека скласти список усіх товарів, інформація про продаж яких є у цьому чеку</a></td>--%>
+<%--        </tr>--%>
         <tr>
             <td><a href="/login">За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару</a></td>
 
         </tr>
         <tr>
-            <td><a href="/employee?id=<%=idEmployee%>">За ID_працівника знайти всю інформацію про себе</a></td>
-
+            <td><a href="/employee?id=<%=idEmployee%>">+За ID працівника знайти всю інформацію про себе</a></td>
         </tr>
     </table>
 </div>

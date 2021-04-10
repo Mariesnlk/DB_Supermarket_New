@@ -1,12 +1,15 @@
 package com.naukma.supermarket.controller.login;
 
 import com.naukma.supermarket.model.Category;
+import com.naukma.supermarket.model.Check;
 import com.naukma.supermarket.model.Employee;
 import com.naukma.supermarket.model.Product;
 import com.naukma.supermarket.service.impl.CategoryServiceImpl;
+import com.naukma.supermarket.service.impl.CheckServiceImpl;
 import com.naukma.supermarket.service.impl.EmployeeServiceImpl;
 import com.naukma.supermarket.service.impl.ProductServiceImpl;
 import com.naukma.supermarket.service.interf.CategoryService;
+import com.naukma.supermarket.service.interf.CheckService;
 import com.naukma.supermarket.service.interf.EmployeeService;
 import com.naukma.supermarket.service.interf.ProductService;
 import org.apache.log4j.Logger;
@@ -43,6 +46,12 @@ public class ManagerServlet extends HttpServlet {
 
         List<Employee> allEmployees = employeeService.findAll();
         request.setAttribute("allEmployees", allEmployees);
+
+        //all checks
+        CheckService checkService = new CheckServiceImpl();
+
+        List<Check> allChecks = checkService.findAll();
+        request.setAttribute("allChecks", allChecks);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("indexManager.jsp");
         LOGGER.info("doGet process");
