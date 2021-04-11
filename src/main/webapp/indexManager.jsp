@@ -269,7 +269,7 @@
 
             <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
             <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
-            <td><label>Працівник: </label>
+            <td><label>Касир: </label>
                 <select name="idEmpl">
                     <%
                         List<Employee> employeList = (List<Employee>) request.getAttribute("allEmployees");

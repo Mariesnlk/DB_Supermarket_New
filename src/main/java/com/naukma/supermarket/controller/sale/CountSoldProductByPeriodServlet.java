@@ -43,7 +43,7 @@ public class CountSoldProductByPeriodServlet extends HttpServlet {
         Sale sale = saleService.productCount(productName, dateStart, dateFinish);
         request.setAttribute("sale", sale);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/sale/showSale.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/sale/showProdSoldCount.jsp");
         LOGGER.info("doPost process");
         requestDispatcher.forward(request, response);
 
