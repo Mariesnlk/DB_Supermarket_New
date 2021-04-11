@@ -19,7 +19,7 @@ public class SortedCategoriesByNameServlet extends HttpServlet {
 
     private final Logger LOGGER = Logger.getLogger(SortedCategoriesByNameServlet.class);
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         CategoryService categoryService = new CategoryServiceImpl();
 
@@ -27,7 +27,7 @@ public class SortedCategoriesByNameServlet extends HttpServlet {
         request.setAttribute("allCategories", allCategories);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/category/allCategories.jsp");
-        LOGGER.info("doGet process");
+        LOGGER.info("doPost process");
         requestDispatcher.forward(request, response);
     }
 }

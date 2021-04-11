@@ -14,7 +14,7 @@
 
     h1, h2 {
         text-align: center;
-        color: rgba(220, 0, 0, 1);;
+        color: rgba(220, 0, 0, 1);
     }
 
     input[type=text], select {

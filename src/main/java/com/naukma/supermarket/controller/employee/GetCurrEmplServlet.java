@@ -12,23 +12,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet(name = "SortCashiersBySurnameServlet", urlPatterns = {"/sort-cashiers-by-surname"})
-public class SortCashiersBySurnameServlet extends HttpServlet {
+@WebServlet(name = "GetCurrEmplServlet", urlPatterns = {"/employeeCurr"})
+public class GetCurrEmplServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(SortCashiersBySurnameServlet.class);
+    private final Logger LOGGER = Logger.getLogger(GetCurrEmplServlet.class);
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         EmployeeService employeeService = new EmployeeServiceImpl();
 
-        List<Employee> allEmployees = employeeService.listCashiersBySurname();
-        request.setAttribute("allEmployees", allEmployees);
+        String idEmployee = request.getParameter("id");
+        Employee employee = employeeService.findById(idEmployee);
+        request.setAttribute("employeeCurr", employee);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/employee/allEmployees.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/employee/showCurrEmployee.jsp");
         LOGGER.info("doPost process");
         requestDispatcher.forward(request, response);
-    }
 
+    }
 }

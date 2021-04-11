@@ -66,6 +66,43 @@
         .my-row {
             width: 220px;
         }
+
+        .td-filled-left {
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 1px white;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 0px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 0px;
+        }
+
+        .td-filled-right {
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 1px white;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 10px;
+        }
+
+        .td-filled-middle {
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 1px white;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+        }
+
+        .td-filled-both {
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 1px white;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
     </style>
 
 </head>
@@ -123,9 +160,9 @@
 
     <form action="/list-products-in-category" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>Скласти список всіх товарів, що належать певній категорії</td>
+            <td class="td-filled-left">Скласти список всіх товарів, що належать певній категорії</td>
 
-            <td class="my-row"><label>Номер категорії: </label>
+            <td class="my-row td-filled-right"><label>Номер категорії: </label>
                 <select name="categoryProd">
                     <%
                         List<Category> catList = (List<Category>) request.getAttribute("allCategories");
@@ -144,9 +181,9 @@
 
     <form action="/list-store-products" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>Скласти список товарів у магазині, що належать певному товару</td>
+            <td class="td-filled-left">Скласти список товарів у магазині, що належать певному товару</td>
 
-            <td class="my-row"><label>Назва товару: </label>
+            <td class="my-row td-filled-right"><label>Назва товару: </label>
                 <select name="nameProd">
                     <%
                         List<Product> prodList = (List<Product>) request.getAttribute("allProducts");
@@ -165,9 +202,9 @@
 
     <form action="/show-employee-info" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>За прізвищем працівника знайти його телефон та адресу</td>
+            <td class="td-filled-left">За прізвищем працівника знайти його телефон та адресу</td>
 
-            <td class="my-row"><label>Прізвище працівника: </label>
+            <td class="my-row td-filled-right"><label>Прізвище працівника: </label>
                 <select name="lastName">
                     <%
                         List<Employee> emplList = (List<Employee>) request.getAttribute("allEmployees");
@@ -186,9 +223,9 @@
 
     <form action="/storeProductByUpc" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару</td>
+            <td class="td-filled-left">За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару</td>
 
-            <td class="my-row"><label>UPC товару: </label>
+            <td class="my-row td-filled-right"><label>UPC товару: </label>
                 <select name="upc">
                     <%
                         List<StoreProduct> prodStList = (List<StoreProduct>) request.getAttribute("allStoreProducts");
@@ -207,9 +244,9 @@
 
     <form action="/checks-by-allEmployees-from-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>Загальна сума проданих товарів з чеків, видрукуваних усіма касиром за певний період часу</td>
-            <td class="my-row"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
-            <td class="my-row"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td class="td-filled-left">Загальна сума проданих товарів з чеків, видрукуваних усіма касиром за певний період часу</td>
+            <td class="my-row td-filled-middle"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td class="my-row td-filled-right"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
             <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
@@ -218,10 +255,10 @@
 
     <form action="/checks-by-employee-from-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу</td>
-            <td class="my-row"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
-            <td class="my-row"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
-            <td class="my-row"><label>Касир: </label>
+            <td class="td-filled-left">Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу</td>
+            <td class="my-row td-filled-middle"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td class="my-row td-filled-middle"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td class="my-row td-filled-right"><label>Касир: </label>
                 <select name="idEmpl">
                     <%
                         List<Employee> emplList1 = (List<Employee>) request.getAttribute("allEmployees");
@@ -244,9 +281,9 @@
 
     <form action="/list-sorted-products-in-category" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>Скласти список товарів, що належать певній категорії, відсортованих за назвою</td>
+            <td class="td-filled-left">Скласти список товарів, що належать певній категорії, відсортованих за назвою</td>
 
-            <td class="my-row"><label>Номер категорії: </label>
+            <td class="my-row td-filled-right"><label>Номер категорії: </label>
                 <select name="categoryProd">
                     <%
                         List<Category> cattList = (List<Category>) request.getAttribute("allCategories");
@@ -265,9 +302,9 @@
 
     <form action="/list-customers-by-percent" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>
+            <td class="td-filled-left">Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>
 
-            <td class="my-row"><label>Відсоток знижки: </label>
+            <td class="my-row td-filled-right"><label>Відсоток знижки: </label>
                 <select name="percent">
                     <%
                         List<CustomerCard> percList = (List<CustomerCard>) request.getAttribute("allCustomerCards");
@@ -287,13 +324,13 @@
 
     <form action="/list-checks-by-cashier-and-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю перегляду
+            <td class="td-filled-left">Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю перегляду
                 куплених товарів, їх к-сті та ціни)
             </td>
 
-            <td class="my-row"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
-            <td class="my-row"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
-            <td class="my-row"><label>Касир: </label>
+            <td class="my-row td-filled-middle"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td class="my-row td-filled-middle"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td class="my-row td-filled-right"><label>Касир: </label>
                 <select name="idEmpl">
                     <%
                         List<Employee> employeList = (List<Employee>) request.getAttribute("allEmployees");
@@ -316,12 +353,12 @@
 
     <form action="/list-all-checks-by-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю перегляду
+            <td class="td-filled-left">Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю перегляду
                 куплених товарів, їх к-сті та ціни )
             </td>
 
-            <td class="my-row"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
-            <td class="my-row"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td class="my-row td-filled-middle"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td class="my-row td-filled-right"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
             <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
@@ -330,11 +367,11 @@
 
     <form action="/count-sold-product-by-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>Визначити загальну кількість одиниць певного товару, проданого за певний період часу</td>
+            <td class="td-filled-left">Визначити загальну кількість одиниць певного товару, проданого за певний період часу</td>
 
-            <td class="my-row"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
-            <td class="my-row"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
-            <td class="my-row"><label>Назва товару: </label>
+            <td class="my-row td-filled-middle"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td class="my-row td-filled-middle"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td class="my-row td-filled-right"><label>Назва товару: </label>
                 <select name="nameProd">
                     <%
                         List<Product> prodListt = (List<Product>) request.getAttribute("allProducts");
@@ -353,11 +390,10 @@
 
     <form action="/find-lot-info-by-upc" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики
-                товару
+            <td class="td-filled-left">За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики товару
             </td>
 
-            <td class="my-row"><label>UPC товару: </label>
+            <td class="my-row td-filled-right"><label>UPC товару: </label>
                 <select name="upc">
                     <%
                         List<StoreProduct> list = (List<StoreProduct>) request.getAttribute("allStoreProducts");
@@ -376,9 +412,9 @@
 
     <form action="/sort-prom" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>Скласти список усіх акційних товарів, відсортованих за кількістю одиниць товару/ за назвою</td>
+            <td class="td-filled-left">Скласти список усіх акційних товарів, відсортованих за кількістю одиниць товару/ за назвою</td>
 
-            <td class="my-row"><label>Cортувати: </label>
+            <td class="my-row td-filled-right"><label>Cортувати: </label>
                 <select name="sorting">
                     <option value="byQuantity">за кількістю одиниць</option>
                     <option value="byName">за назвою</option>
@@ -392,9 +428,9 @@
 
     <form action="/sort-non-prom" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>Скласти список усіх не акційних товарів, відсортованих за кількістю одиниць товару/ за назвою</td>
+            <td class="td-filled-left">Скласти список усіх не акційних товарів, відсортованих за кількістю одиниць товару/ за назвою</td>
 
-            <td class="my-row"><label>Cортувати: </label>
+            <td class="my-row td-filled-right"><label>Cортувати: </label>
                 <select name="sorting">
                     <option value="byQuantity">за кількістю одиниць</option>
                     <option value="byName">за назвою</option>
@@ -406,30 +442,43 @@
         </table>
     </form>
 
-    <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
-        <tr>
-            <td><a href="/sort-cashiers-by-surname">Скласти список працівників, що займають посаду касира, відсортованих за прізвищем</a></td>
-        </tr>
-    </table>
-    <br>
-    <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
-        <tr>
-            <td><a href="/sort-products-name">Скласти список усіх товарів, відсортованих за назвою</a></td>
-        </tr>
-    </table>
-    <br>
-    <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
-        <tr>
-            <td><a href="/sorted-categories-name">Скласти список усіх категорій, відсортованих за назвою</a></td>
-        </tr>
-    </table>
-    <br>
-    <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
-        <tr>
-            <td><a href="/list-customer-card">Скласти список усіх постійних клієнтів, що мають карту клієнта, по полях ПІБ, телефон, адреса (якщо вказана)</a></td>
-        </tr>
-    </table>
-    <br>
+    <form action="/sort-cashiers-by-surname" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td class="td-filled-both">Скласти список працівників, що займають посаду касира, відсортованих за прізвищем</td>
+            <td class="sub-but-row my-td-cust">
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
+
+    <%-------------------------------%>
+
+    <form action="/sort-products-name" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td class="td-filled-both">Скласти список усіх товарів, відсортованих за назвою</td>
+            <td class="sub-but-row my-td-cust">
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
+
+    <form action="/sorted-categories-name" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td class="td-filled-both">Скласти список усіх категорій, відсортованих за назвою</td>
+            <td class="sub-but-row my-td-cust">
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
+
+    <form action="/list-customer-card" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td class="td-filled-both">Скласти список усіх постійних клієнтів, що мають карту клієнта, по полях ПІБ, телефон, адреса (якщо вказана)</td>
+            <td class="sub-but-row my-td-cust">
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
 </div>
 
 <br>
