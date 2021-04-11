@@ -43,7 +43,6 @@
 
 <h1>Запити касира</h1>
 
-
 <%
     Employee registeredEmployee = (Employee) session.getAttribute("registeredEmployee");
     String idEmployee = registeredEmployee.getId_employee();
@@ -54,7 +53,7 @@
 
     <form action="/list-products-in-check" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+За номером чека скласти список усіх товарів, інформація про продаж яких є у цьому чеку</td>
+            <td>За номером чека скласти список усіх товарів, інформація про продаж яких є у цьому чеку</td>
 
             <td><label>Номер чека: </label>
                 <select name="checkNum">
@@ -75,7 +74,7 @@
 
     <form action="/checkInfo" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+За номером чеку вивести усю інформацію про даний чек</td>
+            <td>За номером чеку вивести усю інформацію про даний чек</td>
 
             <td><label>Номер чека: </label>
                 <select name="checkNumber">
@@ -96,7 +95,7 @@
 
     <form action="/storeProductByUpc" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару</td>
+            <td>За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару</td>
 
             <td><label>UPC товару: </label>
                 <select name="upc">
@@ -117,7 +116,7 @@
 
     <form action="/list-sorted-products-in-category" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+Скласти список товарів, що належать певній категорії, відсортованих за назвою</td>
+            <td>Скласти список товарів, що належать певній категорії, відсортованих за назвою</td>
 
             <td><label>Номер категорії: </label>
                 <select name="categoryProd">
@@ -138,7 +137,7 @@
 
     <form action="/show-customer-info-by-surname" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+Вивести усю інформацію про покупця з певним прізвищем, що має карту клієнта</td>
+            <td>Вивести усю інформацію про покупця з певним прізвищем, що має карту клієнта</td>
 
             <td><label>Прізвище клієнта: </label>
                 <select name="custSurname">
@@ -159,7 +158,7 @@
 
     <form action="/list-customers-by-percent" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>
+            <td>Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>
 
             <td><label>Відсоток знижки: </label>
                 <select name="percent">
@@ -181,7 +180,7 @@
 
     <form action="/list-check-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+Скласти список чеків, видрукуваних даним касиром за певний період часу</td>
+            <td>Скласти список чеків, видрукуваних даним касиром за певний період часу</td>
             <%
                 out.println("<input type=\"text\" name=\"idCashier\" value=\"" + idEmployee + "\" hidden>");
             %>
@@ -210,15 +209,11 @@
     </form>
 
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
-
         <tr>
-            <th>Посилання на запит</th>
+            <td><a href="/sort-products-name">Скласти список усіх товарів, відсортований за назвою</a></td>
         </tr>
         <tr>
-            <td><a href="/sort-products-name">+Скласти список усіх товарів, відсортований за назвою</a></td>
-        </tr>
-        <tr>
-            <td><a href="/employee?id=<%=idEmployee%>">+За ID працівника знайти всю інформацію про себе</a></td>
+            <td><a href="/employee?id=<%=idEmployee%>">За ID працівника знайти всю інформацію про себе</a></td>
         </tr>
     </table>
 </div>

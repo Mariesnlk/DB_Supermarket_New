@@ -99,10 +99,9 @@
 
 <div>
 
-    <!-- start -->
     <form action="/list-products-in-category" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+Скласти список всіх товарів, що належать певній категорії</td>
+            <td>Скласти список всіх товарів, що належать певній категорії</td>
 
             <td><label>Номер категорії: </label>
                 <select name="categoryProd">
@@ -120,11 +119,10 @@
             </td>
         </table>
     </form>
-    <!-- end -->
 
     <form action="/list-store-products" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+Скласти список товарів у магазині, що належать певному товару</td>
+            <td>Скласти список товарів у магазині, що належать певному товару</td>
 
             <td><label>Назва товару: </label>
                 <select name="nameProd">
@@ -145,7 +143,7 @@
 
     <form action="/show-employee-info" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+За прізвищем працівника знайти його телефон та адресу</td>
+            <td>За прізвищем працівника знайти його телефон та адресу</td>
 
             <td><label>Прізвище працівника: </label>
                 <select name="lastName">
@@ -166,7 +164,7 @@
 
     <form action="/storeProductByUpc" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару</td>
+            <td>За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару</td>
 
             <td><label>UPC товару: </label>
                 <select name="upc">
@@ -187,7 +185,7 @@
 
     <form action="/checks-by-allEmployees-from-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+Загальна сума проданих товарів з чеків, видрукуваних усіма касиром за певний період часу</td>
+            <td>Загальна сума проданих товарів з чеків, видрукуваних усіма касиром за певний період часу</td>
             <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
             <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
             <td>
@@ -198,7 +196,7 @@
 
     <form action="/checks-by-employee-from-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>-Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу</td>
+            <td>Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу</td>
             <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
             <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
             <td><label>Касир: </label>
@@ -224,7 +222,7 @@
 
     <form action="/list-sorted-products-in-category" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+Скласти список товарів, що належать певній категорії, відсортованих за назвою</td>
+            <td>Скласти список товарів, що належать певній категорії, відсортованих за назвою</td>
 
             <td><label>Номер категорії: </label>
                 <select name="categoryProd">
@@ -245,7 +243,7 @@
 
     <form action="/list-customers-by-percent" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>
+            <td>Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>
 
             <td><label>Відсоток знижки: </label>
                 <select name="percent">
@@ -267,7 +265,7 @@
 
     <form action="/list-checks-by-cashier-and-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю перегляду
+            <td>Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю перегляду
                 куплених товарів, їх к-сті та ціни)
             </td>
 
@@ -296,7 +294,7 @@
 
     <form action="/list-all-checks-by-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю перегляду
+            <td>Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю перегляду
                 куплених товарів, їх к-сті та ціни )
             </td>
 
@@ -310,7 +308,7 @@
 
     <form action="/count-sold-product-by-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+Визначити загальну кількість одиниць певного товару, проданого за певний період часу</td>
+            <td>Визначити загальну кількість одиниць певного товару, проданого за певний період часу</td>
 
             <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
             <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
@@ -333,7 +331,7 @@
 
     <form action="/find-lot-info-by-upc" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>+За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики
+            <td>За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики
                 товару
             </td>
 
@@ -387,24 +385,17 @@
     </form>
 
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
-
         <tr>
-            <th>Посилання на запит</th>
-        </tr>
-
-        <tr>
-            <td><a href="/sort-cashiers-by-surname">+Скласти список працівників, що займають посаду касира,
-                відсортованих за прізвищем</a></td>
+            <td><a href="/sort-cashiers-by-surname">Скласти список працівників, що займають посаду касира, відсортованих за прізвищем</a></td>
         </tr>
         <tr>
-            <td><a href="/sort-products-name">+Скласти список усіх товарів, відсортованих за назвою</a></td>
+            <td><a href="/sort-products-name">Скласти список усіх товарів, відсортованих за назвою</a></td>
         </tr>
         <tr>
-            <td><a href="/sorted-categories-name">+Скласти список усіх категорій, відсортованих за назвою</a></td>
+            <td><a href="/sorted-categories-name">Скласти список усіх категорій, відсортованих за назвою</a></td>
         </tr>
         <tr>
-            <td><a href="/list-customer-card">+Скласти список усіх постійних клієнтів, що мають карту клієнта, по полях
-                ПІБ, телефон, адреса (якщо вказана)</a></td>
+            <td><a href="/list-customer-card">Скласти список усіх постійних клієнтів, що мають карту клієнта, по полях ПІБ, телефон, адреса (якщо вказана)</a></td>
         </tr>
     </table>
 </div>
