@@ -20,7 +20,7 @@
                 List<StoreProduct> storeProductList = (List<StoreProduct>) request.getAttribute("allStoreProducts");
                 for (StoreProduct storeProduct : storeProductList) {
             %>
-            <option value=<%=storeProduct.getUPC()%>></option> //такое себе знать что за UPC
+            <option value=<%=storeProduct.getUPC()%>><%=storeProduct.getUPC()%></option> //такое себе знать что за UPC
             <%}%>
         </select>
             <br>
@@ -30,7 +30,7 @@
                 List<Check> checkList = (List<Check>) request.getAttribute("allChecks");
                 for (Check che : checkList) {
             %>
-            <option value=<%=che.getCheck_number()%>></option>
+            <option value=<%=che.getCheck_number()%>><%=che.getCheck_number()%></option>
             <%}%>
         </select>
             <br/>
