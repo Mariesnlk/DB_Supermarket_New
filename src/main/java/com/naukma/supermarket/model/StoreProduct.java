@@ -2,12 +2,12 @@ package com.naukma.supermarket.model;
 
 public class StoreProduct {
 
-    String UPC;
-    String UPC_prom;
-    Integer id_product;
-    Double selling_price;
-    Integer products_number;
-    Boolean promotional_product;
+    private String UPC;
+    private String UPC_prom;
+    private Integer id_product;
+    private Double selling_price;
+    private Integer products_number;
+    private Boolean promotional_product;
 
     public StoreProduct() { }
 

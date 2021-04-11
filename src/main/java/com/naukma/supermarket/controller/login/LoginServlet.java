@@ -28,11 +28,11 @@ public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String employeeSurname = request.getParameter("employeeSurname");
-        String employeeName = request.getParameter("employeeName");
+        String login = request.getParameter("employeeLogin");
+        String password = request.getParameter("employeePassword");
 
         EmployeeService employeeService = new EmployeeServiceImpl();
-        Employee registeredEmployee = employeeService.getRegisteredEmployee(employeeSurname, employeeName);
+        Employee registeredEmployee = employeeService.getRegisteredEmployee(login, password);
 
         HttpSession session = request.getSession();
         session.setAttribute("registeredEmployee", registeredEmployee);

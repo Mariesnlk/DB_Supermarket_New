@@ -42,6 +42,8 @@
                 <th>Місто</th>
                 <th>Вулиця</th>
                 <th>Індекс</th>
+                <th>Логін</th>
+                <th>Пароль</th>
             </tr>
             </thead>
             <tbody>
@@ -61,7 +63,9 @@
                     out.println("<td>" + employee.getPhone_number() + "</td>");
                     out.println("<td>" + employee.getCity() + "</td>");
                     out.println("<td>" + employee.getStreet() + "</td>");
-                    out.println("<td>" + employee.getZip_code()+ "</td>");
+                    out.println("<td>" + employee.getZip_code() + "</td>");
+                    out.println("<td>" + employee.getLogin() + "</td>");
+                    out.println("<td>" + employee.getPassword() + "</td>");
 
                     out.println("<td><a href=\"/update-employee?id=" + employee.getId_employee()
                             + "\">Оновити</a></td>");

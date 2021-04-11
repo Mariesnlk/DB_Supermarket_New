@@ -29,7 +29,7 @@
                 <option value="manager">менеджер</option>
                 <option value="cashier">касир</option>
             </select><br/>
-            <label>Зарплата: </label><input type="text" type="number" min="0" placeholder="Введіть зарплату.."><br/>
+            <label>Зарплата: </label><input type="text" name="salary" placeholder="Введіть зарплату.."><br/>
             <label>Дата народження: </label><input type="date" name="birthDate"
                                                    value="2021-03-22"
                                                    max="2003-01-01"><br/>
@@ -43,6 +43,10 @@
             <label>Вулиця: </label><input type="text" name="street" placeholder="Введіть вулицю.."><br/>
             <%--  added regex --%>
             <label>Індекс: </label><input type="text" name="zipCode" placeholder="Введіть індекс.."><br/>
+
+            <label>Логін: </label><input type="text" name="login" placeholder="Введіть логін.."><br/>
+            <label>Пароль: </label><input type="password" name="password" placeholder="Введіть пароль.."><br/>
+
             <button class="button" type="submit">Підтвердити</button>
         </form>
     </div>

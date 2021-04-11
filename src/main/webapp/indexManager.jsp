@@ -77,7 +77,7 @@
 
 <div>
     <input class="button" type=button onClick="location.href='/add-sale'"
-           value='Додати акцію'>
+           value='Додати продаж'>
 </div>
 
 <br>

@@ -10,10 +10,10 @@
 <div class="container">
     <form action="/login" method="POST">
         <div>
-            <label>Прізвище: </label> <input type="text" name="employeeSurname" placeholder="Введіть ваше прізвище"/>
+            <label>Логін: </label> <input type="text" name="employeeLogin" placeholder="Введіть логін"/>
         </div>
         <div>
-            <label>І`мя: </label> <input type="text" name="employeeName" placeholder="Введіть ваше ім`я"/>
+            <label>Пароль: </label> <input type="password" name="employeePassword" placeholder="Введіть пароль"/>
         </div>
         <br>
         <div>

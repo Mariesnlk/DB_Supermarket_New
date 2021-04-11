@@ -1,5 +1,6 @@
 package com.naukma.supermarket.controller.employee;
 
+import com.naukma.supermarket.cipher.AES;
 import com.naukma.supermarket.model.Employee;
 import com.naukma.supermarket.service.impl.EmployeeServiceImpl;
 import com.naukma.supermarket.service.interf.EmployeeService;
@@ -18,6 +19,8 @@ import java.sql.Date;
 public class UpdateEmployeeServlet extends HttpServlet {
 
     private final Logger LOGGER = Logger.getLogger(UpdateEmployeeServlet.class);
+
+    private final static String SECRETKEY = "fifi!fifi!!";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -40,16 +43,20 @@ public class UpdateEmployeeServlet extends HttpServlet {
         String firstName = request.getParameter("firstName");
         String patronymicName = request.getParameter("patronymicName");
         String role = request.getParameter("role");
-        double salary = Double.parseDouble(request.getParameter("salary"));
+        Double salary = Double.parseDouble(request.getParameter("salary"));
         Date birthDate = Date.valueOf(request.getParameter("birthDate"));
         Date startDate = Date.valueOf(request.getParameter("startDate"));
         String phoneNum = request.getParameter("phoneNum");
         String city = request.getParameter("city");
         String street = request.getParameter("street");
         String zipCode = request.getParameter("zipCode");
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+
+        String encryptedPassword = AES.encrypt(password, SECRETKEY);
 
         Employee updateEmployee = new Employee(id, lastName, firstName, patronymicName, role, salary, birthDate, startDate,
-                phoneNum, city, street, zipCode);
+                phoneNum, city, street, zipCode, login, encryptedPassword);
 
         EmployeeService employeeService = new EmployeeServiceImpl();
 

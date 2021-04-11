@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface EmployeeService  extends CRUDService<Employee, String> {
 
-    Employee getRegisteredEmployee(String employeeSurname, String employeeName);
+    Employee getRegisteredEmployee(String login, String password);
 
     List<Employee> listCashiersBySurname();
 

@@ -1,5 +1,6 @@
 package com.naukma.supermarket.controller.employee;
 
+import com.naukma.supermarket.cipher.AES;
 import com.naukma.supermarket.model.Employee;
 import com.naukma.supermarket.service.impl.EmployeeServiceImpl;
 import com.naukma.supermarket.service.interf.EmployeeService;
@@ -21,6 +22,8 @@ public class AddEmployeeServlet extends HttpServlet {
 
     private final Logger LOGGER = Logger.getLogger(AddEmployeeServlet.class);
 
+    private final static String SECRETKEY = "fifi!fifi!!";
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/employee/addEmployee.jsp");
         LOGGER.info("doGet process");
@@ -34,10 +37,10 @@ public class AddEmployeeServlet extends HttpServlet {
         String firstName = request.getParameter("firstName");
         String patronymicName = request.getParameter("patronymicName");
         String role = request.getParameter("role");
-        double salary = Double.parseDouble(request.getParameter("salary"));
+        Double salary = Double.parseDouble(request.getParameter("salary"));
+        System.out.println(salary);
 
 
-        // Date birthDate = Date.valueOf(request.getParameter("birthDate"));
         String availableBirthDate = request.getParameter("birthDate");
 
         SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd");
@@ -56,10 +59,14 @@ public class AddEmployeeServlet extends HttpServlet {
         String city = request.getParameter("city");
         String street = request.getParameter("street");
         String zipCode = request.getParameter("zipCode");
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+
+        String encryptedPassword = AES.encrypt(password, SECRETKEY);
 
 
         Employee employee = new Employee(id, lastName, firstName, patronymicName, role, salary, d1, startDate,
-                phoneNum, city, street, zipCode);
+                phoneNum, city, street, zipCode, login, encryptedPassword);
 
 //        if (firstName.length() > 0 && lastName.length() > 0 ) {
 //        //if (firstName.length() > 0 && lastName.length() > 0 && FieldsValidator.isCorrectWord(firstName) && FieldsValidator.isCorrectWord(firstName)) {

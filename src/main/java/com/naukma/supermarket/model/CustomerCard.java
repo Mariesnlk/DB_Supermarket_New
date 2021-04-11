@@ -2,15 +2,15 @@ package com.naukma.supermarket.model;
 
 public class CustomerCard {
 
-    String card_number;
-    String cust_surname;
-    String cust_name;
-    String cust_patronymic;
-    String phone_number;
-    String city;
-    String street;
-    String zip_code;
-    Integer percent;
+    private String card_number;
+    private String cust_surname;
+    private String cust_name;
+    private String cust_patronymic;
+    private String phone_number;
+    private String city;
+    private String street;
+    private String zip_code;
+    private Integer percent;
 
     public CustomerCard() { }
 

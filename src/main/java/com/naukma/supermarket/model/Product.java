@@ -2,10 +2,10 @@ package com.naukma.supermarket.model;
 
 public class Product {
 
-    Integer id_product;
-    Integer category_number;
-    String product_name;
-    String characteristics;
+    private Integer id_product;
+    private Integer category_number;
+    private String product_name;
+    private String characteristics;
 
     public Product() { }
 

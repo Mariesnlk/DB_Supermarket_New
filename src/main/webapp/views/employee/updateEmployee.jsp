@@ -112,6 +112,22 @@
                         %>
                     </td>
                 </tr>
+                <tr>
+                    <td>Логін:</td>
+                    <td>
+                        <%
+                            out.println("<input type=\"text\" name=\"login\" value=\"" + employeeToUpdate.getLogin() + "\">");
+                        %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Пароль:</td>
+                    <td>
+                        <%
+                            out.println("<input type=\"password\" name=\"password\" value=\"" + employeeToUpdate.getPassword() + "\">");
+                        %>
+                    </td>
+                </tr>
 
                 <tr>
                     <td align="right" colspan="2"><input type="submit" value="Підтвердити"></td>

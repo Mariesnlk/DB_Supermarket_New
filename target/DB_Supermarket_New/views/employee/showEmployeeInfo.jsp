@@ -58,6 +58,22 @@
                     %>
                 </td>
             </tr>
+            <tr>
+                <td>Логін:</td>
+                <td>
+                    <%
+                        out.println(employee.getLogin());
+                    %>
+                </td>
+            </tr>
+            <tr>
+                <td>Пароль:</td>
+                <td>
+                    <%
+                        out.println(employee.getPassword());
+                    %>
+                </td>
+            </tr>
         </table>
     </div>
 </div>

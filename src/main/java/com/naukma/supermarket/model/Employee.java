@@ -9,13 +9,15 @@ public class Employee {
     private String empl_name;
     private String empl_patronymic;
     private String role;
-    private double salary;
+    private Double salary;
     private Date date_of_birth;
     private Date date_of_start;
     private String phone_number;
     private String city;
     private String street;
     private String zip_code;
+    private String login;
+    private String password;
 
     public Employee() {
     }
@@ -28,7 +30,7 @@ public class Employee {
         this.zip_code = zip_code;
     }
 
-    public Employee(String empl_surname, String empl_name, String empl_patronymic, String role, double salary,
+    public Employee(String empl_surname, String empl_name, String empl_patronymic, String role, Double salary,
                     Date date_of_birth, Date date_of_start, String phone_number, String city, String street, String zip_code) {
         this.empl_surname = empl_surname;
         this.empl_name = empl_name;
@@ -43,7 +45,25 @@ public class Employee {
         this.zip_code = zip_code;
     }
 
-    public Employee(String id_employee, String empl_surname, String empl_name, String empl_patronymic, String role, double salary,
+    public Employee(String empl_surname, String empl_name, String empl_patronymic, String role, Double salary,
+                    Date date_of_birth, Date date_of_start, String phone_number, String city, String street, String zip_code,
+                    String login, String password) {
+        this.empl_surname = empl_surname;
+        this.empl_name = empl_name;
+        this.empl_patronymic = empl_patronymic;
+        this.role = role;
+        this.salary = salary;
+        this.date_of_birth = date_of_birth;
+        this.date_of_start = date_of_start;
+        this.phone_number = phone_number;
+        this.city = city;
+        this.street = street;
+        this.zip_code = zip_code;
+        this.login = login;
+        this.password = password;
+    }
+
+    public Employee(String id_employee, String empl_surname, String empl_name, String empl_patronymic, String role, Double salary,
                     Date date_of_birth, Date date_of_start, String phone_number, String city, String street, String zip_code) {
         this.id_employee = id_employee;
         this.empl_surname = empl_surname;
@@ -57,6 +77,25 @@ public class Employee {
         this.city = city;
         this.street = street;
         this.zip_code = zip_code;
+    }
+
+    public Employee(String id_employee, String empl_surname, String empl_name, String empl_patronymic, String role, Double salary,
+                    Date date_of_birth, Date date_of_start, String phone_number, String city, String street, String zip_code,
+                    String login, String password) {
+        this.id_employee = id_employee;
+        this.empl_surname = empl_surname;
+        this.empl_name = empl_name;
+        this.empl_patronymic = empl_patronymic;
+        this.role = role;
+        this.salary = salary;
+        this.date_of_birth = date_of_birth;
+        this.date_of_start = date_of_start;
+        this.phone_number = phone_number;
+        this.city = city;
+        this.street = street;
+        this.zip_code = zip_code;
+        this.login = login;
+        this.password = password;
     }
 
     public String getId_employee() {
@@ -99,11 +138,11 @@ public class Employee {
         this.role = role;
     }
 
-    public double getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
@@ -155,6 +194,22 @@ public class Employee {
         this.zip_code = zip_code;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -170,6 +225,8 @@ public class Employee {
                 ", city='" + city + '\'' +
                 ", street='" + street + '\'' +
                 ", zip_code='" + zip_code + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

@@ -1,5 +1,6 @@
 package com.naukma.supermarket.service.impl;
 
+import com.naukma.supermarket.cipher.AES;
 import com.naukma.supermarket.dao.impl.EmployeeDAOImpl;
 import com.naukma.supermarket.dao.interf.EmployeeDAO;
 import com.naukma.supermarket.model.Employee;
@@ -8,6 +9,8 @@ import com.naukma.supermarket.service.interf.EmployeeService;
 import java.util.List;
 
 public class EmployeeServiceImpl implements EmployeeService {
+
+    private final static String SECRETKEY = "fifi!fifi!!";
 
     @Override
     public void create(Employee employee) {
@@ -45,14 +48,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee getRegisteredEmployee(String employeeSurname, String employeeName) {
+    public Employee getRegisteredEmployee(String login, String password) {
         Employee registeredEmployee = null;
 
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
         List<Employee> allEmployeesList = employeeDAO.findAll();
 
         for (Employee employee : allEmployeesList) {
-            if (employee.getEmpl_surname().equals(employeeSurname) && employee.getEmpl_name().equals(employeeName)) {
+            String decryptedPassword = AES.decrypt(employee.getPassword(), SECRETKEY);
+            if (employee.getLogin().equals(login) && decryptedPassword.equals(password)) {
                 registeredEmployee = employee;
                 break;
             }

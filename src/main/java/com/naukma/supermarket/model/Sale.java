@@ -2,10 +2,10 @@ package com.naukma.supermarket.model;
 
 public class Sale {
 
-    String UPC;
-    String check_number;
-    Integer product_number;
-    Double selling_price;
+    private String UPC;
+    private String check_number;
+    private Integer product_number;
+    private Double selling_price;
 
     public Sale() { }
 

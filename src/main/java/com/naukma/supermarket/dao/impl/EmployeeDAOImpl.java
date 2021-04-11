@@ -26,16 +26,19 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             String name = employee.getEmpl_name();
             String patronymic = employee.getEmpl_patronymic();
             String role = employee.getRole();
-            double salary = employee.getSalary();
+            Double salary = employee.getSalary();
             Date dateOfBirth = (Date) employee.getDate_of_birth();
             Date dateOfStart = (Date) employee.getDate_of_start();
             String phoneNumber = employee.getPhone_number();
             String city = employee.getCity();
             String street = employee.getStreet();
             String zipCode = employee.getZip_code();
+            String login = employee.getLogin();
+            String password = employee.getPassword();
 
             String query = "INSERT INTO db_supermarket.employee(id_employee, empl_surname, empl_name, empl_patronymic," +
-                    " role,salary, date_of_birth, date_of_start, phone_number, city, street, zip_code) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+                    " role,salary, date_of_birth, date_of_start, phone_number, city, street, zip_code, login, password) " +
+                    "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             ps = connection.prepareStatement(query);
 
@@ -53,6 +56,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             ps.setString(10, city);
             ps.setString(11, street);
             ps.setString(12, zipCode);
+            ps.setString(13, login);
+            ps.setString(14, password);
 
             ps.executeUpdate();
 
@@ -98,16 +103,18 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 String name = rs.getString("empl_name");
                 String patronymic = rs.getString("empl_patronymic");
                 String role = rs.getString("role");
-                double salary = rs.getDouble("salary");
+                Double salary = rs.getDouble("salary");
                 Date dateBirth = rs.getDate("date_of_birth");
                 Date dateStart = rs.getDate("date_of_start");
                 String phoneNumber = rs.getString("phone_number");
                 String city = rs.getString("city");
                 String street = rs.getString("street");
                 String zipCode = rs.getString("zip_code");
+                String login = rs.getString("login");
+                String password = rs.getString("password");
 
                 employee = new Employee(idEmployee, surname, name, patronymic, role, salary, dateBirth, dateStart,
-                        phoneNumber, city, street, zipCode);
+                        phoneNumber, city, street, zipCode, login, password);
             }
 
         } catch (Exception e) {
@@ -149,16 +156,18 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 String name = rs.getString("empl_name");
                 String patronymic = rs.getString("empl_patronymic");
                 String role = rs.getString("role");
-                double salary = rs.getDouble("salary");
+                Double salary = rs.getDouble("salary");
                 Date dateBirth = rs.getDate("date_of_birth");
                 Date dateStart = rs.getDate("date_of_start");
                 String phoneNumber = rs.getString("phone_number");
                 String city = rs.getString("city");
                 String street = rs.getString("street");
                 String zipCode = rs.getString("zip_code");
+                String login = rs.getString("login");
+                String password = rs.getString("password");
 
                 Employee employee = new Employee(idEmployee, surname, name, patronymic, role, salary, dateBirth,
-                        dateStart, phoneNumber, city, street, zipCode);
+                        dateStart, phoneNumber, city, street, zipCode, login, password);
                 employeeList.add(employee);
             }
 
@@ -190,13 +199,15 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             String newName = employee.getEmpl_name();
             String newPatronymic = employee.getEmpl_patronymic();
             String newRole = employee.getRole();
-            double newSalary = employee.getSalary();
+            Double newSalary = employee.getSalary();
             Date newDateOfBirth = (Date) employee.getDate_of_birth();
             Date newDateOfStart = (Date) employee.getDate_of_start();
             String newPhoneNumber = employee.getPhone_number();
             String newCity = employee.getCity();
             String newStreet = employee.getStreet();
             String newZipCode = employee.getZip_code();
+            String newLogin = employee.getLogin();
+            String newPassword = employee.getPassword();
 
             String query =
                     "UPDATE employee SET empl_surname  = '" + newSurname + "', empl_name = '" + newName + "', " +
@@ -204,7 +215,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                             "'," + "salary = '" + newSalary + "', " + "date_of_birth = '" + newDateOfBirth +
                             "'," + "date_of_start = '" + newDateOfStart + "', " + "phone_number = '" + newPhoneNumber +
                             "'," + "city = '" + newCity + "', " + "street = '" + newStreet +
-                            "'," + "zip_code = '" + newZipCode +
+                            "'," + "zip_code = '" + newZipCode + "'," + "login = '" + newLogin +
+                            "'," + "password = '" + newPassword +
                             "' WHERE id_employee = ?";
 
             ps = connection.prepareStatement(query);

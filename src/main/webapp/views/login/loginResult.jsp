@@ -13,8 +13,7 @@
 
         if (registeredEmployee != null) {
             out.println("<h1>Ви успіщно залогінились!</h1>");
-//            out.println(registeredEmployee);
-//            out.println("userRole="+registeredEmployee.getRole());
+
     %>
 
     <div>

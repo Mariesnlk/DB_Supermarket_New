@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class Check {
 
-    String check_number;
-    String id_employee;
-    String card_number;
-    Date print_date;
-    Double sum_total;
-    Double vat;
+    private String check_number;
+    private String id_employee;
+    private String card_number;
+    private Date print_date;
+    private Double sum_total;
+    private Double vat;
 
     public Check() { }
 
