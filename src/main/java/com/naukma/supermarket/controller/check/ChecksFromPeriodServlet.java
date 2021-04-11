@@ -25,7 +25,7 @@ public class ChecksFromPeriodServlet extends HttpServlet {
 
         CheckService checkService = new CheckServiceImpl();
 
-        String idEmployee = request.getParameter("idEmp");
+        String idEmployee = request.getParameter("idCashier");
 
         String availableFirstDate = request.getParameter("dateStart");
         String availableSecondDate = request.getParameter("dateFinish");

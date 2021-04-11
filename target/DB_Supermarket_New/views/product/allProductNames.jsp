@@ -13,7 +13,6 @@
 <br>
 <div>
     <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
-    <input class="button" type=button onClick="location.href='/add-product'" value='Додати Продукт'>
 </div>
 <br>
 <br>
@@ -37,11 +36,6 @@
                 for (Product product : products) {
                     out.println("<tr>");
                     out.println("<td>" + product.getProduct_name() + "</td>");
-
-                    out.println("<td><a href=\"/update-product?id=" + product.getId_product()
-                            + "\">Оновити</a></td>");
-                    out.println("<td><a href=\"/delete-product?id=" + product.getId_product()
-                            + "\">Видалити</a></td>");
                     out.println("</tr>");
                 }
             %>
@@ -60,7 +54,6 @@
 
 <div>
     <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
-    <input class="button" type=button onClick="location.href='/add-product'" value='Додати Продукт'>
 </div>
 </body>
 </html>

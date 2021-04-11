@@ -33,10 +33,10 @@
     <input class="button" type=button onClick="location.href='/logout'" value='Вийти'>
 </div>
 
-<div>
-    <input class="button" type=button onClick="location.href='/add-query'"
-           value='Мій запит'>
-</div>
+<%--<div>--%>
+<%--    <input class="button" type=button onClick="location.href='/add-query'"--%>
+<%--           value='Мій запит'>--%>
+<%--</div>--%>
 
 <br>
 
@@ -201,7 +201,7 @@
             <td>-Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу</td>
             <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
             <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
-            <td><label>Працівник: </label>
+            <td><label>Касир: </label>
                 <select name="idEmpl">
                     <%
                         List<Employee> emplList1 = (List<Employee>) request.getAttribute("allEmployees");
@@ -262,6 +262,86 @@
     </form>
 
 
+    <form action="/list-checks-by-cashier-and-period" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>+Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни)</td>
+
+            <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td><label>Касир: </label>
+                <select name="idEmpl">
+                    <%
+                        List<Employee> employeList = (List<Employee>) request.getAttribute("allEmployees");
+                        for (Employee employee : employeList) {
+                            if(employee.getRole().equalsIgnoreCase("cashier")){
+                    %>
+                    <option value=<%=employee.getId_employee()%>><%=employee.getEmpl_surname()%>  <%=employee.getEmpl_name()%>
+                    </option>
+                    <%}}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
+
+    <form action="/list-all-checks-by-period" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>+Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни )</td>
+
+            <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
+
+    <form action="/count-sold-product-by-period" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>+Визначити загальну кількість одиниць певного товару, проданого за певний період часу</td>
+
+            <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td><label>Назва товару: </label>
+                <select name="nameProd">
+                    <%
+                        List<Product> prodListt = (List<Product>) request.getAttribute("allProducts");
+                        for (Product prod : prodListt) {
+                    %>
+                    <option value=<%=prod.getProduct_name()%>><%=prod.getProduct_name()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
+
+    <form action="/find-lot-info-by-upc" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td>+За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики товару</td>
+
+            <td><label>UPC товару: </label>
+                <select name="upc">
+                    <%
+                        List<StoreProduct> list = (List<StoreProduct>) request.getAttribute("allStoreProducts");
+                        for (StoreProduct prod : list) {
+                    %>
+                    <option value=<%=prod.getUPC()%>><%=prod.getUPC()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td>
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
+
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
 
         <tr>
@@ -290,25 +370,7 @@
             <td><a href="/sort-non-prom-by-quantity">+Скласти список усіх не акційних товарів, відсортованих за кількістю одиниць товару</a></td>
         </tr>
         <tr>
-            <td><a href="/login">?Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни)</a></td>
-        </tr>
-        <tr>
-            <td><a href="/login">?Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни )</a></td>
-        </tr>
-        <tr>
-            <td><a href="/sum-check-one-empl">?Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу</a></td>
-        </tr>
-        <tr>
-            <td><a href="/sum-check-all-empl">?Загальна сума проданих товарів з чеків, видрукуваних усіма касирами за певний період часу</a></td>
-        </tr>
-        <tr>
-            <td><a href="/login">?Визначити загальну кількість одиниць певного товару, проданого за певний період часу</a></td>
-        </tr>
-        <tr>
             <td><a href="/list-customer-card">+Скласти список усіх постійних клієнтів, що мають карту клієнта, по полях ПІБ, телефон, адреса (якщо вказана)</a></td>
-        </tr>
-        <tr>
-            <td><a href="/login">?За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики товару</a></td>
         </tr>
     </table>
 </div>

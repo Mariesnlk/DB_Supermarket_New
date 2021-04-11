@@ -122,6 +122,7 @@
 <br>
 
 <input class="button" type=button onClick="location.href='/employees'" value='Всі працівники'>
+<input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
 
 </body>
 </html>

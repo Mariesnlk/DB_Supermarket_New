@@ -31,7 +31,7 @@
 </div>
 <br>
 
-<input class="button" type=button onClick="location.href='/index-manager'" value='Сторінка менеджера'>
+<input class="button" type=button onClick="location.href='/index-manager'" value='Повернутися на сторінку менеджера'>
 
 
 

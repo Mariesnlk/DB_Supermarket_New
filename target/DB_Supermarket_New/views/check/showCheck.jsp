@@ -64,7 +64,7 @@
 <br>
 
 <input class="button" type=button onClick="location.href='/checks'" value='Всі чеки'>
-
+<input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
 
 </body>
 </html>

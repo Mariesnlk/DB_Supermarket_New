@@ -110,9 +110,10 @@ public class ProductSellingCheckDAOImpl implements ProductSellingCheckDAO {
                 Integer productNumber = rs.getInt("product_number");
                 Double sellingPrice = rs.getDouble("selling_price");
                 String checkNumber = rs.getString("check_number");
+                String idEmployee = rs.getString("id_employee");
 
                 ProductSellingCheck productSellingCheck = new ProductSellingCheck(productName, productNumber,
-                        sellingPrice, checkNumber);
+                        sellingPrice, checkNumber, idEmployee);
                 list.add(productSellingCheck);
             }
 

@@ -38,10 +38,10 @@ public class ListAllChecksByPeriodServlet extends HttpServlet {
         java.sql.Date dateStart = new java.sql.Date(d.getTime());
         java.sql.Date dateFinish = new java.sql.Date(d1.getTime());
 
-        List<ProductSellingCheck> allChecks = service.checksListByAllFromPeriod(dateStart, dateFinish);
-        request.setAttribute("allChecks", allChecks);
+        List<ProductSellingCheck> productSellingCheckList = service.checksListByAllFromPeriod(dateStart, dateFinish);
+        request.setAttribute("productSellingCheckList", productSellingCheckList);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/check/allChecks.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/check/productSellingCheckList.jsp");
         LOGGER.info("doPost process");
         requestDispatcher.forward(request, response);
     }

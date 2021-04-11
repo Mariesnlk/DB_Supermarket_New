@@ -24,7 +24,7 @@ public class TotalSumOfChecksEmployeeServlet extends HttpServlet {
 
         CheckService checkService = new CheckServiceImpl();
 
-        String idEmployee = request.getParameter("idEmp");
+        String idEmployee = request.getParameter("idEmpl");
         String availableFirstDate = request.getParameter("dateStart");
         String availableSecondDate = request.getParameter("dateFinish");
         java.util.Date d = null;

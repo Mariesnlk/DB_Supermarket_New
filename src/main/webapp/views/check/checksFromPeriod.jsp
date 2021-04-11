@@ -7,14 +7,18 @@
     <title>List Checks from period</title>
 </head>
 <body>
+<div>
+    <h1>Список чеків даного касира за певний період</h1>
+</div>
+<br>
+<br>
+<div>
+    <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
 
-<%
-    Employee registeredEmployee = (Employee) session.getAttribute("registeredEmployee");
-    String idEmployee = registeredEmployee.getId_employee();
-
-%>
-
-
+    <input class="button" type=button onClick="location.href='/index-cashier'" value='Повернутися на сторінку касира'>
+</div>
+<br>
+<br>
 <div>
     <div>
 
@@ -26,8 +30,12 @@
         <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
             <thead>
             <tr>
-                <th>ID касира</th>
                 <th>Номер чека</th>
+                <th>ID працівника</th>
+                <th>Номер картки клієнта</th>
+                <th>Дата</th>
+                <th>Загальна сума</th>
+                <th>ПДВ</th>
             </tr>
             </thead>
             <tbody>
@@ -35,9 +43,12 @@
             <%
                 for (Check check : checks) {
                     out.println("<tr>");
-                    out.println("<td>" + idEmployee + "</td>");
-                    out.println("<td><a href=\"/check?checkNumber=" + check.getCheck_number() + "\">"
-                            + check.getId_employee() + "</a></td>");
+                    out.println("<td>" + check.getCheck_number() + "</td>");
+                    out.println("<td>" + check.getId_employee() + "</td>");
+                    out.println("<td>" + check.getCard_number() + "</td>");
+                    out.println("<td>" + check.getPrint_date() + "</td>");
+                    out.println("<td>" + check.getSum_total() + "</td>");
+                    out.println("<td>" + check.getVat() + "</td>");
                     out.println("</tr>");
                 }
             %>
@@ -53,6 +64,14 @@
     </div>
 
 </div>
+<br>
+<br>
+<div>
+    <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
 
+    <input class="button" type=button onClick="location.href='/index-cashier'" value='Повернутися на сторінку касира'>
+</div>
+<br>
+<br>
 </body>
 </html>

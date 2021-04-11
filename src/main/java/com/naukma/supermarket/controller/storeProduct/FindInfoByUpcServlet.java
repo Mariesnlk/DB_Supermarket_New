@@ -1,11 +1,8 @@
 package com.naukma.supermarket.controller.storeProduct;
 
-import com.naukma.supermarket.model.StoreProduct;
 import com.naukma.supermarket.model.StoreProductAndProduct;
 import com.naukma.supermarket.service.impl.StoreProductAndProductServiceImpl;
-import com.naukma.supermarket.service.impl.StoreProductServiceImpl;
 import com.naukma.supermarket.service.interf.StoreProductAndProductService;
-import com.naukma.supermarket.service.interf.StoreProductService;
 import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -27,8 +24,8 @@ public class FindInfoByUpcServlet extends HttpServlet {
 
         String upc = request.getParameter("upc");
 
-        StoreProductAndProduct storeProduct = storeProductService.findInfoByUPC(upc);
-        request.setAttribute("storeProductByUpc", storeProduct);
+        StoreProductAndProduct showStoreProductByUpcExtended = storeProductService.findInfoByUPC(upc);
+        request.setAttribute("storeProductByUpcExtended", showStoreProductByUpcExtended);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/storeProduct/showStoreProductByUpcExtended.jsp");
         LOGGER.info("doPost process");

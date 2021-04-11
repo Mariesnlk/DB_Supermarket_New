@@ -183,7 +183,9 @@
     <form action="/list-check-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
             <td>?Скласти список чеків, видрукуваних даним касиром за певний період часу</td>
-
+            <%
+                out.println("<input type=\"text\" name=\"idCashier\" value=\"" + idEmployee + "\" hidden>");
+            %>
             <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
             <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
             <td>
@@ -204,13 +206,16 @@
             <td><a href="/sort-prom-by-name">+Скласти список усіх акційних товарів, відсортованих за назвою</a></td>
         </tr>
         <tr>
-            <td><a href="/sort-prom-by-quantity">+Скласти список усіх акційних товарів, відсортованих за кількістю одиниць товару</a></td>
+            <td><a href="/sort-prom-by-quantity">+Скласти список усіх акційних товарів, відсортованих за кількістю
+                одиниць товару</a></td>
         </tr>
         <tr>
-            <td><a href="/sort-non-prom-by-name">+Скласти список усіх не акційних товарів, відсортованих за назвою</a></td>
+            <td><a href="/sort-non-prom-by-name">+Скласти список усіх не акційних товарів, відсортованих за назвою</a>
+            </td>
         </tr>
         <tr>
-            <td><a href="/sort-non-prom-by-quantity">+Скласти список усіх не акційних товарів, відсортованих за кількістю одиниць товару</a></td>
+            <td><a href="/sort-non-prom-by-quantity">+Скласти список усіх не акційних товарів, відсортованих за
+                кількістю одиниць товару</a></td>
         </tr>
         <tr>
             <td><a href="/employee?id=<%=idEmployee%>">+За ID працівника знайти всю інформацію про себе</a></td>

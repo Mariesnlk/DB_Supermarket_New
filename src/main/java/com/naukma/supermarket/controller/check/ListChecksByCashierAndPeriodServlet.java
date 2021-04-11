@@ -29,7 +29,7 @@ public class ListChecksByCashierAndPeriodServlet extends HttpServlet {
 
         ProductSellingCheckService service = new ProductSellingCheckServiceImpl();
 
-        String idEmployee = request.getParameter("idEmp");
+        String idEmployee = request.getParameter("idEmpl");
 
         String availableFirstDate = request.getParameter("dateStart");
         String availableSecondDate = request.getParameter("dateFinish");
@@ -44,10 +44,11 @@ public class ListChecksByCashierAndPeriodServlet extends HttpServlet {
         java.sql.Date dateStart = new java.sql.Date(d.getTime());
         java.sql.Date dateFinish = new java.sql.Date(d1.getTime());
 
-        List<ProductSellingCheck> allChecks = service.checksListByCashierFromPeriod(idEmployee, dateStart, dateFinish);
-        request.setAttribute("allChecks", allChecks);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/check/allChecks.jsp");
+        List<ProductSellingCheck> productSellingCheckList = service.checksListByCashierFromPeriod(idEmployee, dateStart, dateFinish);
+        request.setAttribute("productSellingCheckList", productSellingCheckList);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/check/productSellingCheckList.jsp");
         LOGGER.info("doPost process");
         requestDispatcher.forward(request, response);
     }

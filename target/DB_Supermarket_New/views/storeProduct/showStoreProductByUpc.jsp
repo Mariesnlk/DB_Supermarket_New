@@ -7,7 +7,7 @@
 <body>
 
 <div>
-    <h1>Інформація про товар</h1>
+    <h1>Інформація про товар в магазині</h1>
 </div>
 <br>
 <div>
@@ -37,7 +37,7 @@
 </div>
 <br>
 
-<input class="button" type=button onClick="location.href='/storeProducts'" value='Всі товари в магазині'>
+<input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
 
 </body>
 </html>

@@ -33,10 +33,10 @@
     <input class="button" type=button onClick="location.href='/logout'" value='Вийти'>
 </div>
 
-<div>
-    <input class="button" type=button onClick="location.href='/add-query'"
-           value='Мій запит'>
-</div>
+<%--<div>--%>
+<%--    <input class="button" type=button onClick="location.href='/add-query'"--%>
+<%--           value='Мій запит'>--%>
+<%--</div>--%>
 
 <br>
 
@@ -201,7 +201,7 @@
             <td>-Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу</td>
             <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
             <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
-            <td><label>Працівник: </label>
+            <td><label>Касир: </label>
                 <select name="idEmpl">
                     <%
                         List<Employee> emplList1 = (List<Employee>) request.getAttribute("allEmployees");
@@ -261,11 +261,10 @@
         </table>
     </form>
 
-<%--  -------------------------------------  --%>
 
     <form action="/list-checks-by-cashier-and-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>?Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни)</td>
+            <td>+Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни)</td>
 
             <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
             <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
@@ -289,7 +288,7 @@
 
     <form action="/list-all-checks-by-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>?Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни )</td>
+            <td>+Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни )</td>
 
             <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
             <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
@@ -301,7 +300,7 @@
 
     <form action="/count-sold-product-by-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>?Визначити загальну кількість одиниць певного товару, проданого за певний період часу</td>
+            <td>+Визначити загальну кількість одиниць певного товару, проданого за певний період часу</td>
 
             <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
             <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
@@ -324,7 +323,7 @@
 
     <form action="/find-lot-info-by-upc" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
-            <td>?За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики товару</td>
+            <td>+За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики товару</td>
 
             <td><label>UPC товару: </label>
                 <select name="upc">
