@@ -19,7 +19,7 @@ public class ListAllProductsSortedByNameServlet extends HttpServlet {
 
     private final Logger LOGGER = Logger.getLogger(ListAllProductsSortedByNameServlet.class);
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ProductService productService = new ProductServiceImpl();
 
@@ -27,7 +27,7 @@ public class ListAllProductsSortedByNameServlet extends HttpServlet {
         request.setAttribute("allProducts", allProducts);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/product/allProducts.jsp");
-        LOGGER.info("doGet process");
+        LOGGER.info("doPost process");
         requestDispatcher.forward(request, response);
     }
 

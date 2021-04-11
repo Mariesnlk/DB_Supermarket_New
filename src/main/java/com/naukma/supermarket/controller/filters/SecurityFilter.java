@@ -31,7 +31,7 @@ public class SecurityFilter implements Filter {
                 "/sort-non-prom-by-name", "/sort-prom-by-name", "/sort-non-prom-by-quantity", "/sort-prom-by-quantity",
                 "/checkInfo", "/list-sorted-products-in-category", "/storeProductByUpc",
                 "/list-customers-by-percent", "/show-customer-info-by-surname", "/list-check-period", "/sort-prom",
-                "/sort-non-prom", "/images/**", "/css/**"
+                "/sort-non-prom", "/images/**", "/css/**", "/employeeCurr"
         };
 
         String[] urlAccessManager = {"/", "/login", "/index-manager", "/add-query",

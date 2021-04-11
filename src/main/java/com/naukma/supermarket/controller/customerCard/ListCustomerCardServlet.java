@@ -19,7 +19,7 @@ public class ListCustomerCardServlet extends HttpServlet {
 
     private final Logger LOGGER = Logger.getLogger(ListCustomerCardServlet.class);
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         CustomerCardService customerCardService = new CustomerCardServiceImpl();
 
@@ -27,7 +27,7 @@ public class ListCustomerCardServlet extends HttpServlet {
         request.setAttribute("allCustomerCards", allCustomerCards);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/customerCard/allCustomerCardsSpecific.jsp");
-        LOGGER.info("doGet process");
+        LOGGER.info("doPost process");
         requestDispatcher.forward(request, response);
     }
 }
