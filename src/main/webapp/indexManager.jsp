@@ -5,10 +5,15 @@
 <head>
     <title>Manager`s page</title>
 
-
     <style>
 
-        div .button {
+        body {
+            background-image: url("/images/background.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .button {
             border: 0;
             line-height: 2.3;
             padding: 0 20px;
@@ -30,6 +35,11 @@
             font-family: arial, sans-serif;
             border-collapse: collapse;
             width: 100%;
+            border: none;
+        }
+
+        .my-table {
+            width: 28%;
         }
 
         td, th {
@@ -38,8 +48,15 @@
             padding: 8px;
         }
 
-        tr:nth-child(even) {
-            background-color: #dddddd;
+        .my-td {
+            border: none;
+            padding: 0px;
+        }
+
+        /*for submit button*/
+        .my-td-cust {
+            border: none;
+            padding: 10px;
         }
 
         .sub-but-row {
@@ -56,69 +73,47 @@
 
 <h1>Сторінка менеджера</h1>
 
-<div>
-    <input class="button" type=button onClick="location.href='/logout'" value='Вийти'>
-</div>
-
-<%--<div>--%>
-<%--    <input class="button" type=button onClick="location.href='/add-query'"--%>
-<%--           value='Мій запит'>--%>
-<%--</div>--%>
-
-<br>
-
-<div>
-    <input class="button" type=button onClick="location.href='/add-employee'"
-           value='Додати працівника'>
-</div>
+<table cellspacing="2" border="1" cellpadding="5" width="300" class="my-table">
+    <td class="sub-but-row my-td">
+        <input class="button" type=button onClick="location.href='/logout'" value='Вийти'>
+    </td>
+    <td class="sub-but-row my-td">
+        <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну сторінку'>
+    </td>
+</table>
 
 <br>
 
-<div>
-    <input class="button" type=button onClick="location.href='/add-category'"
-           value='Додати категорію'>
-</div>
-
-<br>
-
-<div>
-    <input class="button" type=button onClick="location.href='/add-product'"
-           value='Додати продукт'>
-</div>
-
-<br>
-
-<div>
-    <input class="button" type=button onClick="location.href='/add-customerCard'"
-           value='Додати карту клієнта'>
-</div>
-
-<br>
-
-<div>
-    <input class="button" type=button onClick="location.href='/add-check'"
-           value='Додати чек'>
-</div>
-
-<br>
-
-<div>
-    <input class="button" type=button onClick="location.href='/add-sale'"
-           value='Додати продаж'>
-</div>
-
-<br>
-
-<div>
-    <input class="button" type=button onClick="location.href='/add-storeProduct'"
-           value='Додати товар в магазині'>
-</div>
-
-<br>
-
-<div class="container-button">
-    <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну сторінку'>
-</div>
+<table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+    <td class="sub-but-row my-td">
+        <input class="button" type=button onClick="location.href='/add-employee'"
+               value='Додати працівника'>
+    </td>
+    <td class="sub-but-row my-td">
+        <input class="button" type=button onClick="location.href='/add-category'"
+               value='Додати категорію'>
+    </td>
+    <td class="sub-but-row my-td">
+        <input class="button" type=button onClick="location.href='/add-product'"
+               value='Додати продукт'>
+    </td>
+    <td class="sub-but-row my-td">
+        <input class="button" type=button onClick="location.href='/add-customerCard'"
+               value='Додати карту клієнта'>
+    </td>
+    <td class="sub-but-row my-td">
+        <input class="button" type=button onClick="location.href='/add-check'"
+               value='Додати чек'>
+    </td>
+    <td class="sub-but-row my-td">
+        <input class="button" type=button onClick="location.href='/add-sale'"
+               value='Додати акцію'>
+    </td>
+    <td class="sub-but-row my-td">
+        <input class="button" type=button onClick="location.href='/add-storeProduct'"
+               value='Додати товар в магазині'>
+    </td>
+</table>
 
 <br>
 
@@ -141,7 +136,7 @@
                     <%}%>
                 </select>
             </td>
-            <td class="sub-but-row">
+            <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -162,7 +157,7 @@
                     <%}%>
                 </select>
             </td>
-            <td class="sub-but-row">
+            <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -183,7 +178,7 @@
                     <%}%>
                 </select>
             </td>
-            <td class="sub-but-row">
+            <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -204,7 +199,7 @@
                     <%}%>
                 </select>
             </td>
-            <td class="sub-but-row">
+            <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -215,7 +210,7 @@
             <td>Загальна сума проданих товарів з чеків, видрукуваних усіма касиром за певний період часу</td>
             <td class="my-row"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
             <td class="my-row"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
-            <td class="sub-but-row">
+            <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -241,7 +236,7 @@
                     %>
                 </select>
             </td>
-            <td class="sub-but-row">
+            <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -262,7 +257,7 @@
                     <%}%>
                 </select>
             </td>
-            <td class="sub-but-row">
+            <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -283,7 +278,7 @@
                     <%}%>
                 </select>
             </td>
-            <td class="sub-but-row">
+            <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -313,7 +308,7 @@
                     %>
                 </select>
             </td>
-            <td class="sub-but-row">
+            <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -327,7 +322,7 @@
 
             <td class="my-row"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
             <td class="my-row"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
-            <td class="sub-but-row">
+            <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -350,7 +345,7 @@
                     <%}%>
                 </select>
             </td>
-            <td class="sub-but-row">
+            <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -373,7 +368,7 @@
                     <%}%>
                 </select>
             </td>
-            <td class="sub-but-row">
+            <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -389,7 +384,7 @@
                     <option value="byName">за назвою</option>
                 </select>
             </td>
-            <td class="sub-but-row">
+            <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -405,7 +400,7 @@
                     <option value="byName">за назвою</option>
                 </select>
             </td>
-            <td class="sub-but-row">
+            <td class="sub-but-row my-td-cust">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -416,19 +411,19 @@
             <td><a href="/sort-cashiers-by-surname">Скласти список працівників, що займають посаду касира, відсортованих за прізвищем</a></td>
         </tr>
     </table>
-        <br>
+    <br>
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
         <tr>
             <td><a href="/sort-products-name">Скласти список усіх товарів, відсортованих за назвою</a></td>
         </tr>
     </table>
-        <br>
+    <br>
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
         <tr>
             <td><a href="/sorted-categories-name">Скласти список усіх категорій, відсортованих за назвою</a></td>
         </tr>
     </table>
-        <br>
+    <br>
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
         <tr>
             <td><a href="/list-customer-card">Скласти список усіх постійних клієнтів, що мають карту клієнта, по полях ПІБ, телефон, адреса (якщо вказана)</a></td>

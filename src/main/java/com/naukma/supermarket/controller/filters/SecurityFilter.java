@@ -31,7 +31,7 @@ public class SecurityFilter implements Filter {
                 "/sort-non-prom-by-name", "/sort-prom-by-name", "/sort-non-prom-by-quantity", "/sort-prom-by-quantity",
                 "/checkInfo", "/list-sorted-products-in-category", "/storeProductByUpc",
                 "/list-customers-by-percent", "/show-customer-info-by-surname", "/list-check-period", "/sort-prom",
-                "/sort-non-prom"
+                "/sort-non-prom", "/images/**", "/css/**"
         };
 
         String[] urlAccessManager = {"/", "/login", "/index-manager", "/add-query",
@@ -48,7 +48,8 @@ public class SecurityFilter implements Filter {
                 "/add-customerCard", "/delete-customerCard", "/customerCards", "/customerCard", "/update-customerCard",
                 "/add-product", "/delete-product", "/products", "/product", "/update-product",
                 "/add-sale", "/delete-sale", "/sales", "/sale", "/update-sale",
-                "/add-storeProduct", "/delete-storeProduct", "/storeProducts", "/storeProduct", "/update-storeProduct"
+                "/add-storeProduct", "/delete-storeProduct", "/storeProducts", "/storeProduct", "/update-storeProduct",
+                "/images/**", "/css/**"
 
         };
 

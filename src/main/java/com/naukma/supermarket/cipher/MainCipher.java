@@ -2,7 +2,8 @@ package com.naukma.supermarket.cipher;
 
 public class MainCipher {
 
-    private final static String PASSWORD = "mar@gmail.com";
+    // a123 f123
+    private final static String PASSWORD = "f123";
     private final static String SECRETKEY = "fifi!fifi!!";
 
     public static String encryptMessage() {
