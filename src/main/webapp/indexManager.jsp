@@ -33,6 +33,8 @@
     <input class="button" type=button onClick="location.href='/logout'" value='Вийти'>
 </div>
 
+<br>
+
 <div>
     <input class="button" type=button onClick="location.href='/add-query'"
            value='Мій запит'>
@@ -99,12 +101,11 @@
 
 <div>
 
-    <!-- start -->
     <form action="/list-products-in-category" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
             <td>+Скласти список всіх товарів, що належать певній категорії</td>
 
-            <td><label>Номер категорії: </label>
+            <td width="200"><label>Номер категорії: </label>
                 <select name="categoryProd">
                     <%
                         List<Category> catList = (List<Category>) request.getAttribute("allCategories");
@@ -115,18 +116,17 @@
                     <%}%>
                 </select>
             </td>
-            <td>
+            <td width="120">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
     </form>
-    <!-- end -->
 
     <form action="/list-store-products" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
             <td>+Скласти список товарів у магазині, що належать певному товару</td>
 
-            <td><label>Назва товару: </label>
+            <td width="200"><label>Назва товару: </label>
                 <select name="nameProd">
                     <%
                         List<Product> prodList = (List<Product>) request.getAttribute("allProducts");
@@ -137,7 +137,7 @@
                     <%}%>
                 </select>
             </td>
-            <td>
+            <td width="120">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -147,7 +147,7 @@
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
             <td>+За прізвищем працівника знайти його телефон та адресу</td>
 
-            <td><label>Прізвище працівника: </label>
+            <td width="200"><label>Прізвище працівника: </label>
                 <select name="lastName">
                     <%
                         List<Employee> emplList = (List<Employee>) request.getAttribute("allEmployees");
@@ -158,7 +158,7 @@
                     <%}%>
                 </select>
             </td>
-            <td>
+            <td width="120">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -168,7 +168,7 @@
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
             <td>+За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару</td>
 
-            <td><label>UPC товару: </label>
+            <td width="200"><label>UPC товару: </label>
                 <select name="upc">
                     <%
                         List<StoreProduct> prodStList = (List<StoreProduct>) request.getAttribute("allStoreProducts");
@@ -179,7 +179,7 @@
                     <%}%>
                 </select>
             </td>
-            <td>
+            <td width="120">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -188,9 +188,9 @@
     <form action="/checks-by-allEmployees-from-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
             <td>+Загальна сума проданих товарів з чеків, видрукуваних усіма касиром за певний період часу</td>
-            <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
-            <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
-            <td>
+            <td width="200"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td width="200"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td width="120">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -199,9 +199,9 @@
     <form action="/checks-by-employee-from-period" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
             <td>-Загальна сума проданих товарів з чеків, видрукуваних певним касиром за певний період часу</td>
-            <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
-            <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
-            <td><label>Працівник: </label>
+            <td width="200"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td width="200"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td width="200"><label>Працівник: </label>
                 <select name="idEmpl">
                     <%
                         List<Employee> emplList1 = (List<Employee>) request.getAttribute("allEmployees");
@@ -213,7 +213,7 @@
                     <%}}%>
                 </select>
             </td>
-            <td>
+            <td width="120">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -223,7 +223,7 @@
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
             <td>+Скласти список товарів, що належать певній категорії, відсортованих за назвою</td>
 
-            <td><label>Номер категорії: </label>
+            <td width="200"><label>Номер категорії: </label>
                 <select name="categoryProd">
                     <%
                         List<Category> cattList = (List<Category>) request.getAttribute("allCategories");
@@ -234,7 +234,7 @@
                     <%}%>
                 </select>
             </td>
-            <td>
+            <td width="120">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -244,7 +244,7 @@
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
             <td>+Скласти список усіх постійних клієнтів, що мають карту клієнта із певним відсотком</td>
 
-            <td><label>Відсоток знижки: </label>
+            <td width="200"><label>Відсоток знижки: </label>
                 <select name="percent">
                     <%
                         List<CustomerCard> percList = (List<CustomerCard>) request.getAttribute("allCustomerCards");
@@ -255,7 +255,7 @@
                     <%}%>
                 </select>
             </td>
-            <td>
+            <td width="120">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -267,9 +267,9 @@
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
             <td>?Скласти список чеків, видрукуваних певним касиром за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни)</td>
 
-            <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
-            <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
-            <td><label>Касир: </label>
+            <td width="200"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td width="200"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td width="200"><label>Касир: </label>
                 <select name="idEmpl">
                     <%
                         List<Employee> employeList = (List<Employee>) request.getAttribute("allEmployees");
@@ -281,7 +281,7 @@
                     <%}}%>
                 </select>
             </td>
-            <td>
+            <td width="120">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -291,9 +291,9 @@
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
             <td>?Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни )</td>
 
-            <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
-            <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
-            <td>
+            <td width="200"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td width="200"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td width="120">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -303,9 +303,9 @@
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
             <td>?Визначити загальну кількість одиниць певного товару, проданого за певний період часу</td>
 
-            <td><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
-            <td><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
-            <td><label>Назва товару: </label>
+            <td width="200"><label>Початкова дата: </label><input type="date" name="dateStart" value="2021-03-01"></td>
+            <td width="200"><label>Кінцева дата: </label><input type="date" name="dateFinish" value="2021-03-09"></td>
+            <td width="200"><label>Назва товару: </label>
                 <select name="nameProd">
                     <%
                         List<Product> prodListt = (List<Product>) request.getAttribute("allProducts");
@@ -316,7 +316,7 @@
                     <%}%>
                 </select>
             </td>
-            <td>
+            <td width="120">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
@@ -326,7 +326,7 @@
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
             <td>?За UPC-товару знайти ціну продажу товару, кількість наявних одиниць товару, назву та характеристики товару</td>
 
-            <td><label>UPC товару: </label>
+            <td width="200"><label>UPC товару: </label>
                 <select name="upc">
                     <%
                         List<StoreProduct> list = (List<StoreProduct>) request.getAttribute("allStoreProducts");
@@ -337,39 +337,55 @@
                     <%}%>
                 </select>
             </td>
-            <td>
+            <td width="120">
                 <button class="button" type="submit">Підтвердити</button>
             </td>
         </table>
     </form>
 
     <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
-
-        <tr>
-            <th>Посилання на запит</th>
-        </tr>
-
         <tr>
             <td><a href="/sort-cashiers-by-surname">+Скласти список працівників, що займають посаду касира, відсортованих за прізвищем</a></td>
         </tr>
+    </table>
+    <br>
+    <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
         <tr>
             <td><a href="/sort-products-name">+Скласти список усіх товарів, відсортованих за назвою</a></td>
         </tr>
+    </table>
+    <br>
+    <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
         <tr>
             <td><a href="/sorted-categories-name">+Скласти список усіх категорій, відсортованих за назвою</a></td>
         </tr>
+    </table>
+    <br>
+    <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
         <tr>
             <td><a href="/sort-prom-by-name">+Скласти список усіх акційних товарів, відсортованих за назвою</a></td>
         </tr>
+    </table>
+    <br>
+    <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
         <tr>
             <td><a href="/sort-prom-by-quantity">+Скласти список усіх акційних товарів, відсортованих за кількістю одиниць товару</a></td>
         </tr>
+    </table>
+    <br>
+    <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
         <tr>
             <td><a href="/sort-non-prom-by-name">+Скласти список усіх не акційних товарів, відсортованих за назвою</a></td>
         </tr>
+    </table>
+    <br>
+    <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
         <tr>
             <td><a href="/sort-non-prom-by-quantity">+Скласти список усіх не акційних товарів, відсортованих за кількістю одиниць товару</a></td>
         </tr>
+    </table>
+    <br>
+    <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
         <tr>
             <td><a href="/list-customer-card">+Скласти список усіх постійних клієнтів, що мають карту клієнта, по полях ПІБ, телефон, адреса (якщо вказана)</a></td>
         </tr>
