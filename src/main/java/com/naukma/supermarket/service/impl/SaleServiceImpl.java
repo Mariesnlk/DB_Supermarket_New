@@ -3,7 +3,9 @@ package com.naukma.supermarket.service.impl;
 import com.naukma.supermarket.dao.impl.SaleDAOImpl;
 import com.naukma.supermarket.dao.interf.SaleDAO;
 import com.naukma.supermarket.model.Sale;
+import com.naukma.supermarket.model.StoreProduct;
 import com.naukma.supermarket.service.interf.SaleService;
+import com.naukma.supermarket.service.interf.StoreProductService;
 
 import java.util.Date;
 import java.util.List;
@@ -12,6 +14,20 @@ public class SaleServiceImpl implements SaleService {
 
     @Override
     public void create(Sale sale) {
+//        double coeff = 0;
+//        StoreProductService storeProductService = new StoreProductServiceImpl();
+//        List<StoreProduct> allStoreProducts = storeProductService.findAll();
+//        for (StoreProduct storeProduct : allStoreProducts) {
+//            if (storeProduct.getUPC().equals(sale.getUPC())) {
+//                if (storeProduct.getPromotional_product()) {
+//                    coeff = 0.2;
+//                } else {
+//                    coeff = 0.3;
+//                }
+//                sale.setSelling_price();
+//            }
+//        }
+
         SaleDAO saleDAO = new SaleDAOImpl();
         saleDAO.create(sale);
     }

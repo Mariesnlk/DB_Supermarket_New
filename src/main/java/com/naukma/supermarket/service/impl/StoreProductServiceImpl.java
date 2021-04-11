@@ -9,7 +9,6 @@ import java.util.List;
 
 public class StoreProductServiceImpl implements StoreProductService {
 
-    //для наценки
 
     @Override
     public void create(StoreProduct product) {
@@ -20,8 +19,7 @@ public class StoreProductServiceImpl implements StoreProductService {
         else{
             coeff=0.3;
         }
-        product.setSelling_price(product.getSelling_price()*coeff);
-
+        product.setSelling_price(product.getSelling_price()*coeff);//націнка
 
         StoreProductDAO productDAO = new StoreProductDAOImpl();
         productDAO.create(product);
@@ -43,6 +41,14 @@ public class StoreProductServiceImpl implements StoreProductService {
 
     @Override
     public void update(StoreProduct product) {
+        double coeff=0;
+        if(product.getPromotional_product()){
+            coeff=0.2;
+        }
+        else{
+            coeff=0.3;
+        }
+        product.setSelling_price(product.getSelling_price()*coeff);
         StoreProductDAO productDAO = new StoreProductDAOImpl();
         productDAO.update(product);
     }
