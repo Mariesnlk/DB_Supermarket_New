@@ -30,7 +30,8 @@ public class SecurityFilter implements Filter {
                 "/add-customerCard", "/employee/**", "/sort-products-name", "/list-products-in-check",
                 "/sort-non-prom-by-name", "/sort-prom-by-name", "/sort-non-prom-by-quantity", "/sort-prom-by-quantity",
                 "/checkInfo", "/list-sorted-products-in-category", "/storeProductByUpc",
-                "/list-customers-by-percent", "/show-customer-info-by-surname", "/list-check-period"
+                "/list-customers-by-percent", "/show-customer-info-by-surname", "/list-check-period", "/sort-prom",
+                "/sort-non-prom"
         };
 
         String[] urlAccessManager = {"/", "/login", "/index-manager", "/indexManager.jsp", "/add-employee", "/add-category",
@@ -41,7 +42,7 @@ public class SecurityFilter implements Filter {
                 "/sum-check-one-empl", "/sum-check-all-empl", "/list-customers-by-percent", "/sort-products-name",
                 "/checks-by-allEmployees-from-period", "/checks-by-employee-from-period", "/list-customer-card",
                 "/list-all-checks-by-period", "/list-checks-by-cashier-and-period", "/count-sold-product-by-period",
-                "/find-lot-info-by-upc" };
+                "/find-lot-info-by-upc", "/sort-prom", "/sort-non-prom"};
 
         if (emp != null) {
             userRole = emp.getRole();

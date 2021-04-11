@@ -14,18 +14,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "SortNonPromProductsByNameServlet", urlPatterns = {"/sort-non-prom-by-name"})
-public class SortNonPromProductsByNameServlet extends HttpServlet {
+@WebServlet(name = "SortNonPromProductsServlet", urlPatterns = {"/sort-non-prom"})
+public class SortNonPromProductsServlet extends HttpServlet {
 
-    private final Logger LOGGER = Logger.getLogger(SortNonPromProductsByNameServlet.class);
+    private final Logger LOGGER = Logger.getLogger(SortNonPromProductsServlet.class);
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ProductService productService = new ProductServiceImpl();
+        List<Product> allProducts = null;
 
-        List<Product> allProducts = productService.nonPromProductsSortedByName();
+        String sorting = request.getParameter("sorting");
+        System.out.println(sorting);
+
+        if (sorting.equals("byQuantity")) {
+            allProducts = productService.nonPromProductsSortedByQuantity();
+            System.out.println(allProducts);
+        } else if(sorting.equals("byName")){
+            allProducts = productService.nonPromProductsSortedByName();
+            System.out.println(allProducts);
+        }
+
         request.setAttribute("allProductNames", allProducts);
-
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/product/allProductNames.jsp");
         LOGGER.info("doGet process");
         requestDispatcher.forward(request, response);
