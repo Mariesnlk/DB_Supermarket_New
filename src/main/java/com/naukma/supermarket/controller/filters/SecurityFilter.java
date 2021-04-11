@@ -34,8 +34,7 @@ public class SecurityFilter implements Filter {
                 "/sort-non-prom"
         };
 
-        String[] urlAccessManager = {"/", "/login", "/index-manager", "/indexManager.jsp", "/add-employee", "/add-category",
-                "/add-product", "/add-customerCard", "/add-check", "/add-sale", "/add-storeProduct", "/add-query",
+        String[] urlAccessManager = {"/", "/login", "/index-manager", "/add-query",
                 "/sorted-categories-name", "/sort-cashiers-by-surname", "/list-products-in-category", "/list-store-products",
                 "/show-employee-info", "/storeProductByUpc", "/list-sorted-products-in-category",
                 "/sort-non-prom-by-name", "/sort-prom-by-name", "/sort-non-prom-by-quantity", "/sort-prom-by-quantity",
@@ -43,7 +42,14 @@ public class SecurityFilter implements Filter {
                 "/checks-by-allEmployees-from-period", "/checks-by-employee-from-period", "/list-customer-card",
                 "/list-all-checks-by-period", "/list-checks-by-cashier-and-period", "/count-sold-product-by-period",
                 "/find-lot-info-by-upc", "/sort-prom", "/sort-non-prom",
-                "/add-employee", "/delete-employee", "/employees", "/employee", "/update-employee"
+                "/add-employee", "/delete-employee", "/employees", "/employee", "/update-employee",
+                "/add-category", "/delete-category","/categories", "/category", "/update-category",
+                "/add-check", "/delete-check", "/checks", "/check", "/update-check",
+                "/add-customerCard", "/delete-customerCard", "/customerCards", "/customerCard", "/update-customerCard",
+                "/add-product", "/delete-product", "/products", "/product", "/update-product",
+                "/add-sale", "/delete-sale", "/sales", "/sale", "/update-sale",
+                "/add-storeProduct", "/delete-storeProduct", "/storeProducts", "/storeProduct", "/update-storeProduct"
+
         };
 
         if (emp != null) {
