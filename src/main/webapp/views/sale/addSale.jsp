@@ -81,21 +81,12 @@
             %>
             <option value=<%=storeProduct.getUPC()%>><%=storeProduct.getUPC()%>
             </option>
-            //такое себе знать что за UPC
             <%}%>
         </select>
             <br>
 
-            <label>Номер чеку: </label> <select name="checkNumber">
-            <%
-                List<Check> checkList = (List<Check>) request.getAttribute("allChecks");
-                for (Check che : checkList) {
-            %>
-            <option value=<%=che.getCheck_number()%>><%=che.getCheck_number()%>
-            </option>
-            <%}%>
-        </select>
-            <br/>
+            <label>Номер чеку: </label><input type="text" name="checkNumber"
+                                               placeholder="Введіть номер чеку.."><br/>
 
             <label>Кількість продукту: </label><input type="text" name="productNum"
                                                       placeholder="Введіть номер товару.."><br/>

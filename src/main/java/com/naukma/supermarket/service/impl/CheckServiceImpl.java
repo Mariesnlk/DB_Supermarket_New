@@ -16,7 +16,6 @@ public class CheckServiceImpl implements CheckService {
 
     @Override
     public void create(Check check) {
-        check.setVat((check.getSum_total() * 0.2) / 1.2);//пдв
 
         double sum = 0;
 
@@ -27,6 +26,8 @@ public class CheckServiceImpl implements CheckService {
                 sum += sale.getProduct_number() * sale.getSelling_price();//сума без пдв
             }
         }
+
+        check.setVat((sum * 0.2) / 1.2);//пдв
 
         CustomerCardService customerCardService = new CustomerCardServiceImpl();
         List<CustomerCard> allStoreProducts = customerCardService.findAll();
@@ -56,7 +57,6 @@ public class CheckServiceImpl implements CheckService {
 
     @Override
     public void update(Check check) {
-        check.setVat((check.getSum_total() * 0.2) / 1.2);//пдв
 
         double sum = 0;
 
@@ -67,6 +67,8 @@ public class CheckServiceImpl implements CheckService {
                 sum += sale.getProduct_number() * sale.getSelling_price();//сума без пдв
             }
         }
+
+        check.setVat((sum * 0.2) / 1.2);//пдв
 
         CustomerCardService customerCardService = new CustomerCardServiceImpl();
         List<CustomerCard> allStoreProducts = customerCardService.findAll();

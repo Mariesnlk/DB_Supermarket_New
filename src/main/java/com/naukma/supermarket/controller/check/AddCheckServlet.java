@@ -43,7 +43,7 @@ public class AddCheckServlet extends HttpServlet {
         LOGGER.info("doGet process");
         requestDispatcher.forward(request, response);
     }
-
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String checkNumber = request.getParameter("checkNumber");
