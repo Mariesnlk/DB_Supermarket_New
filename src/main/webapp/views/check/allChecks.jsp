@@ -36,6 +36,7 @@
         box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
         inset -2px -2px 3px rgba(0, 0, 0, .6);
     }
+
     #table {
         font-family: Arial, Helvetica, sans-serif;
         border-collapse: collapse;
@@ -60,69 +61,84 @@
         color: white;
     }
 
+    @media print {
+
+        #printableTable {
+            display: block;
+        }
+
+        /*tr:last-child {*/
+        /*    background-color: lime;*/
+        /*}*/
+
+    }
+
 </style>
 
-<br>
-<div>
-    <h1>Всі чеки</h1>
-</div>
-<br>
-<div>
-    <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
-
-    <input class="button" type=button onClick="location.href='/add-check'" value='Додати чек'>
-</div>
-<br>
-<br>
-<div>
+    <br>
     <div>
+        <h1>Всі чеки</h1>
+    </div>
+    <br>
+    <div>
+        <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
 
-        <%
-            List<Check> checks = (List<Check>) request.getAttribute("allChecks");
-            if (checks != null && !checks.isEmpty()) {
-        %>
+        <input class="button" type=button onClick="location.href='/add-check'" value='Додати чек'>
+    </div>
+    <br>
+    <br>
 
-        <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
-            <thead>
-            <tr>
-                <th>Номер чека</th>
-                <th>ID працівника</th>
-                <th>Номер картки клієнта</th>
-                <th>Дата</th>
-                <th>Загальна сума</th>
-                <th>ПДВ</th>
-            </tr>
-            </thead>
-            <tbody>
+<div id="printableTable">
+    <div>
+        <div>
 
             <%
-                for (Check check : checks) {
-                    out.println("<tr>");
-                    out.println("<td><a href=\"/check?checkNumber=" + check.getCheck_number() + "\">"
-                            + check.getId_employee() + "</a></td>");
-                    out.println("<td>" + check.getId_employee() + "</td>");
-                    out.println("<td>" + check.getCard_number() + "</td>");
-                    out.println("<td>" + check.getPrint_date() + "</td>");
-                    out.println("<td>" + check.getSum_total() + "</td>");
-                    out.println("<td>" + check.getVat() + "</td>");
+                List<Check> checks = (List<Check>) request.getAttribute("allChecks");
+                if (checks != null && !checks.isEmpty()) {
+            %>
 
-                    out.println("<td><a href=\"/update-check?checkNumber=" + check.getCheck_number()
-                            + "\">Оновити</a></td>");
-                    out.println("<td><a href=\"/delete-check?checkNumber=" + check.getCheck_number()
-                            + "\">Видалити</a></td>");
-                    out.println("</tr>");
+            <table cellspacing="2" border="1" cellpadding="5" width="600" id="table">
+                <thead>
+                <tr>
+                    <th>Номер чека</th>
+                    <th>ID працівника</th>
+                    <th>Номер картки клієнта</th>
+                    <th>Дата</th>
+                    <th>Загальна сума</th>
+                    <th>ПДВ</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <%
+                    for (Check check : checks) {
+                        out.println("<tr>");
+                        out.println("<td><a href=\"/check?checkNumber=" + check.getCheck_number() + "\">"
+                                + check.getCheck_number() + "</a></td>");
+                        out.println("<td>" + check.getId_employee() + "</td>");
+                        out.println("<td>" + check.getCard_number() + "</td>");
+                        out.println("<td>" + check.getPrint_date() + "</td>");
+                        out.println("<td>" + check.getSum_total() + "</td>");
+                        out.println("<td>" + check.getVat() + "</td>");
+
+                        out.println("<td><a href=\"/update-check?checkNumber=" + check.getCheck_number()
+                                + "\">Оновити</a></td>");
+                        out.println("<td><a href=\"/delete-check?checkNumber=" + check.getCheck_number()
+                                + "\">Видалити</a></td>");
+                        out.println("</tr>");
+                    }
+                %>
+
+                </tbody>
+            </table>
+
+            <%
+                } else {
+                    out.println("<p>There are no checks yet!</p>");
                 }
             %>
 
-            </tbody>
-        </table>
-
-        <%
-            } else {
-                out.println("<p>There are no checks yet!</p>");
-            }
-        %>
-
+        </div>
     </div>
 </div>
 
@@ -131,7 +147,19 @@
 <div>
     <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
     <input class="button" type=button onClick="location.href='/add-check'" value='Додати чек'>
+    <br><br>
+    <button class="Button Button--outline button" onclick="printDiv()">Друкувати</button>
 </div>
+
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+
+<script>
+    function printDiv() {
+        window.frames["print_frame"].document.body.innerHTML = document.getElementById("printableTable").innerHTML;
+        window.frames["print_frame"].window.focus();
+        window.frames["print_frame"].window.print();
+    }
+</script>
 
 
 </body>

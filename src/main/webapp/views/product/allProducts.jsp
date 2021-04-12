@@ -60,6 +60,13 @@
         color: white;
     }
 
+    @media print {
+
+        #printableTable {
+            display: block;
+        }
+    }
+
 </style>
 <br>
 <div>
@@ -72,6 +79,7 @@
 </div>
 <br>
 <br>
+<div id="printableTable">
 <div>
     <div>
 
@@ -119,11 +127,25 @@
         %>
     </div>
 </div>
+</div>
 <br>
 
 <div>
     <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
     <input class="button" type=button onClick="location.href='/add-product'" value='Додати Продукт'>
+    <br><br>
+    <button class="Button Button--outline button" onclick="printDiv()">Друкувати</button>
 </div>
+
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+
+<script>
+    function printDiv() {
+        window.frames["print_frame"].document.body.innerHTML = document.getElementById("printableTable").innerHTML;
+        window.frames["print_frame"].window.focus();
+        window.frames["print_frame"].window.print();
+    }
+</script>
+
 </body>
 </html>
