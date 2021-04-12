@@ -1,3 +1,5 @@
+<%@ page import="com.naukma.supermarket.model.Product" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,7 +19,7 @@
         color: rgba(220, 0, 0, 1);;
     }
 
-    input[type=text], select {
+    input[type=text], input[type=number], select {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -82,7 +84,18 @@
             <label>Код товару: </label> <input type="text" name="upc" placeholder="Введіть код товару.."><br/>
             <label>Код акційного товару: </label> <input type="text" name="UPCProm"
                                                          placeholder="Введіть код акційного товару.."><br/>
-            <label>ID товару: </label> <input type="text" name="idProduct" placeholder="Введіть номер товару.."><br/>
+            <label>ID товару: </label> <select name="idProduct">
+            <%
+                List<Product> productList = (List<Product>) request.getAttribute("allProducts");
+                for (Product product : productList) {
+            %>
+            <option value=<%=product.getId_product()%>><%=product.getProduct_name()%>
+            </option>
+            <%}%>
+        </select>
+
+
+
             <br>
             <label>Ціна товару: </label><input type="number" min="0" name="sellingPrice"
                                                placeholder="Введіть ціну товару.."><br/>

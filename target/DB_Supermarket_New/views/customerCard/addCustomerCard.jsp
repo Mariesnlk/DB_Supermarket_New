@@ -17,7 +17,7 @@
         color: rgba(220, 0, 0, 1);;
     }
 
-    input[type=text], select {
+    input[type=text], input[type=number], input[type=tel], select {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;

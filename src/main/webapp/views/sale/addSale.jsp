@@ -20,7 +20,7 @@
         color: rgba(220, 0, 0, 1);;
     }
 
-    input[type=text], select {
+    input[type=text], input[type=number], select {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -71,9 +71,15 @@
 </style>
 <br>
 
+<%
+    if (request.getAttribute("sellingPrice") != null) {
+        out.println("<p>Ціна становить '" + request.getAttribute("sellingPrice") + "'</p>");
+    }
+%>
+
 <div>
 
-    <h1>Додавання акції</h1>
+    <h1>Додавання продаж товару</h1>
 
     <div>
         <form action="/add-sale" method="post">
@@ -83,23 +89,26 @@
                 List<StoreProduct> storeProductList = (List<StoreProduct>) request.getAttribute("allStoreProducts");
                 for (StoreProduct storeProduct : storeProductList) {
             %>
-            <option value=<%=storeProduct.getUPC()%>><%=storeProduct.getUPC()%></option> //такое себе знать что за UPC
+            <option value=<%=storeProduct.getUPC()%>><%=storeProduct.getUPC()%>
+            </option>
+            //такое себе знать что за UPC
             <%}%>
         </select>
             <br>
 
-            <label>Номер чеку:  </label> <select name="checkNumber">
+            <label>Номер чеку: </label> <select name="checkNumber">
             <%
                 List<Check> checkList = (List<Check>) request.getAttribute("allChecks");
                 for (Check che : checkList) {
             %>
-            <option value=<%=che.getCheck_number()%>><%=che.getCheck_number()%></option>
+            <option value=<%=che.getCheck_number()%>><%=che.getCheck_number()%>
+            </option>
             <%}%>
         </select>
             <br/>
 
-            <label>Номер продукту: </label><input type="text" name="productNum"
-                                                  placeholder="Введіть номер товару.."><br/>
+            <label>Кількість продукту: </label><input type="text" name="productNum"
+                                                      placeholder="Введіть номер товару.."><br/>
             <br>
             <label>Ціна: </label><input type="number" min="0" name="sellingPrice"
                                         placeholder="Введіть ціну акційного товару.."><br/>

@@ -144,7 +144,7 @@
     </td>
     <td class="sub-but-row my-td">
         <input class="button" type=button onClick="location.href='/add-sale'"
-               value='Додати акцію'>
+               value='Додати продаж товару'>
     </td>
     <td class="sub-but-row my-td">
         <input class="button" type=button onClick="location.href='/add-storeProduct'"
