@@ -101,14 +101,14 @@
                         %>
                     </td>
                 </tr>
-                <tr>
-                    <td>Ціна:</td>
-                    <td>
-                        <%
-                            out.println("<input type=\"text\" name=\"sellingPrice\" value=\"" + saleToUpdate.getSelling_price() + "\">");
-                        %>
-                    </td>
-                </tr>
+<%--                <tr>--%>
+<%--                    <td>Ціна:</td>--%>
+<%--                    <td>--%>
+<%--                        <%--%>
+<%--                            out.println("<input type=\"text\" name=\"sellingPrice\" value=\"" + saleToUpdate.getSelling_price() + "\">");--%>
+<%--                        %>--%>
+<%--                    </td>--%>
+<%--                </tr>--%>
                 <tr>
                     <td align="right" colspan="2"><input type="submit" value="Підтвердити"></td>
                 </tr>

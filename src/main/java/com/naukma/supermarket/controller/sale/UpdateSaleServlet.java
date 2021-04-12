@@ -37,7 +37,9 @@ public class UpdateSaleServlet extends HttpServlet {
         String newUPC = request.getParameter("upc");
         String newCheckNumber = request.getParameter("checkNumber");
         Integer newProductNum = Integer.parseInt(request.getParameter("productNum"));
-        Double newSellingPrice = Double.parseDouble(request.getParameter("sellingPrice"));
+//        Double newSellingPrice = Double.parseDouble(request.getParameter("sellingPrice"));
+        Double newSellingPrice = Double.valueOf(0);
+
 
         Sale updateSale = new Sale(newUPC, newCheckNumber, newProductNum, newSellingPrice);
 

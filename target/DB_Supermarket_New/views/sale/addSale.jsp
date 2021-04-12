@@ -30,16 +30,6 @@
         box-sizing: border-box;
     }
 
-    input[type=password], select {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-
     div {
         border-radius: 5px;
         background-color: rgba(255, 255, 255, 0.5);
@@ -110,9 +100,9 @@
             <label>Кількість продукту: </label><input type="text" name="productNum"
                                                       placeholder="Введіть номер товару.."><br/>
             <br>
-            <label>Ціна: </label><input type="number" min="0" name="sellingPrice"
-                                        placeholder="Введіть ціну акційного товару.."><br/>
-            <br>
+<%--            <label>Ціна: </label><input type="number" min="0" name="sellingPrice"--%>
+<%--                                        placeholder="Введіть ціну акційного товару.."><br/>--%>
+<%--            <br>--%>
             <button class="button" type="submit">Підтвердити</button>
         </form>
     </div>

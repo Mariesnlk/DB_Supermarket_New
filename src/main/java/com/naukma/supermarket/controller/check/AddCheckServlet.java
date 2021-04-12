@@ -59,18 +59,17 @@ public class AddCheckServlet extends HttpServlet {
         }
         java.sql.Date printDate = new java.sql.Date(d.getTime());
 
-        Double sumTotal = Double.parseDouble(request.getParameter("sumTotal"));
-        Double vat = Double.parseDouble(request.getParameter("vat"));
+        //Double sumTotal = Double.parseDouble(request.getParameter("sumTotal"));
+        //Double vat = Double.parseDouble(request.getParameter("vat"));
+
+        Double sumTotal = Double.valueOf(0);
+        Double vat = Double.valueOf(0);
 
         Check check = new Check(checkNumber, idEmployee, cardNumber, printDate, sumTotal, vat);
 
-//        if (firstName.length() > 0 && lastName.length() > 0 ) {
-//        //if (firstName.length() > 0 && lastName.length() > 0 && FieldsValidator.isCorrectWord(firstName) && FieldsValidator.isCorrectWord(firstName)) {
         CheckService checkService = new CheckServiceImpl();
         checkService.create(check);
 
-//        request.setAttribute("lastName", lastName);
-//        }
         LOGGER.info("doPost process");
         doGet(request, response);
     }

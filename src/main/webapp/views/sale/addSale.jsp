@@ -100,9 +100,9 @@
             <label>Кількість продукту: </label><input type="text" name="productNum"
                                                       placeholder="Введіть номер товару.."><br/>
             <br>
-            <label>Ціна: </label><input type="number" min="0" name="sellingPrice"
-                                        placeholder="Введіть ціну акційного товару.."><br/>
-            <br>
+<%--            <label>Ціна: </label><input type="number" min="0" name="sellingPrice"--%>
+<%--                                        placeholder="Введіть ціну акційного товару.."><br/>--%>
+<%--            <br>--%>
             <button class="button" type="submit">Підтвердити</button>
         </form>
     </div>

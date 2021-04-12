@@ -47,7 +47,8 @@ public class AddSaleServlet extends HttpServlet {
         String UPC = request.getParameter("upc");
         String checkNumber = request.getParameter("checkNumber");
         Integer productNum = Integer.parseInt(request.getParameter("productNum"));
-        Double sellingPrice = Double.parseDouble(request.getParameter("sellingPrice"));
+//        Double sellingPrice = Double.parseDouble(request.getParameter("sellingPrice"));
+        Double sellingPrice = Double.valueOf(0);
 
         Sale sale = new Sale(UPC, checkNumber, productNum, sellingPrice);
 

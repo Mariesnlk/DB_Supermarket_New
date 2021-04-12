@@ -41,8 +41,11 @@ public class UpdateCheckServlet extends HttpServlet {
         String idEmployee = request.getParameter("idEmployee");
         String cardNumber = request.getParameter("cardNumber");
         Date printDate = Date.valueOf(request.getParameter("printDate"));
-        Double sumTotal = Double.parseDouble(request.getParameter("sumTotal"));
-        Double vat = Double.parseDouble(request.getParameter("vat"));
+        //Double sumTotal = Double.parseDouble(request.getParameter("sumTotal"));
+        //Double vat = Double.parseDouble(request.getParameter("vat"));
+
+        Double sumTotal = Double.valueOf(0);
+        Double vat = Double.valueOf(0);
 
         Check updateCheck = new Check(checkNumber, idEmployee, cardNumber, printDate, sumTotal, vat);
 

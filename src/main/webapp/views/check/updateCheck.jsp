@@ -101,17 +101,17 @@
                 <tr>
                     <td>Загальна сума:</td>
                     <td>
-                        <%
-                            out.println("<input type=\"text\" name=\"sumTotal\" value=\"" + checkToUpdate.getSum_total() + "\">");
-                        %>
+<%--                        <%--%>
+<%--                            out.println("<input type=\"text\" name=\"sumTotal\" value=\"" + checkToUpdate.getSum_total() + "\">");--%>
+<%--                        %>--%>
                     </td>
                 </tr>
                 <tr>
                     <td>ПДВ:</td>
                     <td>
-                        <%
-                            out.println("<input type=\"text\" name=\"vat\" value=\"" + checkToUpdate.getVat() + "\">");
-                        %>
+<%--                        <%--%>
+<%--                            out.println("<input type=\"text\" name=\"vat\" value=\"" + checkToUpdate.getVat() + "\">");--%>
+<%--                        %>--%>
                     </td>
                 </tr>
                 <tr>

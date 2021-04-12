@@ -72,11 +72,6 @@
 <br>
 
 <div>
-    <%--    <%--%>
-    <%--        if (request.getAttribute("lastName") != null && request.getAttribute("firstName") != null) {--%>
-    <%--            out.println("<p>Працівник '" + request.getAttribute("firstName") + "' '" + request.getAttribute("lastName") + "' зареєстрований!</p>");--%>
-    <%--        }--%>
-    <%--    %>--%>
 
     <h1>Додавання чеку</h1>
 
@@ -112,11 +107,13 @@
             <br>
             <label>Дата видачі чеку: </label><input type="date" name="printDate" value="2021-03-22"><br/>
             <br>
-            <label>Загальна сума: </label><input type="number" min="0" name="sumTotal"
-                                                 placeholder="Введіть загальну суму.."><br>
+            <label>Загальна сума: </label>
+<%--                <input type="number" min="0" name="sumTotal" placeholder="Введіть загальну суму..">--%>
+                <br>
             <br>
-            <label>ПДВ: </label><input type="number" min="0" name="vat" type="number" min="0"
-                                       placeholder="Введіть значення ПДВ.."><br/>
+            <label>ПДВ: </label>
+<%--                <input type="number" min="0" name="vat" type="number" min="0" placeholder="Введіть значення ПДВ..">--%>
+                <br/>
             <br>
             <button class="button" type="submit">Підтвердити</button>
         </form>
