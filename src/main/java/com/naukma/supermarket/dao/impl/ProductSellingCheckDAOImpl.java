@@ -131,4 +131,59 @@ public class ProductSellingCheckDAOImpl implements ProductSellingCheckDAO {
         }
         return list;
     }
+
+    @Override
+    public List<ProductSellingCheck> listProductsByCheck(String checkNumber) {
+        List<ProductSellingCheck> listProducts = new ArrayList<>();
+
+        DBHelper objectDBHelper = new DBHelper();
+        Connection connection = objectDBHelper.getConnection();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            String query = "SELECT S.selling_price, S.product_number, P.product_name\n" +
+                    "FROM db_supermarket.check C\n" +
+                    "INNER JOIN db_supermarket.sale S\n" +
+                    "ON C.check_number=S.check_number\n" +
+                    "INNER JOIN db_supermarket.store_product SP\n" +
+                    "ON S.UPC=SP.UPC\n" +
+                    "INNER JOIN db_supermarket.product P\n" +
+                    "ON SP.id_product=P.id_product\n" +
+                    "WHERE C.check_number = ?";
+
+            ps = connection.prepareStatement(query);
+
+            LOG.debug("Executed query" + query);
+
+            ps.setString(1, String.valueOf(checkNumber));
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                String productName = rs.getString("product_name");
+                Integer productNumber = rs.getInt("product_number");
+                Double sellingPrice = rs.getDouble("selling_price");
+
+                ProductSellingCheck productSellingCheck = new ProductSellingCheck(productName, productNumber,
+                        sellingPrice);
+                listProducts.add(productSellingCheck);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    LOG.error("SQLException occurred in StoreProductDaoImpl", e);
+                    //e.printStackTrace();
+                }
+            }
+        }
+        return listProducts;
+    }
 }

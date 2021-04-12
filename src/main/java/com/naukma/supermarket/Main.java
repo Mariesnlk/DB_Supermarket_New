@@ -143,6 +143,10 @@ public class Main {
         SaleDAO saleDAO = new SaleDAOImpl();
         Sale sale = saleDAO.productCount("apple", new Date(dateStart.getTime()), new Date(dateSecond.getTime()));
         System.out.println("Визначити загальну кількість одиниць певного товару, проданого за певний період часу" + sale);
+
+        //для чеку
+        List<ProductSellingCheck> listProducts = productSellingCheckDAO.listProductsByCheck("1");
+        System.out.println("list of products in 1 check" + listProducts);
     }
 
 

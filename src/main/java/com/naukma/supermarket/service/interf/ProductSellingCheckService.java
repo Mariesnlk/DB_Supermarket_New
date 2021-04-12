@@ -12,4 +12,7 @@ public interface ProductSellingCheckService {
 
     //Скласти список чеків, видрукуваних усіма касирами за певний період часу (з можливістю перегляду куплених товарів, їх к-сті та ціни )
     List<ProductSellingCheck> checksListByAllFromPeriod(Date dateFrom, Date dateTo);
+
+    //Список продуктів з певному чеку (для чека)
+    List<ProductSellingCheck> listProductsByCheck(String checkNumber);
 }
