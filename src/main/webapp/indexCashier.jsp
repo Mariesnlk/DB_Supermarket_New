@@ -117,6 +117,9 @@
     <td class="sub-but-row my-td">
         <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну сторінку'>
     </td>
+    <td class="sub-but-row my-td">
+        <input class="button" type=button onClick="location.href='/print-check'" value='Видрукувати чек'>
+    </td>
 </table>
 
 <br>
