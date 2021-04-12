@@ -18,17 +18,7 @@
         color: rgba(220, 0, 0, 1);;
     }
 
-    input[type=text], select {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-
-    input[type=password], select {
+    input[type=text], input[type=date], select {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -104,7 +94,7 @@
                     <td>Дата видачі чеку:</td>
                     <td>
                         <%
-                            out.println("<input type=\"text\" name=\"printDate\" value=\"" + checkToUpdate.getPrint_date() + "\">");
+                            out.println("<input type=\"date\" name=\"printDate\" value=\"" + checkToUpdate.getPrint_date() + "\">");
                         %>
                     </td>
                 </tr>
