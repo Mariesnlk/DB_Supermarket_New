@@ -87,19 +87,22 @@
 
         <form method="post">
             <table id="table">
-                <tr>
-                    <td>Номер чеку:</td>
-                    <td>
-                        <%
-                            out.println("<input type=\"text\" name=\"checkNumber\" value=\"" + saleToUpdate.getCheck_number() + "\" hidden>");
-                        %>
-                    </td>
-                    <td>
-                        <%
-                            out.println("<input type=\"text\" name=\"upc\" value=\"" + saleToUpdate.getUPC() + "\" hidden>");
-                        %>
-                    </td>
-                </tr>
+<%--                <tr>--%>
+<%--                    <td>Номер чеку:</td>--%>
+<%--                    <td>--%>
+<%--                        <%--%>
+<%--                            out.println("<input type=\"text\" name=\"checkNumber\" value=\"" + saleToUpdate.getCheck_number() + "\" hidden>");--%>
+<%--                        %>--%>
+<%--                    </td>--%>
+<%--                </tr>--%>
+<%--                <tr>--%>
+<%--                    <td>UPC товару:</td>--%>
+<%--                    <td>--%>
+<%--                        <%--%>
+<%--                            out.println("<input type=\"text\" name=\"upc\" value=\"" + saleToUpdate.getUPC() + "\" hidden>");--%>
+<%--                        %>--%>
+<%--                    </td>--%>
+<%--                </tr>--%>
                 <tr>
                     <td>Номер продукту:</td>
                     <td>

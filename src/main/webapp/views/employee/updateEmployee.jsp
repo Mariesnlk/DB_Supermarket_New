@@ -95,11 +95,11 @@
                             out.println("<input type=\"text\" name=\"lastName\" value=\"" + employeeToUpdate.getEmpl_surname() + "\">");
                         %>
                     </td>
-                    <td>
-                        <%
-                            out.println("<input type=\"text\" name=\"id\" value=\"" + employeeToUpdate.getId_employee() + "\" hidden>");
-                        %>
-                    </td>
+<%--                    <td>--%>
+<%--                        <%--%>
+<%--                            out.println("<input type=\"text\" name=\"id\" value=\"" + employeeToUpdate.getId_employee() + "\" hidden>");--%>
+<%--                        %>--%>
+<%--                    </td>--%>
                 </tr>
                 <tr>
                     <td>Ім`я:</td>

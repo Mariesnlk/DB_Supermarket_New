@@ -87,19 +87,22 @@
 
         <form method="post">
             <table id="table">
-                <tr>
-                    <td>Код акційного товару:</td>
-                    <td>
-                        <%
-                            out.println("<input type=\"text\" name=\"UPCProm\" value=\"" + storeProductToUpdate.getUPC_prom() + "\" hidden>");
-                        %>
-                    </td>
-                    <td>
-                        <%
-                            out.println("<input type=\"text\" name=\"upc\" value=\"" + storeProductToUpdate.getUPC() + "\" hidden>");
-                        %>
-                    </td>
-                </tr>
+<%--                <tr>--%>
+<%--                    <td>Код товару:</td>--%>
+<%--                    <td>--%>
+<%--                        <%--%>
+<%--                            out.println("<input type=\"text\" name=\"upc\" value=\"" + storeProductToUpdate.getUPC() + "\" hidden>");--%>
+<%--                        %>--%>
+<%--                    </td>--%>
+<%--                </tr>--%>
+<%--                <tr>--%>
+<%--                    <td>Код акційного товару:</td>--%>
+<%--                    <td>--%>
+<%--                        <%--%>
+<%--                            out.println("<input type=\"text\" name=\"UPCProm\" value=\"" + storeProductToUpdate.getUPC_prom() + "\" hidden>");--%>
+<%--                        %>--%>
+<%--                    </td>--%>
+<%--                </tr>--%>
                 <tr>
                     <td>ID товару:</td>
                     <td>

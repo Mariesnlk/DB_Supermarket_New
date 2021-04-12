@@ -87,19 +87,19 @@
 
         <form method="post">
             <table id="table">
-                <tr>
-                    <td>ID працівника:</td>
-                    <td>
-                        <%
-                            out.println("<input type=\"text\" name=\"idEmployee\" value=\"" + checkToUpdate.getId_employee() + "\">");
-                        %>
-                    </td>
-                    <td>
-                        <%
-                            out.println("<input type=\"text\" name=\"checkNumber\" value=\"" + checkToUpdate.getCheck_number() + "\" hidden>");
-                        %>
-                    </td>
-                </tr>
+<%--                <tr>--%>
+<%--                    <td>ID працівника:</td>--%>
+<%--                    <td>--%>
+<%--                        <%--%>
+<%--                            out.println("<input type=\"text\" name=\"idEmployee\" value=\"" + checkToUpdate.getId_employee() + "\">");--%>
+<%--                        %>--%>
+<%--                    </td>--%>
+<%--                    <td>--%>
+<%--                        <%--%>
+<%--                            out.println("<input type=\"text\" name=\"checkNumber\" value=\"" + checkToUpdate.getCheck_number() + "\" hidden>");--%>
+<%--                        %>--%>
+<%--                    </td>--%>
+<%--                </tr>--%>
                 <tr>
                     <td>Дата видачі чеку:</td>
                     <td>
