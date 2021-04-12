@@ -1,10 +1,7 @@
 package com.naukma.supermarket.controller.check;
 
-import com.naukma.supermarket.model.Check;
 import com.naukma.supermarket.model.ProductSellingCheck;
-import com.naukma.supermarket.service.impl.CheckServiceImpl;
 import com.naukma.supermarket.service.impl.ProductSellingCheckServiceImpl;
-import com.naukma.supermarket.service.interf.CheckService;
 import com.naukma.supermarket.service.interf.ProductSellingCheckService;
 import org.apache.log4j.Logger;
 
@@ -17,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @WebServlet(name = "ListChecksByCashierAndPeriodServlet", urlPatterns = {"/list-checks-by-cashier-and-period"})

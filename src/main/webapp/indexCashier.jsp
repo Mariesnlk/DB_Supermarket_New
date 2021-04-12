@@ -117,9 +117,6 @@
     <td class="sub-but-row my-td">
         <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну сторінку'>
     </td>
-    <td class="sub-but-row my-td">
-        <input class="button" type=button onClick="location.href='/print-check'" value='Видрукувати чек'>
-    </td>
 </table>
 
 <br>
@@ -133,6 +130,29 @@
 %>
 
 <div>
+
+
+    <form action="/print-check" method="post">
+        <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">
+            <td class="td-filled-left">Виберіть чек, який бажаєте друкувати</td>
+
+            <td class="my-row td-filled-right"><label>Номер чека: </label>
+                <select name="checkNum">
+                    <%
+                        List<Check> checksList = (List<Check>) request.getAttribute("allChecks");
+                        for (Check check : checksList) {
+                    %>
+                    <option value=<%=check.getCheck_number()%>><%=check.getCheck_number()%>
+                    </option>
+                    <%}%>
+                </select>
+            </td>
+            <td class="sub-but-row my-td-cust">
+                <button class="button" type="submit">Підтвердити</button>
+            </td>
+        </table>
+    </form>
+
 
     <form action="/list-products-in-check" method="post">
         <table cellspacing="2" border="1" cellpadding="5" width="600" class="table">

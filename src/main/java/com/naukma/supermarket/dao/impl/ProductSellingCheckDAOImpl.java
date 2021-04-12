@@ -143,7 +143,7 @@ public class ProductSellingCheckDAOImpl implements ProductSellingCheckDAO {
         ResultSet rs = null;
         try {
 
-            String query = "SELECT S.selling_price, S.product_number, P.product_name\n" +
+            String query = "SELECT P.product_name, S.product_number*S.selling_price AS sum_product_total\n" +
                     "FROM db_supermarket.check C\n" +
                     "INNER JOIN db_supermarket.sale S\n" +
                     "ON C.check_number=S.check_number\n" +
@@ -151,7 +151,7 @@ public class ProductSellingCheckDAOImpl implements ProductSellingCheckDAO {
                     "ON S.UPC=SP.UPC\n" +
                     "INNER JOIN db_supermarket.product P\n" +
                     "ON SP.id_product=P.id_product\n" +
-                    "WHERE C.check_number = ?";
+                    "WHERE C.check_number = ?;\n";
 
             ps = connection.prepareStatement(query);
 
@@ -164,11 +164,9 @@ public class ProductSellingCheckDAOImpl implements ProductSellingCheckDAO {
             while (rs.next()) {
 
                 String productName = rs.getString("product_name");
-                Integer productNumber = rs.getInt("product_number");
-                Double sellingPrice = rs.getDouble("selling_price");
+                Double sellingPrice = rs.getDouble("sum_product_total");
 
-                ProductSellingCheck productSellingCheck = new ProductSellingCheck(productName, productNumber,
-                        sellingPrice);
+                ProductSellingCheck productSellingCheck = new ProductSellingCheck(productName, sellingPrice);
                 listProducts.add(productSellingCheck);
             }
 

@@ -17,6 +17,11 @@ public class ProductSellingCheck {
         this.selling_price = selling_price;
     }
 
+    public ProductSellingCheck(String product_name, Double selling_price) {
+        this.product_name = product_name;
+        this.selling_price = selling_price;
+    }
+
     public ProductSellingCheck(String product_name, Integer product_number, Double selling_price,
                                String check_number) {
         this.product_name = product_name;

@@ -31,7 +31,7 @@
             </td>
         </tr>
         <tr>
-            <td class="info">Дата:</td>
+            <td class="info">Час:</td>
             <td class="value">
                 <%
                     out.println(checkInfo.getPrint_date());

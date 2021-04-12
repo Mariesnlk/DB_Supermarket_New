@@ -1,9 +1,9 @@
-<%@ page import="com.naukma.supermarket.model.CustomerCard" %>
+<%@ page import="com.naukma.supermarket.model.Employee" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
 <head>
-    <title>Show customer card</title>
+    <title>Show employee</title>
 </head>
 <body>
 
@@ -64,23 +64,22 @@
 </style>
 <br>
 
-
 <div>
-    <h1>Інформація про клієнта</h1>
+    <h1>Інформація про працівника </h1>
 </div>
 <br>
 <div>
     <%
-        CustomerCard customerCard = (CustomerCard) request.getAttribute("customerCard");
+        Employee employee = (Employee) request.getAttribute("employeeCurr");
     %>
     <div>
 
         <table cellspacing="2" border="1" cellpadding="5" width="300" id="table">
             <tr>
-                <td class="info">Номер картки:</td>
+                <td class="info">ID:</td>
                 <td class="value">
                     <%
-                        out.println(customerCard.getCard_number());
+                        out.println(employee.getId_employee());
                     %>
                 </td>
             </tr>
@@ -88,7 +87,7 @@
                 <td class="info">Прізвище:</td>
                 <td class="value">
                     <%
-                        out.println(customerCard.getCust_surname());
+                        out.println(employee.getEmpl_surname());
                     %>
                 </td>
             </tr>
@@ -96,7 +95,7 @@
                 <td class="info">Ім`я:</td>
                 <td class="value">
                     <%
-                        out.println(customerCard.getCust_name());
+                        out.println(employee.getEmpl_name());
                     %>
                 </td>
             </tr>
@@ -104,7 +103,39 @@
                 <td class="info">По-батькові:</td>
                 <td class="value">
                     <%
-                        out.println(customerCard.getCust_patronymic());
+                        out.println(employee.getEmpl_patronymic());
+                    %>
+                </td>
+            </tr>
+            <tr>
+                <td class="info">Роль:</td>
+                <td class="value">
+                    <%
+                        out.println(employee.getRole());
+                    %>
+                </td>
+            </tr>
+            <tr>
+                <td class="info">Зарплата:</td>
+                <td class="value">
+                    <%
+                        out.println(employee.getSalary());
+                    %>
+                </td>
+            </tr>
+            <tr>
+                <td class="info">Дата народження:</td>
+                <td class="value">
+                    <%
+                        out.println(employee.getDate_of_birth());
+                    %>
+                </td>
+            </tr>
+            <tr>
+                <td class="info">Дата початку роботи:</td>
+                <td class="value">
+                    <%
+                        out.println(employee.getDate_of_start());
                     %>
                 </td>
             </tr>
@@ -112,7 +143,7 @@
                 <td class="info">Номер телефону:</td>
                 <td class="value">
                     <%
-                        out.println(customerCard.getPhone_number());
+                        out.println(employee.getPhone_number());
                     %>
                 </td>
             </tr>
@@ -120,7 +151,7 @@
                 <td class="info">Місто:</td>
                 <td class="value">
                     <%
-                        out.println(customerCard.getCity());
+                        out.println(employee.getCity());
                     %>
                 </td>
             </tr>
@@ -128,7 +159,7 @@
                 <td class="info">Вулиця:</td>
                 <td class="value">
                     <%
-                        out.println(customerCard.getStreet());
+                        out.println(employee.getStreet());
                     %>
                 </td>
             </tr>
@@ -136,25 +167,32 @@
                 <td class="info">Індекс:</td>
                 <td class="value">
                     <%
-                        out.println(customerCard.getZip_code());
+                        out.println(employee.getZip_code());
                     %>
                 </td>
             </tr>
             <tr>
-                <td class="info">Знижка:</td>
+                <td class="info">Логін:</td>
                 <td class="value">
                     <%
-                        out.println(customerCard.getPercent());
+                        out.println(employee.getLogin());
                     %>
                 </td>
             </tr>
-
+            <tr>
+                <td class="info">Пароль:</td>
+                <td class="value">
+                    <%
+                        out.println(employee.getPassword());
+                    %>
+                </td>
+            </tr>
         </table>
     </div>
 </div>
 <br>
 
-<input class="button" type=button onClick="location.href='/customerCards'" value='Всі картки клієнтів'>
+<input class="button" type=button onClick="location.href='/employees'" value='Всі працівники'>
 <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
 
 </body>
