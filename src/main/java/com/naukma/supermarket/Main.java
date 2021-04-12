@@ -147,6 +147,11 @@ public class Main {
         //для чеку
         List<ProductSellingCheck> listProducts = productSellingCheckDAO.listProductsByCheck("1");
         System.out.println("list of products in 1 check" + listProducts);
+
+        //для чеку 2
+        CheckSaleEmployeeCardDAO checkSaleEmployeeCardDAO = new CheckSaleEmployeeCardDAOImpl();
+        CheckSaleEmployeeCard checkSaleEmployeeCard= checkSaleEmployeeCardDAO.checkInfo("1");
+        System.out.println("Check 1 info" + checkSaleEmployeeCard);
     }
 
 
