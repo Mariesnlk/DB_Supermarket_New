@@ -58,8 +58,13 @@ public class EmployeeServiceImpl implements EmployeeService {
             String decryptedPassword = AES.decrypt(employee.getPassword(), SECRETKEY);
             if (employee.getLogin().equals(login) && decryptedPassword.equals(password)) {
                 registeredEmployee = employee;
+                System.out.println(registeredEmployee);
                 break;
             }
+//            else {
+//                registeredEmployee = null;
+//                System.out.println(registeredEmployee);
+//            }
         }
         return registeredEmployee;
     }

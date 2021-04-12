@@ -4,8 +4,10 @@ import com.naukma.supermarket.dao.impl.CheckDAOImpl;
 import com.naukma.supermarket.dao.interf.CheckDAO;
 import com.naukma.supermarket.model.Check;
 import com.naukma.supermarket.model.CustomerCard;
+import com.naukma.supermarket.model.Sale;
 import com.naukma.supermarket.service.interf.CheckService;
 import com.naukma.supermarket.service.interf.CustomerCardService;
+import com.naukma.supermarket.service.interf.SaleService;
 
 import java.util.Date;
 import java.util.List;
@@ -16,11 +18,21 @@ public class CheckServiceImpl implements CheckService {
     public void create(Check check) {
         check.setVat((check.getSum_total() * 0.2) / 1.2);//пдв
 
+        double sum = 0;
+
+        SaleService saleService = new SaleServiceImpl();
+        List<Sale> saleList = saleService.findAll();
+        for (Sale sale : saleList) {
+            if (sale.getCheck_number().equals(check.getCheck_number())) {
+                sum += sale.getProduct_number() * sale.getSelling_price();//сума без пдв
+            }
+        }
+
         CustomerCardService customerCardService = new CustomerCardServiceImpl();
         List<CustomerCard> allStoreProducts = customerCardService.findAll();
         for (CustomerCard customerCard : allStoreProducts) {
             if (customerCard.getCard_number().equals(check.getCard_number())) {
-                check.setSum_total(check.getSum_total() - check.getSum_total()* customerCard.getPercent());//загальна сума зі знижкою
+                check.setSum_total(sum - check.getSum_total() * customerCard.getPercent());//загальна сума зі знижкою
             }
         }
 
@@ -46,11 +58,21 @@ public class CheckServiceImpl implements CheckService {
     public void update(Check check) {
         check.setVat((check.getSum_total() * 0.2) / 1.2);//пдв
 
+        double sum = 0;
+
+        SaleService saleService = new SaleServiceImpl();
+        List<Sale> saleList = saleService.findAll();
+        for (Sale sale : saleList) {
+            if (sale.getCheck_number().equals(check.getCheck_number())) {
+                sum += sale.getProduct_number() * sale.getSelling_price();//сума без пдв
+            }
+        }
+
         CustomerCardService customerCardService = new CustomerCardServiceImpl();
         List<CustomerCard> allStoreProducts = customerCardService.findAll();
         for (CustomerCard customerCard : allStoreProducts) {
             if (customerCard.getCard_number().equals(check.getCard_number())) {
-                check.setSum_total(check.getSum_total() - check.getSum_total()* customerCard.getPercent());//загальна сума зі знижкою
+                check.setSum_total(sum - check.getSum_total() * customerCard.getPercent());//загальна сума зі знижкою
             }
         }
 
