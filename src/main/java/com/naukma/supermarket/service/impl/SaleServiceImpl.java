@@ -14,20 +14,19 @@ public class SaleServiceImpl implements SaleService {
 
     @Override
     public void create(Sale sale) {
-//        double coeff = 0;
-//        StoreProductService storeProductService = new StoreProductServiceImpl();
-//        List<StoreProduct> allStoreProducts = storeProductService.findAll();
-//        for (StoreProduct storeProduct : allStoreProducts) {
-//            if (storeProduct.getUPC().equals(sale.getUPC())) {
-//                if (storeProduct.getPromotional_product()) {
-//                    coeff = 0.2;
-//                } else {
-//                    coeff = 0.3;
-//                }
-//                sale.setSelling_price();
-//            }
-//        }
-
+        double coeff = 0;
+        StoreProductService storeProductService = new StoreProductServiceImpl();
+        List<StoreProduct> allStoreProducts = storeProductService.findAll();
+        for (StoreProduct storeProduct : allStoreProducts) {
+            if (storeProduct.getUPC().equals(sale.getUPC())) {
+                if (storeProduct.getPromotional_product()) {
+                    coeff = 1.2;
+                } else {
+                    coeff = 1.3;
+                }
+                sale.setSelling_price(storeProduct.getSelling_price() + coeff * storeProduct.getSelling_price());
+            }
+        }
         SaleDAO saleDAO = new SaleDAOImpl();
         saleDAO.create(sale);
     }
@@ -48,6 +47,19 @@ public class SaleServiceImpl implements SaleService {
 
     @Override
     public void update(Sale sale) {
+        double coeff = 0;
+        StoreProductService storeProductService = new StoreProductServiceImpl();
+        List<StoreProduct> allStoreProducts = storeProductService.findAll();
+        for (StoreProduct storeProduct : allStoreProducts) {
+            if (storeProduct.getUPC().equals(sale.getUPC())) {
+                if (storeProduct.getPromotional_product()) {
+                    coeff = 1.2;
+                } else {
+                    coeff = 1.3;
+                }
+                sale.setSelling_price(storeProduct.getSelling_price() + coeff * storeProduct.getSelling_price());
+            }
+        }
         SaleDAO saleDAO = new SaleDAOImpl();
         saleDAO.update(sale);
     }
