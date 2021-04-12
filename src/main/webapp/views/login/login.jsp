@@ -68,7 +68,6 @@
 </style>
 
 <br>
-<h1>GIRLY Supermarket</h1>
 <h1>Please Login</h1>
 
 <div class="container">
