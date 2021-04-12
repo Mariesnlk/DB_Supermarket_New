@@ -1,11 +1,6 @@
-<%@ page import="com.naukma.supermarket.model.Check" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.naukma.supermarket.model.ProductSellingCheck" %>
 <%@ page import="com.naukma.supermarket.model.CheckSaleEmployeeCard" %>
-<%@ page import="java.util.Date" %>
-<%@ page import="java.text.DateFormat" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Calendar" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,7 +10,7 @@
 
 <style>
     body {
-       // background-image: url("/images/background.png");
+    / / background-image: url("/images/background.png");
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -63,103 +58,133 @@
         width: 70px;
     }
 
+    @media print {
+        * {
+            display: none;
+        }
+
+        #printableTable {
+            display: block;
+        }
+    }
+
 </style>
 
-<br>
-<h1>Друк чеку</h1>
-<br>
+<div id="printableTable">
 
-<%
-    CheckSaleEmployeeCard checkInfo = (CheckSaleEmployeeCard) request.getAttribute("checkInfo");
-%>
-<div>
-        <table cellspacing="2" border="1" cellpadding="5" width="300" class="table">
+    <br>
+    <h1>Друк чеку</h1>
+    <br>
+
+    <%
+        CheckSaleEmployeeCard checkInfo = (CheckSaleEmployeeCard) request.getAttribute("checkInfo");
+    %>
+    <div>
+        <table cellspacing="2" border="0" cellpadding="5" width="300" class="table">
             <tr>
-                <td class="info">Чек №:</td>
-                <td class="value">
+                <td class="bold">Чек №:</td>
+                <td class="bold">
                     <%
                         out.println(checkInfo.getCheck_number());
                     %>
                 </td>
             </tr>
             <tr>
-                <td class="info">Касир:</td>
-                <td class="value">
+                <td class="bold">Касир:</td>
+                <td class="bold">
                     <%
                         out.println(checkInfo.getEmpl_surname() + "  " + checkInfo.getEmpl_name() + "  " + checkInfo.getEmpl_patronymic());
                     %>
                 </td>
             </tr>
             <tr>
-                <td class="info">Дата:</td>
-                <td class="value">
+                <td class="bold">Дата:</td>
+                <td class="bold">
                     <%
                         out.println(checkInfo.getPrint_date());
                     %>
                 </td>
             </tr>
         </table>
-</div>
-<div>
-    <%
-        List<ProductSellingCheck> listProducts = (List<ProductSellingCheck>) request.getAttribute("listProducts");
-        if (listProducts != null && !listProducts.isEmpty()) {
-    %>
-    <table cellspacing="2" border="1" cellpadding="5" width="300" class="table">
-        <tbody>
+    </div>
+
+    <br>
+
+    <div>
+        <%
+            List<ProductSellingCheck> listProducts = (List<ProductSellingCheck>) request.getAttribute("listProducts");
+            if (listProducts != null && !listProducts.isEmpty()) {
+        %>
+        <table cellspacing="2" border="0" cellpadding="5" width="300" class="table">
+            <tbody>
+
+            <%
+                for (ProductSellingCheck product : listProducts) {
+                    out.println("<tr>");
+                    out.println("<td>" + product.getProduct_name() + "</td>");
+                    out.println("<td>" + product.getSelling_price() + " грн </td>");
+                    out.println("</tr>");
+                }
+            %>
+
+            </tbody>
+        </table>
 
         <%
-            for (ProductSellingCheck product : listProducts) {
-                out.println("<tr>");
-                out.println("<td>" + product.getProduct_name() + "</td>");
-                out.println("<td>" + product.getSelling_price() + " грн </td>");
-                out.println("</tr>");
+            } else {
+                out.println("<p>There are no products yet!</p>");
             }
         %>
+    </div>
 
-        </tbody>
-    </table>
+    <p class="bold">------------------------------------------------------------</p>
 
-    <%
-        } else {
-            out.println("<p>There are no products yet!</p>");
-        }
-    %>
+    <div>
+        <table cellspacing="2" border="0" cellpadding="5" width="300" class="table">
+            <tr>
+                <td class="bold">Сума:</td>
+                <td class="bold">
+                    <%
+                        out.println(checkInfo.getSelling_price() + " грн");
+                    %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">ПДВ:</td>
+                <td class="bold">
+                    <%
+                        out.println(checkInfo.getVat() * checkInfo.getSelling_price() + " грн");
+                    %>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="info">ПДВ:
+                    <%
+                        out.println(checkInfo.getVat() * 100 + " %");
+                    %>
+                </td>
+            </tr>
+        </table>
+    </div>
 
-</div>
-
-<div>
-    <table cellspacing="2" border="1" cellpadding="5" width="300" class="table">
-        <tr>
-            <td class="bold">Сума:</td>
-            <td class="bold">
-                <%
-                    out.println(checkInfo.getSelling_price() + " грн");
-                %>
-            </td>
-        </tr>
-        <tr>
-            <td class="bold">ПДВ:</td>
-            <td class="bold">
-                <%
-                    out.println(checkInfo.getVat() * checkInfo.getSelling_price() + " грн");
-                %>
-            </td>
-        </tr>
-        <tr>
-            <td class="info">ПДВ:
-                <%
-                    out.println(checkInfo.getVat() * 100 + " %");
-                %>
-            </td>
-        </tr>
-    </table>
 </div>
 
 <br>
 <br>
-<input class="button" type=button onClick="location.href='/'" value='Друкувати'><br><br>
+<button class="Button Button--outline button" onclick="printDiv()">Друкувати</button>
+<br><br>
 <input class="button" type=button onClick="location.href='/'" value='Повернутися на головну'>
+
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+
+<script>
+    function printDiv() {
+        window.frames["print_frame"].document.body.innerHTML = document.getElementById("printableTable").innerHTML;
+        window.frames["print_frame"].window.focus();
+        window.frames["print_frame"].window.print();
+    }
+</script>
 
 </body>
 </html>
