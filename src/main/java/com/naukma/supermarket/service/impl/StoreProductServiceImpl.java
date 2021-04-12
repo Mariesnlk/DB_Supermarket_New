@@ -12,14 +12,13 @@ public class StoreProductServiceImpl implements StoreProductService {
 
     @Override
     public void create(StoreProduct product) {
-        double coeff=0;
-        if(product.getPromotional_product()){
-            coeff=0.2;
+        double coeff = 0;
+        if (product.getPromotional_product()) {
+            coeff = 1.2;
+        } else {
+            coeff = 1.3;
         }
-        else{
-            coeff=0.3;
-        }
-        product.setSelling_price(product.getSelling_price()*coeff);//націнка
+        product.setSelling_price(product.getSelling_price() * coeff);//націнка
 
         StoreProductDAO productDAO = new StoreProductDAOImpl();
         productDAO.create(product);
@@ -41,14 +40,13 @@ public class StoreProductServiceImpl implements StoreProductService {
 
     @Override
     public void update(StoreProduct product) {
-        double coeff=0;
-        if(product.getPromotional_product()){
-            coeff=0.2;
+        double coeff = 0;
+        if (product.getPromotional_product()) {
+            coeff = 1.2;
+        } else {
+            coeff = 1.3;
         }
-        else{
-            coeff=0.3;
-        }
-        product.setSelling_price(product.getSelling_price()*coeff);
+        product.setSelling_price(product.getSelling_price() * coeff);
         StoreProductDAO productDAO = new StoreProductDAOImpl();
         productDAO.update(product);
     }

@@ -49,7 +49,5 @@ public class LoginServlet extends HttpServlet {
             LOGGER.info("doPost process");
             requestDispatcher.forward(request, response);
         }
-
     }
-
 }
