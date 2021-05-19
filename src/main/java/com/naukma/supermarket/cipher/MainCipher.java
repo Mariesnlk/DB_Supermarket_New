@@ -4,7 +4,12 @@ public class MainCipher {
 
     // a123 f123
     //aaa mar
-    private final static String PASSWORD = "mar";
+    private final static String PASSWORD = "Hi Grandma,\n" +
+            "I am writing this letter to thank you for the chocolate chip cookies you sent\n" +
+            "me. I got them this morning and I have already eaten half of the box! They\n" +
+            "are absolutely delicious!\n" +
+            "I wish you all the best. Love,\n" +
+            "Your cookie-eater grandchild.";
     private final static String SECRETKEY = "fifi!fifi!!";
 
     public static String encryptMessage() {
