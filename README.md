@@ -9,23 +9,23 @@ managers of the mini-supermarket.
 
 ## Requirements
 
-###Employee
+### Employee
 
 The system keeps records of employees of the grocery mini-supermarket, storing the following information about each of them: employee ID, name, position, salary, start date of work, date of birth, contact phone number, address. The database stores information about two types of employees: employees who holds the position of manager, they perform the issuance of return agreements and invoices, and cashiers who prints checks.
 
 Not all employees, but only managers have the right to issue invoices and return agreements.
 Not all employees, but only cashiers have the right to print checks.
 
-###Category
+### Category
 
 All products sold in the store belong to a certain product category. Several products can belong to one product's category, but one product's type belongs to only one category. The database stores the following information about each category: category_number, name.
 
-###Goods
+### Goods
 
 Each "Goods" can own only two "Goods in the store": ordinary goods and promotional goods.
 The database stores the following information about each product: product id, name, manufacturer and product characteristics.
 
-###Goods in the store
+### Goods in the store
 
 The database stores information about all products sold in the supermarket, both regular and promotional products. A product becomes promotional if the expiration date is about to expire and the number of units of this product in the store is significant. The database stores the following information about each product in the store: UPC-product, UPC-product promotional for this regular product, selling price, number of units of product and information on whether it is a promotional or regular product.
 If the supermarket still has a certain number of units of a certain product that was purchased at one price and a new batch of this product arrives at a new purchase price and, accordingly, a new sale price, then the whole product is revalued: that is, the old batch and new batch will have a new the sale price, which is determined according to the new purchase price of the goods.
@@ -45,7 +45,7 @@ new purchase. price + new purchase. price * 0.3 + 0.2 * (new purchase price + ne
 The promotional price of the goods is calculated as follows:
 purchase. price + purchase. price * 0.2 + 0.2 * (purchase price + purchase price * 0.2).
 
-###Check
+### Check
 
 The database for 3 years stores information about all checks that were printed in the supermarket by cashiers for the entire period, including: check_number, date, total amount and VAT.
 
@@ -58,12 +58,12 @@ VAT is charged on all goods of the mini-supermarket, including promotional ones 
 The database also contains a list of goods with the number of units of these goods purchased by each check and the selling price of the goods, because after the revaluation of the goods due to changes in the purchase price it will not be possible to determine the real selling price of the goods. ("sales" relationship with "quantity" and "price" relationship attributes).
 One check can indicate several types of goods that the buyer wants to buy, and the purchase of one type of goods can be made by many buyers, ie one type of goods can be present in many checks. An attribute of this connection is the number of units of goods that the buyer wants to buy. Each check provides information about the goods purchased by the buyer, but the goods of a certain type may not necessarily be indicated in the check, if the buyer did not plan to purchase goods of this type.
 
-###Customer card
+### Customer card
 
 The supermarket has regular customers who are given a customer card with a certain percentage to reduce the price of payment. The amount that the buyer must pay according to one check can be reduced only by using one customer card.
  The database stores the following information about each customer's card: card_number, name of the cardholder, his contact phone number, address and discount percentage.
 
-###Manager requests:
+### Manager requests:
 
 - make a list of employees holding the position of cashier, sorted by name;
 - make a list of goods belonging to a certain category, sorted by name;
@@ -84,7 +84,7 @@ The supermarket has regular customers who are given a customer card with a certa
 - make a list of all regular customers who have a customer card with a certain percentage;
 - for UPC-goods to find the selling price of the goods, the number of available units of goods, the name and characteristics of the goods.
 
-###Cashier requests:
+### Cashier requests:
 
 - make a list of checks printed by this cashier for a certain period of time;
 - print all the information about this check by the check number;
